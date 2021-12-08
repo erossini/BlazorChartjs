@@ -1,0 +1,58 @@
+﻿@page "/barSimple"
+
+<h3>Bar Simple</h3>
+
+<Chart Config="_config1" @ref="_chart1" Id="@Id1"></Chart>
+
+@code {
+    private string Id1 = "chart1";
+    private BarChartConfig _config1;
+    private Chart _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new BarChartConfig()
+        {
+            CanvasId = Id1,
+            Type = ChartType.Bar,
+            Options = new Options()
+            {
+                Plugins = new Plugins()
+                {
+                    Legend = new Legend()
+                    {
+                        Align = LegendAlign.Center,
+                        Display = false,
+                        Position = LegendPosition.Right
+                    }
+                },
+                Scales = new Scales()
+                {
+                    X = new XAxes()
+                    {
+                        Stacked = true,
+                        Ticks = new Ticks()
+                        {
+                            MaxRotation = 0,
+                            MinRotation = 0
+                        }
+                    },
+                    Y = new YAxes()
+                    {
+                        Stacked = true
+                    }
+                }
+            }
+        };
+
+        _config1.Data.Labels = BarDataExamples.SimpleBarText;
+        _config1.Data.Datasets.Add(new Dataset()
+        {
+            Label = "Value",
+            Data = BarDataExamples.SimpleBar.Select(l => l.Value).ToList(),
+            BackgroundColor = Colors.Palette1,
+            BorderColor = Colors.PaletteBorder1,
+            BorderWidth = 1
+        });
+    }
+}

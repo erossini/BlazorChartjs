@@ -6,10 +6,18 @@
     <Description>Chart.js integration for Blazor</Description>
     <PackageIcon>psc_logo.png</PackageIcon>
     <ApplicationIcon>psc_ico.ico</ApplicationIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="psc_ico.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   
