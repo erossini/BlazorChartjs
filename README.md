@@ -94,7 +94,7 @@ The result of the code above is this chart
 ![image](https://user-images.githubusercontent.com/9497415/145194274-63997957-82ab-4b38-a2bf-bdd748c2b005.png)
 
 ## Implemented charts
-- [ ] Bar chart (in progress)
+- [ ] Bar chart
 - [ ] Line chart
 - [ ] Area
 - [ ] Other charts
@@ -108,6 +108,11 @@ The result of the code above is this chart
   - [ ] Radar skip points
   - [ ] Combo bar/line
   - [ ] Stacked bar/line
+
+# Contributors
+We thank everyone who has taken their time to open detailed issues, discuss problems with us or contribute code to the repository. Without you, projects like this would be very hard to maintain!
+
+Check out the [list of contributors](https://github.com/erossini/BlazorChartjs/graphs/contributors).
 
 ## Other Blazor components
 
