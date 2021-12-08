@@ -1,0 +1,32 @@
+﻿@inject IJSRuntime JSRuntime
+
+<div id="@("chartcontainer" + Config.CanvasId)" class="chart-container" style="position: relative; height:@Height; width:@Width">
+    <canvas id="@Config.CanvasId"></canvas>
+</div>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    [Parameter]
+    public string? Height { get; set; }
+
+    [Parameter]
+    public string? Width { get; set; }
+
+    [Parameter]
+    public BarChartConfig Config { get; set; }
+
+    public BarChartConfig OldConfig { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (Config != null)
+        {
+            if (OldConfig == null || Config != OldConfig)
+                await JSRuntime.InvokeVoidAsync("setup", Config.CanvasId, Config);
+
+            OldConfig = Config;
+        }
+    }
+}
