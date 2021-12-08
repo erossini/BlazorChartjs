@@ -1,2 +1,1 @@
-# BlazorChartjs
-Creates chart with Chart.js in Blazor
+# Create chart with Chart.js in Blazor
