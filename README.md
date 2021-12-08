@@ -118,6 +118,7 @@ Check out the [list of contributors](https://github.com/erossini/BlazorChartjs/g
 
 | Component name | Forum | Description |
 |---|---|---|
+| Chart.js for Blazor | [Forum](https://www.puresourcecode.com/forum/forum/chart-js-for-blazor/) | Component for Blazor WebAssembly and Blazor Server for creating graphs using Chart.js |
 | [DataTable for Blazor](https://www.puresourcecode.com/dotnet/net-core/datatable-component-for-blazor/) | [Forum](https://www.puresourcecode.com/forum/forum/datatables/) | DataTable component for Blazor WebAssembly and Blazor Server |
 | [Markdown editor for Blazor](https://www.puresourcecode.com/dotnet/blazor/markdown-editor-with-blazor/) | [Forum](https://www.puresourcecode.com/forum/forum/markdown-editor-for-blazor/) |  This is a Markdown Editor for use in Blazor. It contains a live preview as well as an embeded help guide for users. |
 | [Modal dialog for Blazor](https://www.puresourcecode.com/dotnet/blazor/modal-dialog-component-for-blazor/) | [Forum](https://www.puresourcecode.com/forum/forum/modal-dialog-for-blazor/) |  Simple Modal Dialog for Blazor WebAssembly |
