@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
     /// Grid

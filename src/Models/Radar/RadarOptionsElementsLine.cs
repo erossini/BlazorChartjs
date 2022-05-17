@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+namespace PSC.Blazor.Components.Chartjs.Models.Radar
 {
     /// <summary>
-    /// Plugins
+    /// Radar Options Elements Line
     /// </summary>
-    public class Plugins
+    public class RadarOptionsElementsLine
     {
         /// <summary>
-        /// Gets or sets the legend.
+        /// Gets or sets the width of the border.
         /// </summary>
         /// <value>
-        /// The legend.
+        /// The width of the border.
         /// </value>
-        [JsonPropertyName("legend")]
+        [JsonPropertyName("borderWidth")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Legend? Legend { get; set; } = new Legend();
+        public int BorderWidth { get; set; } = 3;
     }
 }

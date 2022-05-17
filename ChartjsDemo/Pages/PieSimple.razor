@@ -1,0 +1,68 @@
+﻿@page "/pieSimple"
+
+<h3>Pie Simple</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px" Style="margin-bottom: 75px;"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private PieChartConfig _config1;
+private Chart _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new PieChartConfig()
+        {
+        };
+
+    _config1.Data.Labels = PieDataExamples.SimplePieText;
+    _config1.Data.Datasets.Add(new PieDataset()
+        {
+            Label = "My First Dataset",
+            Data = PieDataExamples.SimplePie.ToList(),
+            BackgroundColor = Colors.PaletteBorder1,
+            HoverOffset = 4
+        });
+}
+</CodeSnippet>
+
+@code {
+    private PieChartConfig _config1;
+    private Chart _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new PieChartConfig()
+        {
+            Options = new Options()
+            {
+                 Responsive = true,
+                 MaintainAspectRatio = false
+            }
+        };
+
+        _config1.Data.Labels = PieDataExamples.SimplePieText;
+        _config1.Data.Datasets.Add(new PieDataset()
+            {
+                Label = "My First Dataset",
+                Data = PieDataExamples.SimplePie.ToList(),
+                BackgroundColor = Colors.PaletteBorder1,
+                HoverOffset = 4
+            });
+    }
+}

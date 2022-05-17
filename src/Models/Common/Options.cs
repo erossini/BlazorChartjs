@@ -1,7 +1,8 @@
 ﻿using PSC.Blazor.Components.Chartjs.Enums;
+using PSC.Blazor.Components.Chartjs.Models.Bar;
 using System.Text.Json.Serialization;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
     /// Options
@@ -26,12 +27,21 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         [JsonPropertyName("responsive")]
         public bool Responsive { get; set; } = true;
         /// <summary>
+        /// Gets or sets a value indicating whether [maintain aspect ratio].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [maintain aspect ratio]; otherwise, <c>false</c>.
+        /// </value>
+        [JsonPropertyName("maintainAspectRatio")]
+        public bool MaintainAspectRatio { get; set; } = false;
+        /// <summary>
         /// Gets or sets the plugins.
         /// </summary>
         /// <value>
         /// The plugins.
         /// </value>
         [JsonPropertyName("plugins")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Plugins Plugins { get; set; } = new Plugins();
         /// <summary>
         /// Gets or sets the index axis. <seealso cref="Axes"/>

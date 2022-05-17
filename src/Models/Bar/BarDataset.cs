@@ -2,24 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace PSC.Blazor.Components.Chartjs.Models.Bar
 {
     /// <summary>
-    /// Datatset for Bar
+    /// Bar Dataset
     /// </summary>
-    public class Dataset
+    /// <seealso cref="PSC.Blazor.Components.Chartjs.Models.Common.Dataset" />
+    public class BarDataset : Dataset
     {
-        /// <summary>
-        /// Gets or sets the label.
-        /// </summary>
-        /// <value>
-        /// The label.
-        /// </value>
-        [JsonPropertyName("label")]
-        public string Label { get; set; }
         /// <summary>
         /// Gets or sets the stack.
         /// </summary>
@@ -54,15 +46,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         /// The width of the border.
         /// </value>
         [JsonPropertyName("borderWidth")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? BorderWidth { get; set; }
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        [JsonPropertyName("data")]
-        public List<decimal> Data { get; set; }
         /// <summary>
         /// Gets or sets the background color hover.
         /// </summary>

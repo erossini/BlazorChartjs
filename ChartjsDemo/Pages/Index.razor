@@ -2,8 +2,48 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Welcome to the Blazor component for ChartJS</h1>
 
-Welcome to your new app.
+<p>After a lot of work, I finally complete the first implementation of my <a href="https://www.puresourcecode.com/tag/blazor-component/">Blazor component</a> for <a href="https://www.chartjs.org/" target="_blank" rel="noreferrer noopener">ChartJS</a> for <a href="https://www.puresourcecode.com/tag/blazor-webassembly/">Blazor WebAssembly</a> and <a href="https://www.puresourcecode.com/tag/blazor-server/">Blazor Server</a>. This component helps you to create beautiful graphs with the famous JavaScript library for chart called ChartJS.</p>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<p>So, I restarted from scratch using <a href="https://www.puresourcecode.com/tag/net6/">NET6</a> and the latest version of ChartJS at the present the version 3.7.1.</p>
+
+<p>With the current implementation, you can create the following charts:</p>
+
+<ul><li>Area</li><li>Bar</li><li>Bubble</li><li>Doughnut</li><li>Pie</li><li>Line</li><li>Polar Area</li><li>Radar</li><li>Scatter</li></ul>
+
+<p>
+To use the Blazor component for ChartJS in your Blazor WebAssembly or Blazor Server project, the first thing is to add the ChartJS library and the JavaScript for the component in your Index.html. Before closing the tag body, add the following lines
+</p>
+
+<CodeSnippet Language="Language.javascript" Style="Style.VisualStudio">
+&lt;script src="_content/PSC.Blazor.Components.Chartjs/lib/Chart.js/chart.js">&lt;/script>
+&lt;script src="_content/PSC.Blazor.Components.Chartjs/Chart.js">&lt;/script>
+</CodeSnippet>
+
+<p>I added the ChartJS library in the component, so, if you use the version from the component, you know the generation of the charts is correct and working. Maybe with the next versions of the library, I have to change the model.</p>
+
+<p>Then, you have to add in your <code>_Imports.razor</code> the following namespaces</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio">
+&#64;using PSC.Blazor.Components.Chartjs
+&#64;using PSC.Blazor.Components.Chartjs.Enums
+&#64;using PSC.Blazor.Components.Chartjs.Models
+&#64;using PSC.Blazor.Components.Chartjs.Models.Common
+&#64;using PSC.Blazor.Components.Chartjs.Models.Bar
+&#64;using PSC.Blazor.Components.Chartjs.Models.Bubble
+&#64;using PSC.Blazor.Components.Chartjs.Models.Doughnut
+&#64;using PSC.Blazor.Components.Chartjs.Models.Line
+&#64;using PSC.Blazor.Components.Chartjs.Models.Pie
+&#64;using PSC.Blazor.Components.Chartjs.Models.Polar
+&#64;using PSC.Blazor.Components.Chartjs.Models.Radar
+&#64;using PSC.Blazor.Components.Chartjs.Models.Scatter
+</CodeSnippet>
+
+<p>
+    So, how you can see, there is a namespace for each type of charts plus the generics (Enums, Models and the base). This allows you to use the component across your application.
+</p>
+
+More documentation about this component is on <a href="" target="_blank">PureSourceCode</a>. If you need support, use my <a href="https://www.puresourcecode.com/forum/chart-js-for-blazor/" target="_blank">forum</a>. The source code of the component and the demo is on <a href="https://github.com/erossini/BlazorChartjs" target="_blank">GitHub</a>.
+
+<div style="width: 100%; height: 50px;"></div>

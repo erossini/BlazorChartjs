@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
-    /// YAxes
+    /// XAxes
     /// </summary>
-    public class YAxes
+    public class XAxes
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="YAxes"/> is stacked.
+        /// Gets or sets a value indicating whether this <see cref="XAxes"/> is stacked.
         /// </summary>
         /// <value>
         ///   <c>true</c> if stacked; otherwise, <c>false</c>.
@@ -39,6 +39,15 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         [JsonPropertyName("type")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Type { get; set; }
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
+        /// <value>
+        /// The position.
+        /// </value>
+        [JsonPropertyName("position")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Position { get; set; }
         /// <summary>
         /// Gets or sets the grid.
         /// </summary>

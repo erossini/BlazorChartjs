@@ -1,0 +1,56 @@
+﻿@page "/radarSimple"
+
+<h3>Radar Simple</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px" Style="margin-bottom: 75px;"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private RadarChartConfig _config1;
+private Chart _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new RadarChartConfig()
+    {
+    };
+
+    _config1.Data.Labels = RadarDataExamples.RadarSimpleText;
+    _config1.Data.Datasets.AddRange(RadarDataExamples.RadarDatasets);
+}
+</CodeSnippet>
+
+@code {
+    private RadarChartConfig _config1;
+    private Chart _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new RadarChartConfig()
+        {
+            Options = new RadarOptions()
+            {
+                 Responsive = true,
+                 MaintainAspectRatio = false
+            }
+        };
+
+        _config1.Data.Labels = RadarDataExamples.RadarSimpleText;
+        _config1.Data.Datasets.AddRange(RadarDataExamples.RadarDatasets);
+    }
+}

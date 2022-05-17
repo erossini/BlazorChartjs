@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSC.Blazor.Components.Chartjs", "src\PSC.Blazor.Components.Chartjs.csproj", "{9B0704CA-1F56-4F1A-B9FB-FF11F80C6CF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartjsDemo", "ChartjsDemo\ChartjsDemo.csproj", "{F723C835-B603-4DC7-9B00-C1845BE8FA20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChartjsDemo", "ChartjsDemo\ChartjsDemo.csproj", "{F723C835-B603-4DC7-9B00-C1845BE8FA20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,16 +1,15 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
     /// Data for Bar
     /// </summary>
-    public class Data
+    public class Data<T> where T : class
     {
         /// <summary>
         /// Gets or sets the labels.
@@ -18,7 +17,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         /// <value>
         /// The labels.
         /// </value>
-        [JsonProperty("labels")]
+        [JsonPropertyName("labels")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<string> Labels { get; set; } = new List<string>();
         /// <summary>
         /// Gets or sets the datasets.
@@ -26,7 +26,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         /// <value>
         /// The datasets.
         /// </value>
-        [JsonProperty("datasets")]
-        public List<Dataset> Datasets { get; set; } = new List<Dataset>();
+        [JsonPropertyName("datasets")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<T> Datasets { get; set; } = new List<T>();
     }
 }

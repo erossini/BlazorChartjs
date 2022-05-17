@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using PSC.Blazor.Components.Chartjs.Enums;
+﻿using PSC.Blazor.Components.Chartjs.Enums;
 using PSC.Blazor.Components.Chartjs.Util;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
     /// 
@@ -20,7 +19,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         /// <value>
         ///   <c>true</c> if display; otherwise, <c>false</c>.
         /// </value>
-        [JsonProperty("display")]
+        [JsonPropertyName("display")]
         public bool Display { get; set; } = true;
         /// <summary>
         /// Gets or sets the position. <seealso cref="LegendPosition"/>
@@ -28,7 +27,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         /// <value>
         /// The position.
         /// </value>
-        [JsonProperty("position")]
+        [JsonPropertyName("position")]
         public string Position { get; set; } = LegendPosition.ChartArea;
         /// <summary>
         /// Gets or sets the align. <seealso cref="LegendAlign"/>
@@ -36,7 +35,15 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         /// <value>
         /// The align.
         /// </value>
-        [JsonProperty("align")]
+        [JsonPropertyName("align")]
         public string Align { get; set; } = LegendAlign.Center;
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Legend"/> is reverse.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if reverse; otherwise, <c>false</c>.
+        /// </value>
+        [JsonPropertyName("reverse")]
+        public bool Reverse { get; set; } = false;
     }
 }

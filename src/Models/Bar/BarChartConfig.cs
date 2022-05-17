@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using PSC.Blazor.Components.Chartjs.Enums;
+﻿using PSC.Blazor.Components.Chartjs.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,23 +10,23 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
     /// <summary>
     /// Chart config for Bars
     /// </summary>
-    public class BarChartConfig
+    public class BarChartConfig : IChartConfig
     {
         /// <summary>
-        /// Gets or sets the canvas identifier.
+        /// Gets the canvas identifier.
         /// </summary>
         /// <value>
         /// The canvas identifier.
         /// </value>
         [JsonIgnore]
-        public string CanvasId { get; set; }
+        public string CanvasId { get; } = Guid.NewGuid().ToString();
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
         /// <value>
         /// The type.
         /// </value>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = ChartType.Bar;
         /// <summary>
         /// Gets or sets the data.
@@ -35,15 +34,16 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         /// <value>
         /// The data.
         /// </value>
-        [JsonProperty("data")]
-        public Data Data { get; set; } = new Data();
+        [JsonPropertyName("data")]
+        public Data<BarDataset> Data { get; set; } = new Data<BarDataset>();
         /// <summary>
         /// Gets or sets the options.
         /// </summary>
         /// <value>
         /// The options.
         /// </value>
-        [JsonProperty("options")]
+        [JsonPropertyName("options")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Options Options { get; set; }
     }
 }

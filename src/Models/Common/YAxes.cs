@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
-    /// XAxes
+    /// YAxes
     /// </summary>
-    public class XAxes
+    public class YAxes
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="XAxes"/> is stacked.
+        /// Gets or sets a value indicating whether this <see cref="YAxes"/> is stacked.
         /// </summary>
         /// <value>
         ///   <c>true</c> if stacked; otherwise, <c>false</c>.

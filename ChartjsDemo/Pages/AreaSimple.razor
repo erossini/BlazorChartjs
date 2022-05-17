@@ -1,0 +1,89 @@
+﻿@page "/areaSimple"
+
+<h3>Area Simple</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+    &ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig _config1;
+private Chart _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                Responsive = true,
+                MaintainAspectRatio = false
+            }
+        };
+
+    _config1.Data.Labels = LineDataExamples.SimpleLineText;
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My First Dataset",
+            Data = LineDataExamples.SimpleLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Fill = false
+        });
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My Second Dataset",
+            Data = LineDataExamples.SimpleLine2.ToList(),
+            BackgroundColor = "rgba(75,192,192,0.2)",
+            BorderColor = "rgba(75,192,192,1)",
+            Fill = true
+        });
+}
+</CodeSnippet>
+
+@code {
+    private LineChartConfig _config1;
+    private Chart _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new LineChartConfig()
+            {
+                Options = new Options()
+                {
+                    Responsive = true,
+                    MaintainAspectRatio = false
+                }
+            };
+
+        _config1.Data.Labels = LineDataExamples.SimpleLineText;
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My First Dataset",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Fill = false
+            });
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My Second Dataset",
+                Data = LineDataExamples.SimpleLine2.ToList(),
+                BackgroundColor = "rgba(75,192,192,0.2)",
+                BorderColor = "rgba(75,192,192,1)",
+                Fill = true
+            });
+    }
+}

@@ -2,33 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
-    /// Scales for Bar
+    /// Datatset for charts
     /// </summary>
-    public class Scales
+    public class CustomDataset<T> where T : class
     {
         /// <summary>
-        /// Gets or sets the x axes.
+        /// Gets or sets the label.
         /// </summary>
         /// <value>
-        /// The x axes.
+        /// The label.
         /// </value>
-        [JsonPropertyName("x")]
+        [JsonPropertyName("label")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public XAxes X { get; set; }
+        public string Label { get; set; }
         /// <summary>
-        /// Gets or sets the y axes.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The y axes.
+        /// The data.
         /// </value>
-        [JsonPropertyName("y")]
+        [JsonPropertyName("data")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public YAxes Y { get; set; }
+        public virtual List<T> Data { get; set; }
     }
 }
