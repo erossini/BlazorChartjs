@@ -2,7 +2,7 @@
 
 public static class BarDataExamples
 {
-    public static List<string> SimpleBarText = new List<string>() { "January", "February", "March", "Aprl", "May", "June", "July" };
+    public static List<string> SimpleBarText = new List<string>() { "January", "February", "March", "April", "May", "June", "July" };
     public static List<DataItem> SimpleBar = new List<DataItem>() {
             new DataItem() { Name = "January", Value = 65 },
             new DataItem() { Name = "February", Value = 59 },

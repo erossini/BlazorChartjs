@@ -1,6 +1,6 @@
 ﻿@inject IJSRuntime JSRuntime
 
-<div id="@("chartcontainer" + Config.CanvasId)" class="chart-container" style="position: relative; height:@Height; width:@Width; @(Style)">
+<div id="@("chartcontainer" + Config.CanvasId)" class="chart-container @Class" style="position: relative; height:@Height; width:@Width; @(Style)">
     <canvas id="@Config.CanvasId"></canvas>
 </div>
 
@@ -14,7 +14,11 @@
     [Parameter]
     public string? Style { get; set; }
     
-    [Parameter] public EventCallback<int> OnChartClick { get; set; }
+    [Parameter]
+    public string? Class { get; set; }
+    
+    [Parameter] 
+    public EventCallback<int> OnChartClick { get; set; }
 
     [Parameter]
     public IChartConfig Config { get; set; }
