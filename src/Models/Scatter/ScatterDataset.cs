@@ -11,5 +11,13 @@
         [JsonPropertyName("backgroundColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string BackgroundColor { get; set; }
+
+        [JsonPropertyName("showLine")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool ShowLine { get; set; } = false;
+
+        [JsonPropertyName("tension")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public decimal Tension { get; set; } = 0;
     }
 }
