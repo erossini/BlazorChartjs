@@ -52,5 +52,10 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonPropertyName("indexAxis")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string IndexAxis { get; set; } = Axes.Default;
+
+        [JsonPropertyName("elements")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Elements? Elements { get; set; }
+
     }
 }
