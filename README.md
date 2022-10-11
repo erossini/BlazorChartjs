@@ -65,20 +65,24 @@ _config1 = new BarChartConfig()
                 Position = LegendPosition.Right
             }
         },
-        Scales = new Scales()
+        Scales = new Dictionary<string, Axis>()
         {
-            X = new XAxes()
             {
-                Stacked = true,
-                Ticks = new Ticks()
+                Scales.XAxisId, new Axis()
                 {
-                    MaxRotation = 0,
-                    MinRotation = 0
+                    Stacked = true,
+                    Ticks = new Ticks()
+                    {
+                        MaxRotation = 0,
+                        MinRotation = 0
+                    }
                 }
             },
-            Y = new YAxes()
             {
-                Stacked = true
+                Scales.YAxisId, new Axis()
+                {
+                    Stacked = true
+                }
             }
         }
     }
