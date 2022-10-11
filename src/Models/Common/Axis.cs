@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-namespace PSC.Blazor.Components.Chartjs.Models.Common
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
-    /// <summary>
-    /// XAxes
-    /// </summary>
-    public class XAxes
+    public sealed class Axis
     {
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="XAxes"/> is stacked.
@@ -69,7 +59,10 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
       
         [JsonPropertyName("max")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public double? Max { get; set; }
-
+        public double? Max { get; set; } 
+        
+        [JsonPropertyName("min")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public double? Min { get; set; }
     }
 }

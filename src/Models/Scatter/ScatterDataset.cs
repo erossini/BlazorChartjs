@@ -23,6 +23,10 @@
         [JsonPropertyName("pointRadius")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public decimal? PointRadius { get; set; }
+        
+        [JsonPropertyName("yAxisID")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? YAxisId { get; set; }
 
     }
 }
