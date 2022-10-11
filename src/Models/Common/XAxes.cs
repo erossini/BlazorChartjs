@@ -66,5 +66,10 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonPropertyName("title")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public AxesTitle? Title { get; set; }
+      
+        [JsonPropertyName("max")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public double? Max { get; set; }
+
     }
 }
