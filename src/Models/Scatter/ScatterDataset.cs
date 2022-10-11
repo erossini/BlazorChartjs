@@ -19,5 +19,10 @@
         [JsonPropertyName("tension")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public decimal Tension { get; set; } = 0;
+
+        [JsonPropertyName("pointRadius")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public decimal? PointRadius { get; set; }
+
     }
 }
