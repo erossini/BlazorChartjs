@@ -17,7 +17,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// </value>
         [JsonPropertyName("scales")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Scales Scales { get; set; }
+        public Dictionary<string,Axis> Scales { get; set; }
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Options"/> is responsive.
         /// </summary>

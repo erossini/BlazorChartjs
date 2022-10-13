@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-namespace PSC.Blazor.Components.Chartjs.Models.Common
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
-    /// <summary>
-    /// YAxes
-    /// </summary>
-    public class YAxes
+    public sealed class Axis
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="YAxes"/> is stacked.
+        /// Gets or sets a value indicating whether this <see cref="XAxes"/> is stacked.
         /// </summary>
         /// <value>
         ///   <c>true</c> if stacked; otherwise, <c>false</c>.
@@ -40,6 +30,15 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Type { get; set; }
         /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
+        /// <value>
+        /// The position.
+        /// </value>
+        [JsonPropertyName("position")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Position { get; set; }
+        /// <summary>
         /// Gets or sets the grid.
         /// </summary>
         /// <value>
@@ -57,5 +56,13 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonPropertyName("title")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public AxesTitle? Title { get; set; }
+      
+        [JsonPropertyName("max")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public double? Max { get; set; } 
+        
+        [JsonPropertyName("min")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public double? Min { get; set; }
     }
 }

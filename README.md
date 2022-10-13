@@ -14,7 +14,7 @@ Fist, you have to add the component from [NuGet](https://www.nuget.org/packages/
 <script src="_content/PSC.Blazor.Components.Chartjs/Chart.js"></script>
 ```
 
-The first script is the Chart.js library version 3.5.1 because I'm using this version to create the components. You can use other sources for it but maybe you can face issues in other versions.
+The first script is the Chart.js library version 3.7.1 because I'm using this version to create the components. You can use other sources for it but maybe you can face issues in other versions.
 
 Then, open your `_Imports.razor` and add the following:
 
@@ -65,20 +65,24 @@ _config1 = new BarChartConfig()
                 Position = LegendPosition.Right
             }
         },
-        Scales = new Scales()
+        Scales = new Dictionary<string, Axis>()
         {
-            X = new XAxes()
             {
-                Stacked = true,
-                Ticks = new Ticks()
+                Scales.XAxisId, new Axis()
                 {
-                    MaxRotation = 0,
-                    MinRotation = 0
+                    Stacked = true,
+                    Ticks = new Ticks()
+                    {
+                        MaxRotation = 0,
+                        MinRotation = 0
+                    }
                 }
             },
-            Y = new YAxes()
             {
-                Stacked = true
+                Scales.YAxisId, new Axis()
+                {
+                    Stacked = true
+                }
             }
         }
     }
