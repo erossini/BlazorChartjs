@@ -8,7 +8,7 @@
     var chart = new Chart(ctx, eval(config));
 
     chart.options.onClick = function (event, array) {
-        var rtn = 0;
+        var rtn = -1;
 
         if (array !== undefined && array.length > 0)
             rtn = array[0].index;
@@ -20,7 +20,10 @@
         DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'ChartHover');
     }
 
-//    chart.options.scales.x.ticks.callback = function (val, index) {
-//        DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'ChartScaleXTicks', val, index);
-//    }
+    chart.options.plugins.legend.onClick = function (e, legendItem, legend) {
+    };
+
+    function getImage() {
+        return chart.toDataURL("image/png");
+    }
 }

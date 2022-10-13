@@ -7,6 +7,12 @@
     <PackageIcon>psc_logo.png</PackageIcon>
     <ApplicationIcon>psc_ico.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackAsTool>True</PackAsTool>
+    <Copyright>Enrico Rossini - PureSourceCode.com</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>chartjs, blazor, c#, blazor-webassembly, blazor-server, blazor-component</PackageTags>
+    <PackageProjectUrl>https://www.puresourcecode.com/dotnet/blazor/blazor-component-for-chartjs/</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,13 +26,12 @@
     </None>
   </ItemGroup>
 
-  
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.10" />
   </ItemGroup>
 
   <ItemGroup>

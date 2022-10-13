@@ -4,5 +4,6 @@
     {
         string CanvasId { get; }
         string Type { get; set; }
+        //string OnAnimationComplete { get; set; }
     }
 }

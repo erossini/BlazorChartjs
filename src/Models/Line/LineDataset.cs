@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PSC.Blazor.Components.Chartjs.Models.Line
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Line
 {
     /// <summary>
     /// Line Dataset
@@ -39,6 +33,24 @@ namespace PSC.Blazor.Components.Chartjs.Models.Line
         [JsonPropertyName("fill")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool Fill { get; set; } = false;
+        /// <summary>
+        /// Gets or sets the color of the fill.
+        /// </summary>
+        /// <value>
+        /// The color of the fill.
+        /// </value>
+        [JsonPropertyName("fillColor")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string FillColor { get; set; }
+        /// <summary>
+        /// Gets or sets the color of the stroke.
+        /// </summary>
+        /// <value>
+        /// The color of the stroke.
+        /// </value>
+        [JsonPropertyName("strokeColor")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string StrokeColor { get; set; }
         /// <summary>
         /// Gets or sets the tension.
         /// </summary>

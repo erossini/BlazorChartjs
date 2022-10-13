@@ -1,11 +1,4 @@
-﻿using PSC.Blazor.Components.Chartjs.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PSC.Blazor.Components.Chartjs.Interfaces
+﻿namespace PSC.Blazor.Components.Chartjs.Interfaces
 {
     /// <summary>
     /// Represents a dataset with an id and a type.

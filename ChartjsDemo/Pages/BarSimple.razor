@@ -21,53 +21,59 @@
 </p>
 
 <CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
-    private BarChartConfig _config1;
-    private Chart _chart1;
+private BarChartConfig _config1;
+private Chart _chart1;
 
-    protected override async Task OnInitializedAsync()
-    {
+protected override async Task OnInitializedAsync()
+{
     _config1 = new BarChartConfig()
     {
-    Options = new Options()
-    {
-    Plugins = new Plugins()
-    {
-    Legend = new Legend()
-    {
-    Align = LegendAlign.Center,
-    Display = false,
-    Position = LegendPosition.Right
-    }
-    },
-    Scales = new Scales()
-    {
-    X = new XAxes()
-    {
-    Stacked = true,
-    Ticks = new Ticks()
-    {
-    MaxRotation = 0,
-    MinRotation = 0
-    }
-    },
-    Y = new YAxes()
-    {
-    Stacked = true
-    }
-    }
-    }
+        Options = new Options()
+        {
+            Responsive = true,
+            MaintainAspectRatio = false,
+            Plugins = new Plugins()
+            {
+                Legend = new Legend()
+                {
+                    Align = LegendAlign.Center,
+                    Display = false,
+                    Position = LegendPosition.Right
+                }
+            },
+            Scales = new Dictionary&lt;string, Axis&gt;()
+            {
+                {
+                    Scales.XAxisId, new Axis()
+                    {
+                        Stacked = true,
+                        Ticks = new Ticks()
+                        {
+                            MaxRotation = 0,
+                            MinRotation = 0
+                        }
+                    }
+                },
+                {
+                    Scales.YAxisId, new Axis()
+                    {
+                        Stacked = true
+                    }
+                }
+            }
+        }
     };
 
     _config1.Data.Labels = BarDataExamples.SimpleBarText;
     _config1.Data.Datasets.Add(new BarDataset()
     {
-    Label = "Value",
-    Data = BarDataExamples.SimpleBar.Select(l => l.Value).ToList(),
-    BackgroundColor = Colors.Palette1,
-    BorderColor = Colors.PaletteBorder1,
-    BorderWidth = 1
+        Label = "Value",
+        Data = BarDataExamples.SimpleBar.Select(l => l.Value).ToList(),
+        BackgroundColor = Colors.Palette1,
+        BorderColor = Colors.PaletteBorder1,
+        BorderWidth = 1
     });
-    }
+}
 </CodeSnippet>
 
 @code {
@@ -124,5 +130,4 @@
             BorderWidth = 1
         });
     }
-
 }

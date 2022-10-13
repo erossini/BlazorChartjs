@@ -11,6 +11,7 @@
         [JsonPropertyName("stacked")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? Stacked { get; set; }
+
         /// <summary>
         /// Gets or sets the ticks.
         /// </summary>
@@ -20,6 +21,7 @@
         [JsonPropertyName("ticks")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Ticks? Ticks { get; set; }
+
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
@@ -29,6 +31,7 @@
         [JsonPropertyName("type")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Type { get; set; }
+
         /// <summary>
         /// Gets or sets the position.
         /// </summary>
@@ -38,6 +41,7 @@
         [JsonPropertyName("position")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Position { get; set; }
+
         /// <summary>
         /// Gets or sets the grid.
         /// </summary>
@@ -47,6 +51,7 @@
         [JsonPropertyName("grid")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Grid? Grid { get; set; }
+
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
@@ -56,11 +61,23 @@
         [JsonPropertyName("title")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public AxesTitle? Title { get; set; }
-      
+
+        /// <summary>
+        /// Determines the maximum of the parameters.
+        /// </summary>
+        /// <value>
+        /// The maximum.
+        /// </value>
         [JsonPropertyName("max")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public double? Max { get; set; } 
-        
+        public double? Max { get; set; }
+
+        /// <summary>
+        /// Determines the minimum of the parameters.
+        /// </summary>
+        /// <value>
+        /// The minimum.
+        /// </value>
         [JsonPropertyName("min")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public double? Min { get; set; }

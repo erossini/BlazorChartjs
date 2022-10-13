@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace PSC.Blazor.Components.Chartjs.Util
 {

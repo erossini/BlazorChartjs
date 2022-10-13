@@ -1,8 +1,4 @@
-﻿using PSC.Blazor.Components.Chartjs.Enums;
-using PSC.Blazor.Components.Chartjs.Models.Bar;
-using System.Text.Json.Serialization;
-
-namespace PSC.Blazor.Components.Chartjs.Models.Common
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
     /// Options
@@ -10,39 +6,15 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
     public class Options
     {
         /// <summary>
-        /// Gets or sets the scales.
+        /// Gets or sets the elements.
         /// </summary>
         /// <value>
-        /// The scales.
+        /// The elements.
         /// </value>
-        [JsonPropertyName("scales")]
+        [JsonPropertyName("elements")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Dictionary<string,Axis> Scales { get; set; }
-        /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="Options"/> is responsive.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if responsive; otherwise, <c>false</c>.
-        /// </value>
-        [JsonPropertyName("responsive")]
-        public bool Responsive { get; set; } = true;
-        /// <summary>
-        /// Gets or sets a value indicating whether [maintain aspect ratio].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [maintain aspect ratio]; otherwise, <c>false</c>.
-        /// </value>
-        [JsonPropertyName("maintainAspectRatio")]
-        public bool MaintainAspectRatio { get; set; } = false;
-        /// <summary>
-        /// Gets or sets the plugins.
-        /// </summary>
-        /// <value>
-        /// The plugins.
-        /// </value>
-        [JsonPropertyName("plugins")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Plugins Plugins { get; set; } = new Plugins();
+        public Elements? Elements { get; set; }
+
         /// <summary>
         /// Gets or sets the index axis. <seealso cref="Axes"/>
         /// </summary>
@@ -53,9 +25,42 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string IndexAxis { get; set; } = Axes.Default;
 
-        [JsonPropertyName("elements")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Elements? Elements { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether [maintain aspect ratio].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [maintain aspect ratio]; otherwise, <c>false</c>.
+        /// </value>
+        [JsonPropertyName("maintainAspectRatio")]
+        public bool MaintainAspectRatio { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the plugins.
+        /// </summary>
+        /// <value>
+        /// The plugins.
+        /// </value>
+        [JsonPropertyName("plugins")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Plugins Plugins { get; set; } = new Plugins();
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Options"/> is responsive.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if responsive; otherwise, <c>false</c>.
+        /// </value>
+        [JsonPropertyName("responsive")]
+        public bool Responsive { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets the scales.
+        /// </summary>
+        /// <value>
+        /// The scales.
+        /// </value>
+        [JsonPropertyName("scales")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Dictionary<string, Axis> Scales { get; set; }
     }
 }

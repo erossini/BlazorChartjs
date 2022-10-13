@@ -1,57 +1,6 @@
 ﻿@inject IJSRuntime JSRuntime
 
-<div id="@("chartcontainer" + Config.CanvasId)" class="chart-container @Class" style="position: relative; height:@Height; width:@Width; @(Style)">
+<div id="@("chartcontainer" + Config.CanvasId)" class="chart-container @Class" 
+     style="position: relative; height:@Height; width:@Width; @(Style)">
     <canvas id="@Config.CanvasId"></canvas>
 </div>
-
-@code {
-    [Parameter]
-    public string? Height { get; set; }
-
-    [Parameter]
-    public string? Width { get; set; }
-
-    [Parameter]
-    public string? Style { get; set; }
-    
-    [Parameter]
-    public string? Class { get; set; }
-    
-    [Parameter] 
-    public EventCallback<int> OnChartClick { get; set; }
-
-    [Parameter]
-    public IChartConfig Config { get; set; }
-
-    public IChartConfig OldConfig { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (Config != null)
-        {
-            if (OldConfig == null || Config != OldConfig)
-                await JSRuntime.InvokeVoidAsync("setup", Config.CanvasId, Config);
-
-            OldConfig = Config;
-        }
-    }
-
-    [JSInvokable]
-    public static async Task ChartClick(int indexValue)
-    {
-        Console.WriteLine($"Received click {indexValue}");
-    }
-    
-    [JSInvokable]
-    public static void ChartHover()
-   {
-        Console.WriteLine($"ChartHover");
-    }
-
-    [JSInvokable]
-    public static string ChartScaleXTicks(string val, int index)
-    {
-        Console.WriteLine($"ChartScaleXTicks {index}");
-        return index % 2 == 0 ? val : "";
-    }
-}

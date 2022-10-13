@@ -1,7 +1,4 @@
-﻿using PSC.Blazor.Components.Chartjs.Models.Common;
-using System.Text.Json.Serialization;
-
-namespace PSC.Blazor.Components.Chartjs.Models.Common
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
     /// Plugins

@@ -1,11 +1,4 @@
-﻿using PSC.Blazor.Components.Chartjs.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PSC.Blazor.Components.Chartjs.Models.Bar
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Bar
 {
     /// <summary>
     /// Chart config for Bars
@@ -45,5 +38,15 @@ namespace PSC.Blazor.Components.Chartjs.Models.Bar
         [JsonPropertyName("options")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Options Options { get; set; }
+        /// <summary>
+        /// Gets or sets the on animation complete.
+        /// </summary>
+        /// <value>
+        /// The on animation complete.
+        /// </value>
+        /// <exception cref="System.NotImplementedException"></exception>
+        [JsonPropertyName("onAnimationComplete")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string OnAnimationComplete { get; set; }
     }
 }

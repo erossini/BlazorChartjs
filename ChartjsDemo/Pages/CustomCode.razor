@@ -1,4 +1,4 @@
-﻿@page "/lineSimple"
+﻿@page "/customCode1"
 
 <h3>Line Simple</h3>
 
@@ -49,17 +49,15 @@ protected override async Task OnInitializedAsync()
     protected override async Task OnInitializedAsync()
     {
         _config1 = new LineChartConfig()
-            {
-            };
+        {
+        };
 
-        _config1.Data.Labels = LineDataExamples.SimpleLineText;
+        _config1.Data.Labels = LineDataExamples.CustomLineText;
         _config1.Data.Datasets.Add(new LineDataset()
             {
-                Label = "My First Dataset",
-                Data = LineDataExamples.SimpleLine.ToList(),
-                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
-                Tension = 0.1M,
-                Fill = false
+                Data = LineDataExamples.CustomLine.ToList(),
+                FillColor = "#79D1CF",
+                StrokeColor = "#79D1CF"
             });
     }
 }
