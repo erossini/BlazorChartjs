@@ -26,6 +26,7 @@
         /// </value>
         [JsonPropertyName("data")]
         public RadarData Data { get; set; } = new RadarData();
+
         /// <summary>
         /// Gets or sets the options.
         /// </summary>
@@ -35,6 +36,7 @@
         [JsonPropertyName("options")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public RadarOptions Options { get; set; }
+        IOptions IChartConfig.Options => this.Options;
         /// <summary>
         /// Gets or sets the on animation complete.
         /// </summary>

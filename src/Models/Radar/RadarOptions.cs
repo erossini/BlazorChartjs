@@ -3,7 +3,7 @@
     /// <summary>
     /// Radar Options
     /// </summary>
-    public class RadarOptions
+    public class RadarOptions : IOptions
     {
         /// <summary>
         /// Gets or sets the options.

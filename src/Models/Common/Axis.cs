@@ -3,7 +3,7 @@
     public sealed class Axis
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="XAxes"/> is stacked.
+        /// Gets or sets a value indicating whether this axis is stacked.
         /// </summary>
         /// <value>
         ///   <c>true</c> if stacked; otherwise, <c>false</c>.

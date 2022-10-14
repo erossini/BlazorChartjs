@@ -1,11 +1,14 @@
+using System.Linq;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
 namespace PSC.Blazor.Components.Chartjs
 {
-    public partial class Chart
+    public partial class Chart : IDisposable
     {
+        private DotNetObjectReference<IChartConfig>? oldReference;
+
         #region Parameters
 
         /// <summary>
@@ -86,9 +89,20 @@ namespace PSC.Blazor.Components.Chartjs
             if (Config != null)
             {
                 if (OldConfig == null || Config != OldConfig)
-                    await JSRuntime.InvokeVoidAsync("setup", Config.CanvasId, Config);
+                {
+                    this.oldReference?.Dispose();
+                    var dotnet_ref = DotNetObjectReference.Create(Config);
+                    await JSRuntime.InvokeVoidAsync("setup", Config.CanvasId, dotnet_ref, Config);
+                    this.oldReference = dotnet_ref;
+                }
+
                 OldConfig = Config;
             }
+        }
+
+        public void Dispose()
+        {
+            this.oldReference?.Dispose();
         }
 
         #region JavaScript invokable functions
@@ -103,6 +117,16 @@ namespace PSC.Blazor.Components.Chartjs
         public static Task ChartHover()
         {
             return Task.CompletedTask;
+        }
+
+        [JSInvokable]
+        public static string[] TooltipCallbacksLabel(DotNetObjectReference<IChartConfig> config,int[] parameters)
+        {
+            var ctx = new TooltipContext(parameters[0],parameters[1]);
+            if (config.Value.Options is Options options)
+                return options.Plugins.Tooltip.Callbacks.Label(ctx);
+            else
+                throw new NotSupportedException();
         }
 
         [JSInvokable]

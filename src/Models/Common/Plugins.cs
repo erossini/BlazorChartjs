@@ -14,5 +14,10 @@
         [JsonPropertyName("legend")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Legend? Legend { get; set; } = new Legend();
+
+        [JsonPropertyName("tooltip")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Tooltip? Tooltip { get; set; }
+
     }
 }

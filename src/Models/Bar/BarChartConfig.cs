@@ -38,6 +38,7 @@
         [JsonPropertyName("options")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Options Options { get; set; }
+        IOptions IChartConfig.Options => this.Options;
         /// <summary>
         /// Gets or sets the on animation complete.
         /// </summary>

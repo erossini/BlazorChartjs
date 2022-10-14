@@ -38,5 +38,6 @@
         [JsonPropertyName("options")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Options Options { get; set; }
+        IOptions IChartConfig.Options => this.Options;
     }
 }
