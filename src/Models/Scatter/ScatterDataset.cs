@@ -22,6 +22,10 @@
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public decimal? PointRadius { get; set; }
 
+        [JsonPropertyName("pointHitRadius")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public decimal? PointHitRadius { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating whether show line.
         /// </summary>
