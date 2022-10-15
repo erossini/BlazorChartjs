@@ -3,46 +3,6 @@
     public sealed class Axis
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="XAxes"/> is stacked.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if stacked; otherwise, <c>false</c>.
-        /// </value>
-        [JsonPropertyName("stacked")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public bool? Stacked { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ticks.
-        /// </summary>
-        /// <value>
-        /// The ticks.
-        /// </value>
-        [JsonPropertyName("ticks")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Ticks? Ticks { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>
-        /// The type.
-        /// </value>
-        [JsonPropertyName("type")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Type { get; set; }
-
-        /// <summary>
-        /// Gets or sets the position.
-        /// </summary>
-        /// <value>
-        /// The position.
-        /// </value>
-        [JsonPropertyName("position")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Position { get; set; }
-
-        /// <summary>
         /// Gets or sets the grid.
         /// </summary>
         /// <value>
@@ -51,16 +11,6 @@
         [JsonPropertyName("grid")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Grid? Grid { get; set; }
-
-        /// <summary>
-        /// Gets or sets the title.
-        /// </summary>
-        /// <value>
-        /// The title.
-        /// </value>
-        [JsonPropertyName("title")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public AxesTitle? Title { get; set; }
 
         /// <summary>
         /// Determines the maximum of the parameters.
@@ -81,5 +31,55 @@
         [JsonPropertyName("min")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public double? Min { get; set; }
+
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
+        /// <value>
+        /// The position.
+        /// </value>
+        [JsonPropertyName("position")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Position { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this axis is stacked.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if stacked; otherwise, <c>false</c>.
+        /// </value>
+        [JsonPropertyName("stacked")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public bool? Stacked { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ticks.
+        /// </summary>
+        /// <value>
+        /// The ticks.
+        /// </value>
+        [JsonPropertyName("ticks")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Ticks? Ticks { get; set; }
+
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
+        [JsonPropertyName("title")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public AxesTitle? Title { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
+        [JsonPropertyName("type")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Type { get; set; }
     }
 }

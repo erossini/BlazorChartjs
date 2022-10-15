@@ -11,14 +11,6 @@
         [JsonIgnore]
         public string CanvasId { get; } = Guid.NewGuid().ToString();
         /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>
-        /// The type.
-        /// </value>
-        [JsonPropertyName("type")]
-        public string Type { get; set; } = ChartType.Pie;
-        /// <summary>
         /// Gets or sets the data.
         /// </summary>
         /// <value>
@@ -26,15 +18,7 @@
         /// </value>
         [JsonPropertyName("data")]
         public PieData Data { get; set; } = new PieData();
-        /// <summary>
-        /// Gets or sets the options.
-        /// </summary>
-        /// <value>
-        /// The options.
-        /// </value>
-        [JsonPropertyName("options")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Options Options { get; set; }
+
         /// <summary>
         /// Gets or sets the on animation complete.
         /// </summary>
@@ -45,5 +29,32 @@
         [JsonPropertyName("onAnimationComplete")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string OnAnimationComplete { get; set; }
+
+        /// <summary>
+        /// Gets or sets the options.
+        /// </summary>
+        /// <value>
+        /// The options.
+        /// </value>
+        [JsonPropertyName("options")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Options Options { get; set; }
+
+        /// <summary>
+        /// Gets the options.
+        /// </summary>
+        /// <value>
+        /// The options.
+        /// </value>
+        IOptions IChartConfig.Options => this.Options;
+
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
+        [JsonPropertyName("type")]
+        public string Type { get; set; } = ChartType.Pie;
     }
 }

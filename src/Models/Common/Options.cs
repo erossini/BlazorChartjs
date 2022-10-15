@@ -3,7 +3,7 @@
     /// <summary>
     /// Options
     /// </summary>
-    public class Options
+    public class Options : IOptions
     {
         /// <summary>
         /// Gets or sets the elements.
