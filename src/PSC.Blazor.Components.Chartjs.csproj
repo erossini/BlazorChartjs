@@ -7,12 +7,13 @@
     <PackageIcon>psc_logo.png</PackageIcon>
     <ApplicationIcon>psc_ico.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <PackAsTool>True</PackAsTool>
+    <PackageReleaseNotes>Tooltip callbacks by https://github.com/macias - Update ChartJs to 3.9.1</PackageReleaseNotes>
+    <PackAsTool>False</PackAsTool>
     <Copyright>Enrico Rossini - PureSourceCode.com</Copyright>
     <RepositoryType>git</RepositoryType>
     <PackageTags>chartjs, blazor, c#, blazor-webassembly, blazor-server, blazor-component</PackageTags>
     <PackageProjectUrl>https://www.puresourcecode.com/dotnet/blazor/blazor-component-for-chartjs/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/erossini/BlazorChartjs</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

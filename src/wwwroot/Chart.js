@@ -35,4 +35,3 @@
         return chart.toDataURL("image/png");
     }
 }
-
