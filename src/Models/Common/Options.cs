@@ -1,4 +1,6 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
+﻿using System.Threading.Tasks;
+
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
     /// Options
@@ -62,5 +64,13 @@
         [JsonPropertyName("scales")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Dictionary<string, Axis> Scales { get; set; }
+        
+        [JsonInclude]
+        [JsonPropertyName("hasOnHoverAsync")]
+        public bool HasOnHoverAsync =>  OnHoverAsync != null;
+
+        [JsonIgnore]
+        public Func<OnHoverContext, ValueTask>? OnHoverAsync { get; set; }        
+
     }
 }
