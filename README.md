@@ -105,7 +105,7 @@ _config1.Data.Datasets.Add(new Dataset()
 
 The result of the code above is this chart
 
-![image](https://user-images.githubusercontent.com/9497415/196756443-2d616f79-7822-4132-a5b8-41feef5ec585.png)
+![image](https://user-images.githubusercontent.com/9497415/196763122-306142fa-e810-47fc-af06-12d4889ab21f.png)
 
 ## Implemented charts
 - [x] Bar chart
