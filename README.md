@@ -105,18 +105,18 @@ _config1.Data.Datasets.Add(new Dataset()
 
 The result of the code above is this chart
 
-![image](https://user-images.githubusercontent.com/9497415/145194274-63997957-82ab-4b38-a2bf-bdd748c2b005.png)
+![image](https://user-images.githubusercontent.com/9497415/196763122-306142fa-e810-47fc-af06-12d4889ab21f.png)
 
 ## Implemented charts
 - [x] Bar chart
 - [x] Line chart
 - [x] Area
-- [ ] Other charts
+- [x] Other charts
   - [x] Scatter
   - [x] Scatter - Multi axis
   - [x] Doughnut
   - [x] Pie
-  - [ ] Multi Series Pie
+  - [x] Multi Series Pie
   - [x] Polar area
   - [x] Radar
   - [x] Radar skip points
