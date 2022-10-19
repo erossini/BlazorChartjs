@@ -14,7 +14,7 @@ Fist, you have to add the component from [NuGet](https://www.nuget.org/packages/
 <script src="_content/PSC.Blazor.Components.Chartjs/Chart.js"></script>
 ```
 
-The first script is the [Chart.js](https://www.chartjs.org/) library version [3.9.1](https://github.com/chartjs/Chart.js/releases/tag/v3.9.1) because I'm using this version to create the components. You can use other sources for it but maybe you can face issues in other versions.
+The first script is the Chart.js library version 3.7.1 because I'm using this version to create the components. You can use other sources for it but maybe you can face issues in other versions.
 
 Then, open your `_Imports.razor` and add the following:
 
@@ -105,7 +105,7 @@ _config1.Data.Datasets.Add(new Dataset()
 
 The result of the code above is this chart
 
-![image](https://user-images.githubusercontent.com/9497415/196674629-baaa69d2-24ab-484c-b35e-597cdd2b961c.png)
+![image](https://user-images.githubusercontent.com/9497415/145194274-63997957-82ab-4b38-a2bf-bdd748c2b005.png)
 
 ## Implemented charts
 - [x] Bar chart
@@ -113,14 +113,14 @@ The result of the code above is this chart
 - [x] Area
 - [ ] Other charts
   - [x] Scatter
-  - [ ] Scatter - Multi axis
+  - [x] Scatter - Multi axis
   - [x] Doughnut
   - [x] Pie
   - [ ] Multi Series Pie
   - [x] Polar area
   - [x] Radar
   - [x] Radar skip points
-  - [ ] Combo bar/line
+  - [x] Combo bar/line
   - [x] Stacked bar/line
 
 ---

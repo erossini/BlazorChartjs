@@ -16,6 +16,16 @@
         public string? CallBack { get; set; }
 
         /// <summary>
+        /// Gets or sets the color.
+        /// </summary>
+        /// <value>
+        /// The color.
+        /// </value>
+        [JsonPropertyName("color")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Color { get; set; }
+
+        /// <summary>
         /// Gets or sets the maximum rotation.
         /// </summary>
         /// <value>

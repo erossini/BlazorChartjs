@@ -20,5 +20,13 @@
         /// The y axis identifier.
         /// </value>
         public static string YAxisId => "y";
+
+        /// <summary>
+        /// Gets the y2 axis identifier.
+        /// </summary>
+        /// <value>
+        /// The y axis identifier.
+        /// </value>
+        public static string Y2AxisId => "y2";
     }
 }

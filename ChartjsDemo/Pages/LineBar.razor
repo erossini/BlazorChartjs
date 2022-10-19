@@ -1,0 +1,149 @@
+﻿@page "/linebar"
+
+<h3>Combo Bar/Line</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+    &ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config1;
+private Chart? _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new BarChartConfig()
+        {
+            Options = new Options()
+            {
+                Responsive = true,
+                MaintainAspectRatio = false,
+                Plugins = new Plugins()
+                {
+                    Legend = new Legend()
+                    {
+                        Align = LegendAlign.Center,
+                        Display = false,
+                        Position = LegendPosition.Right
+                    }
+                },
+                Scales = new Dictionary&lt;string, Axis&gt;()
+            {
+                {
+                    Scales.XAxisId, new Axis()
+                    {
+                        Stacked = true,
+                        Ticks = new Ticks()
+                        {
+                            MaxRotation = 0,
+                            MinRotation = 0
+                        }
+                    }
+                },
+                {
+                    Scales.YAxisId, new Axis()
+                    {
+                        Stacked = true
+                    }
+                }
+            }
+            }
+        };
+
+    _config1.Data.Labels = BarDataExamples.SimpleBarText;
+    _config1.Data.Datasets.Add(new BarDataset()
+        {
+            Label = "Value",
+            Data = BarDataExamples.SimpleBar.Select(l => l.Value).ToList(),
+            BackgroundColor = Colors.Palette1,
+            BorderColor = Colors.PaletteBorder1,
+            BorderWidth = 1
+        });
+    _config1.Data.Datasets.Add(new BarDataset()
+        {
+            Label = "Bar Dataset",
+            Data = LineDataExamples.SimpleLine.ToList(),
+            BorderColor = Colors.PaletteBorder1,
+            Order = 1,
+            Type = "line"
+        });
+}
+</CodeSnippet>
+
+@code {
+    private BarChartConfig? _config1;
+    private Chart? _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new BarChartConfig()
+            {
+                Options = new Options()
+                {
+                    Responsive = true,
+                    MaintainAspectRatio = false,
+                    Plugins = new Plugins()
+                    {
+                        Legend = new Legend()
+                        {
+                            Align = LegendAlign.Center,
+                            Display = false,
+                            Position = LegendPosition.Right
+                        }
+                    },
+                    Scales = new Dictionary<string, Axis>()
+                {
+                    {
+                        Scales.XAxisId, new Axis()
+                        {
+                            Stacked = true,
+                            Ticks = new Ticks()
+                            {
+                                MaxRotation = 0,
+                                MinRotation = 0
+                            }
+                        }
+                    },
+                    {
+                        Scales.YAxisId, new Axis()
+                        {
+                            Stacked = true
+                        }
+                    }
+                }
+                }
+            };
+
+        _config1.Data.Labels = BarDataExamples.SimpleBarText;
+        _config1.Data.Datasets.Add(new BarDataset()
+            {
+                Label = "Value",
+                Data = BarDataExamples.SimpleBar.Select(l => l.Value).ToList(),
+                BackgroundColor = Colors.Palette1,
+                BorderColor = Colors.PaletteBorder1,
+                BorderWidth = 1
+            });
+        _config1.Data.Datasets.Add(new BarDataset()
+            {
+                Label = "Bar Dataset",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1,
+                Order = 1,
+                Type = "line"
+            });
+    }
+}

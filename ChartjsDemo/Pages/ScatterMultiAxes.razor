@@ -1,0 +1,139 @@
+﻿@page "/scattermultiaxes"
+
+<h3>Scatter Multi Axes</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private ScatterChartConfig? _config1;
+private Chart? _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new ScatterChartConfig()
+    {
+        Options = new Options()
+        {
+            Responsive = true,
+            MaintainAspectRatio = false,
+            Scales = new Dictionary&lt;string, Axis&gt;()
+            {
+                {
+                    Scales.YAxisId, new Axis()
+                    {
+                        Type = "linear",
+                        Position = "left",
+                        Ticks = new Ticks()
+                        {
+                            Color = "rgb(255, 0, 0)"
+                        }
+                    }
+                },
+                {
+                    Scales.Y2AxisId, new Axis()
+                    {
+                        Type = "linear",
+                        Position = "right",
+                        Ticks = new Ticks()
+                        {
+                            Color = "rgb(0, 0, 255)"
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    _config1.Data.Datasets.Add(new ScatterDataset()
+        {
+            BackgroundColor = "rgb(255, 99, 132)",
+            BorderColor = "rgb(255, 0, 0)",
+            Label = ScatterDataExamples.ScatterSimpleText,
+            Data = ScatterDataExamples.ScatterDatasets,
+            YAxisId = "y"
+        });
+    _config1.Data.Datasets.Add(new ScatterDataset()
+        {
+            BackgroundColor = "rgb(0, 0, 230)",
+            BorderColor = "rgb(0, 0, 255)",
+            Label = ScatterDataExamples.ScatterMultiAxes,
+            Data = ScatterDataExamples.ScatterMultiAxesDatasets,
+            Y2AxisId = "y2"
+        });
+}
+</CodeSnippet>
+
+@code {
+    private ScatterChartConfig? _config1;
+    private Chart? _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new ScatterChartConfig()
+        {
+            Options = new Options()
+            {
+                Responsive = true,
+                MaintainAspectRatio = false,
+                Scales = new Dictionary<string, Axis>()
+                {
+                    {
+                        Scales.YAxisId, new Axis()
+                        {
+                            Type = "linear",
+                            Position = "left",
+                            Ticks = new Ticks()
+                            {
+                                Color = "rgb(255, 0, 0)"
+                            }
+                        }
+                    },
+                    {
+                        Scales.Y2AxisId, new Axis()
+                        {
+                            Type = "linear",
+                            Position = "right",
+                            Ticks = new Ticks()
+                            {
+                                Color = "rgb(0, 0, 255)"
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        _config1.Data.Datasets.Add(new ScatterDataset()
+            {
+                BackgroundColor = "rgb(255, 99, 132)",
+                BorderColor = "rgb(255, 0, 0)",
+                Label = ScatterDataExamples.ScatterSimpleText,
+                Data = ScatterDataExamples.ScatterDatasets,
+                YAxisId = "y"
+            });
+        _config1.Data.Datasets.Add(new ScatterDataset()
+            {
+                BackgroundColor = "rgb(0, 0, 230)",
+                BorderColor = "rgb(0, 0, 255)",
+                Label = ScatterDataExamples.ScatterMultiAxes,
+                Data = ScatterDataExamples.ScatterMultiAxesDatasets,
+                Y2AxisId = "y2"
+            });
+    }
+}

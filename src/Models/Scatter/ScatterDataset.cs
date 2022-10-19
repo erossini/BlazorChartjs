@@ -13,6 +13,16 @@
         public string BackgroundColor { get; set; }
 
         /// <summary>
+        /// Gets or sets the color of the border.
+        /// </summary>
+        /// <value>
+        /// The color of the border.
+        /// </value>
+        [JsonPropertyName("borderColor")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string BorderColor { get; set; }
+
+        /// <summary>
         /// Gets or sets the point radius.
         /// </summary>
         /// <value>
@@ -22,6 +32,12 @@
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public decimal? PointRadius { get; set; }
 
+        /// <summary>
+        /// Gets or sets the point hit radius.
+        /// </summary>
+        /// <value>
+        /// The point hit radius.
+        /// </value>
         [JsonPropertyName("pointHitRadius")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public decimal? PointHitRadius { get; set; }
@@ -55,5 +71,15 @@
         [JsonPropertyName("yAxisID")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? YAxisId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the y axis identifier.
+        /// </summary>
+        /// <value>
+        /// The y axis identifier.
+        /// </value>
+        [JsonPropertyName("y2AxisID")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Y2AxisId { get; set; }
     }
 }
