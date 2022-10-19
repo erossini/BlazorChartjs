@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Components.Web;
+using System.Threading.Tasks;
 
 namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
@@ -7,6 +8,28 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
     /// </summary>
     public class Options : IOptions
     {
+        #region Events
+
+        /// <summary>
+        /// Gets or sets the on hover asynchronous.
+        /// </summary>
+        /// <value>
+        /// The on hover asynchronous.
+        /// </value>
+        [JsonIgnore]
+        public Func<HoverContext, ValueTask>? OnHoverAsync { get; set; }
+
+        /// <summary>
+        /// Gets or sets the on mouse out asynchronous.
+        /// </summary>
+        /// <value>
+        /// The on mouse out asynchronous.
+        /// </value>
+        [JsonIgnore]
+        public Func<MouseEventArgs, ValueTask>? OnMouseOutAsync { get; set; }
+
+        #endregion Events
+
         /// <summary>
         /// Gets or sets the elements.
         /// </summary>
@@ -54,15 +77,6 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// </value>
         [JsonPropertyName("maintainAspectRatio")]
         public bool MaintainAspectRatio { get; set; } = false;
-
-        /// <summary>
-        /// Gets or sets the on hover asynchronous.
-        /// </summary>
-        /// <value>
-        /// The on hover asynchronous.
-        /// </value>
-        [JsonIgnore]
-        public Func<HoverContext, ValueTask>? OnHoverAsync { get; set; }
 
         /// <summary>
         /// Gets or sets the plugins.
