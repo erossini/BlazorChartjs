@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
@@ -92,5 +93,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonPropertyName("scales")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Dictionary<string, Axis> Scales { get; set; }
+
+        [JsonIgnore] 
+        public Func<MouseEventArgs, ValueTask>? OnMouseOutAsync { get; set; }
     }
 }
