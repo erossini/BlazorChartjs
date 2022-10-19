@@ -2,6 +2,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace PSC.Blazor.Components.Chartjs
 {
@@ -105,6 +106,14 @@ namespace PSC.Blazor.Components.Chartjs
             this.oldReference?.Dispose();
         }
 
+        private ValueTask OnMouseOut(MouseEventArgs mouseEventArgs)
+        {
+            if (Config.Options is Options {OnMouseOutAsync: { }} options)
+                return options.OnMouseOutAsync(mouseEventArgs);
+            else
+                return ValueTask.CompletedTask;
+        }
+        
         #region JavaScript invokable functions
 
         [JSInvokable]
