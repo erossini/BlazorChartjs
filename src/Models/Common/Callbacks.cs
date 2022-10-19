@@ -15,7 +15,7 @@
         /// </value>
         [JsonInclude]
         [JsonPropertyName("hasLabel")]
-        public bool HasLabel =>  Label != null;
+        public bool HasLabel => Label != null;
 
         /// <summary>
         /// Gets or sets the label.
@@ -24,6 +24,6 @@
         /// The label.
         /// </value>
         [JsonIgnore]
-        public Func<TooltipContext, string[]>? Label { get; set; }        
+        public Func<TooltipContext, string[]>? Label { get; set; }
     }
 }

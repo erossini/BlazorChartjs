@@ -13521,5 +13521,4 @@ if (typeof window !== 'undefined') {
 }
 
 return Chart;
-
 }));

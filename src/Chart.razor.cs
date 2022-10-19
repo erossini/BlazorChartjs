@@ -1,8 +1,7 @@
-using System.Linq;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace PSC.Blazor.Components.Chartjs
 {
@@ -123,9 +122,9 @@ namespace PSC.Blazor.Components.Chartjs
         }
 
         [JSInvokable]
-        public static string[] TooltipCallbacksLabel(DotNetObjectReference<IChartConfig> config,int[] parameters)
+        public static string[] TooltipCallbacksLabel(DotNetObjectReference<IChartConfig> config, int[] parameters)
         {
-            var ctx = new TooltipContext(parameters[0],parameters[1]);
+            var ctx = new TooltipContext(parameters[0], parameters[1]);
             if (config.Value.Options is Options options)
                 return options.Plugins.Tooltip.Callbacks.Label(ctx);
             else

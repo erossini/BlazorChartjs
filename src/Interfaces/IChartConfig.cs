@@ -4,6 +4,6 @@
     {
         string CanvasId { get; }
         string Type { get; set; }
-        IOptions Options { get;  }
+        IOptions Options { get; }
     }
 }

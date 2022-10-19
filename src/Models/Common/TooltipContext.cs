@@ -3,7 +3,7 @@
     /// <summary>
     /// Tooltip Context
     /// </summary>
-    public readonly record struct TooltipContext(int DatasetIndex,int DataIndex)
+    public readonly record struct TooltipContext(int DatasetIndex, int DataIndex)
     {
     }
 }
