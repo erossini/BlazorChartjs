@@ -18,6 +18,25 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         public Elements? Elements { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether this instance has on hover asynchronous.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance has on hover asynchronous; otherwise, <c>false</c>.
+        /// </value>
+        [JsonInclude]
+        [JsonPropertyName("hasOnHoverAsync")]
+        public bool HasOnHoverAsync => OnHoverAsync != null;
+
+        /// <summary>
+        /// Gets or sets the height.
+        /// </summary>
+        /// <value>
+        /// The height.
+        /// </value>
+        [JsonIgnore]
+        public string Height { get; set; }
+
+        /// <summary>
         /// Gets or sets the index axis. <seealso cref="Axes"/>
         /// </summary>
         /// <value>
@@ -35,6 +54,15 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// </value>
         [JsonPropertyName("maintainAspectRatio")]
         public bool MaintainAspectRatio { get; set; } = false;
+
+        /// <summary>
+        /// Gets or sets the on hover asynchronous.
+        /// </summary>
+        /// <value>
+        /// The on hover asynchronous.
+        /// </value>
+        [JsonIgnore]
+        public Func<HoverContext, ValueTask>? OnHoverAsync { get; set; }
 
         /// <summary>
         /// Gets or sets the plugins.
@@ -64,13 +92,5 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonPropertyName("scales")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Dictionary<string, Axis> Scales { get; set; }
-        
-        [JsonInclude]
-        [JsonPropertyName("hasOnHoverAsync")]
-        public bool HasOnHoverAsync =>  OnHoverAsync != null;
-
-        [JsonIgnore]
-        public Func<OnHoverContext, ValueTask>? OnHoverAsync { get; set; }        
-
     }
 }

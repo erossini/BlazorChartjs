@@ -122,10 +122,11 @@ namespace PSC.Blazor.Components.Chartjs
             else
                 throw new NotSupportedException();
         }
+
         [JSInvokable]
-        public static ValueTask OnHoverAsync(DotNetObjectReference<IChartConfig> config,double[] parameters)
+        public static ValueTask OnHoverAsync(DotNetObjectReference<IChartConfig> config, double[] parameters)
         {
-            var ctx = new OnHoverContext(parameters[0],parameters[1]);
+            var ctx = new HoverContext(parameters[0], parameters[1]);
             if (config.Value.Options is Options options)
                 return options.OnHoverAsync(ctx);
             else

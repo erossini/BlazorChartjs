@@ -13,9 +13,10 @@
                 dotnetConfig, [ctx.datasetIndex, ctx.dataIndex]);
         };
     }
+
     if (config?.options?.hasOnHoverAsync) {
         config.options.hasOnHoverAsync = undefined;
-        config.options.onHover = function (evt,activeElements, ch) {
+        config.options.onHover = function (evt, activeElements, ch) {
             const canvasPosition = Chart.helpers.getRelativePosition(evt, ch);
 
             // Substitute the appropriate scale IDs
@@ -37,8 +38,6 @@
 
         DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'ChartClick', rtn);
     };
-
- 
 
     chart.options.plugins.legend.onClick = function (e, legendItem, legend) {
     };
