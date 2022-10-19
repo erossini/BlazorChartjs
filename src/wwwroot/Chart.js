@@ -13,6 +13,20 @@
                 dotnetConfig, [ctx.datasetIndex, ctx.dataIndex]);
         };
     }
+    if (config?.options?.hasOnHoverAsync) {
+        config.options.hasOnHoverAsync = undefined;
+        config.options.onHover = function (evt,activeElements, ch) {
+            const canvasPosition = Chart.helpers.getRelativePosition(evt, ch);
+
+            // Substitute the appropriate scale IDs
+            const dataX = ch.scales.x.getValueForPixel(canvasPosition.x);
+            const dataY = ch.scales.y.getValueForPixel(canvasPosition.y);
+
+            DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnHoverAsync',
+                dotnetConfig, [dataX, dataY]);
+        };
+    }
+
     var chart = new Chart(context2d, config);
 
     chart.options.onClick = function (event, array) {
@@ -24,9 +38,7 @@
         DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'ChartClick', rtn);
     };
 
-    chart.options.onHover = function () {
-        DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'ChartHover');
-    }
+ 
 
     chart.options.plugins.legend.onClick = function (e, legendItem, legend) {
     };
