@@ -50,6 +50,19 @@ protected override async Task OnInitializedAsync()
     {
         _config1 = new LineChartConfig()
         {
+            Options = new Options()
+            {
+                Plugins = new Plugins()
+                {
+                    Crosshair = new Crosshair()
+                    {
+                        Vertical = new CrosshairLine()
+                        {
+                            Color = Colors.PaletteBorder1[0],
+                        }
+                    }                
+                }
+            }
         };
 
         _config1.Data.Labels = LineDataExamples.SimpleLineText;
