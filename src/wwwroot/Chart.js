@@ -83,7 +83,6 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
 
     var chart = new Chart(context2d, config);
     if (crosshair_plugin) {
-        console.log(crosshair_plugin);
         chart.canvas.addEventListener("mousemove", (evt) => {
             crosshairLine(chart, evt,crosshair_plugin);
         });
