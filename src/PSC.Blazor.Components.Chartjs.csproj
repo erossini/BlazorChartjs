@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Description>Chart.js integration for Blazor</Description>
+    <Description>Chart.js Blazor component</Description>
     <PackageIcon>psc_logo.png</PackageIcon>
     <ApplicationIcon>psc_ico.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -14,6 +14,8 @@
     <PackageTags>chartjs, blazor, c#, blazor-webassembly, blazor-server, blazor-component</PackageTags>
     <PackageProjectUrl>https://www.puresourcecode.com/dotnet/blazor/blazor-component-for-chartjs/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/erossini/BlazorChartjs</RepositoryUrl>
+    <Title>Chart.js Blazor component</Title>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

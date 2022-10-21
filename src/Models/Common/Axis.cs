@@ -3,6 +3,16 @@
     public sealed class Axis
     {
         /// <summary>
+        /// Gets or sets the begin at zero.
+        /// </summary>
+        /// <value>
+        /// The begin at zero.
+        /// </value>
+        [JsonPropertyName("beginAtZero")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public bool? BeginAtZero { get; set; }
+
+        /// <summary>
         /// Gets or sets the grid.
         /// </summary>
         /// <value>

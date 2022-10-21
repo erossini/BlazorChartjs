@@ -3,8 +3,16 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "Chart.js@3.9.1",
-      "destination": "wwwroot/lib/Chart.js/"
+        "library": "Chart.js@3.9.1",
+        "destination": "wwwroot/lib/Chart.js/"
+    },
+    {
+        "library": "chartjs-plugin-zoom@1.2.1",
+        "destination": "wwwroot/lib/chartjs-plugin-zoom/"
+    },
+    {
+        "library": "hammer.js@2.0.8",
+        "destination": "wwwroot/lib/hammer.js/"
     }
   ]
 }

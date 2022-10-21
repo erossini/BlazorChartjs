@@ -1,0 +1,368 @@
+﻿@page "/zoom"
+
+<h3>Zoom</h3>
+
+<p>
+    In this component, I added the zoom plugin for Chart.js. To use the zoom, you have to add in your <code>index.html</code> for the Blazor WebAssembly,
+    the following scripts available in the component itself (so, I can test if it is working).
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&lt;script src="_content/PSC.Blazor.Components.Chartjs/lib/Chart.js/chart.js">&lt;/script>
+&lt;script src="_content/PSC.Blazor.Components.Chartjs/lib/hammer.js/hammer.js">&lt;/script>
+&lt;script src="_content/PSC.Blazor.Components.Chartjs/lib/chartjs-plugin-zoom/chartjs-plugin-zoom.js">&lt;/script>
+</CodeSnippet>
+
+<p>
+    You have already added the script for Chart.js (first line). Now, you have to add the other 2 lines. The order is important. For more info about this plugin,
+    see the <a href="https://www.chartjs.org/chartjs-plugin-zoom/guide/options.html#zoom" target="_blank">ChartJs plugin website</a>.
+</p>
+
+<h4>Zoom options</h4>
+
+Following the Chart.js <a href="https://www.chartjs.org/chartjs-plugin-zoom/guide/options.html#zoom" target="_blank">documentation</a>, the zoom has to be defined like the following JavaScript code:
+
+<CodeSnippet Language="Language.javascript" Style="Style.VisualStudio">
+const config = {
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.1
+    }]
+  },
+  options: {
+    plugins: {
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true
+          },
+          mode: 'xy',
+        }
+      }
+    }
+  }
+};
+</CodeSnippet>
+
+In Chart.js Blazor Component, I called <code>Zoom</code> the main option for the zoom and <code>ZoomOptions</code> the other configurations under <code>Plugins</code>
+ | <code>Zoom</code>. For example:
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio">
+_config1 = new LineChartConfig()
+    {
+        Options = new Options()
+        {
+            Responsive = true,
+            MaintainAspectRatio = false,
+            Plugins = new Plugins()
+            {
+                Zoom = new Zoom()
+                {
+                    Enabled = true,
+                    Mode = "xy",
+                    ZoomOptions = new ZoomOptions()
+                    {
+                        Wheel = new Wheel()
+                        {
+                            Enabled = true
+                        },
+                        Pinch = new Pinch()
+                        {
+                            Enabled = true
+                        }
+                    }
+                }
+            }
+        }
+    };
+</CodeSnippet>
+
+The zoom option must be <code>enabled</code>.
+
+<h4>Examples</h4>
+<p>
+    Here there are some examples how to use the zoom. After the basic example, all the other examples are using the same basic configuraton and data.
+    So, you have only the changes in the zoom configuration.
+</p>
+
+<h5>Basic zoom</h5>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+ &ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config1;
+private Chart? _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                Responsive = true,
+                MaintainAspectRatio = false,
+                Plugins = new Plugins()
+                {
+                    Zoom = new Zoom()
+                    {
+                        Enabled = true,
+                        Mode = "xy",
+                        ZoomOptions = new ZoomOptions()
+                        {
+                            Wheel = new Wheel()
+                            {
+                                Enabled = true
+                            },
+                            Pinch = new Pinch()
+                            {
+                                Enabled = true
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+    _config1.Data.Labels = LineDataExamples.SimpleLineText;
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My First Dataset",
+            Data = LineDataExamples.SimpleLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Fill = false
+        });
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My Second Dataset",
+            Data = LineDataExamples.SimpleLine2.ToList(),
+            BackgroundColor = "rgba(75,192,192,0.2)",
+            BorderColor = "rgba(75,192,192,1)",
+            Fill = true
+        });
+}
+</CodeSnippet>
+
+<hr />
+
+<h4>Drag enabled</h4>
+
+<Chart Config="_config3" @ref="_chart1" Height="400px"></Chart>
+
+<CodeSnippet>
+Zoom = new Zoom()
+{
+    Enabled = true,
+    Mode = "xy",
+    ZoomOptions = new ZoomOptions()
+    {
+        Pan = new Pan()
+        {
+            Enabled = true,
+            Mode = "x"
+        },
+        Drag = new Drag()
+        {
+            Enabled = true,
+            BackgroundColor = "rgba(255, 99, 132, 0.2)",
+            BorderColor = "rgb(255, 99, 132)",
+            BorderWidth = 1
+        }
+    }
+}
+</CodeSnippet>
+
+<hr />
+
+<h4>Pan enabled</h4>
+
+<Chart Config="_config2" @ref="_chart1" Height="400px"></Chart>
+
+<CodeSnippet>
+Zoom = new Zoom()
+{
+    Enabled = true,
+    Mode = "xy",
+    ZoomOptions = new ZoomOptions()
+    {
+        Wheel = new Wheel()
+        {
+            Enabled = true
+        },
+        Pinch = new Pinch()
+        {
+            Enabled = true
+        },
+        Pan = new Pan()
+        {
+            Enabled = true
+        }
+    }
+}
+</CodeSnippet>
+
+@code {
+    private LineChartConfig? _config1;
+    private Chart? _chart1;
+
+    private LineChartConfig? _config2;
+    private Chart? _chart2;
+
+    private LineChartConfig? _config3;
+    private Chart? _chart3;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new LineChartConfig()
+            {
+                Options = new Options()
+                {
+                    Responsive = true,
+                    MaintainAspectRatio = false,
+                    Plugins = new Plugins()
+                    {
+                        Zoom = new Zoom()
+                        {
+                            Enabled = true,
+                            Mode = "xy",
+                            ZoomOptions = new ZoomOptions()
+                            {
+                                Wheel = new Wheel()
+                                {
+                                    Enabled = true
+                                },
+                                Pinch = new Pinch()
+                                {
+                                    Enabled = true
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+        _config1.Data.Labels = LineDataExamples.SimpleLineText;
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My First Dataset",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Fill = false
+            });
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My Second Dataset",
+                Data = LineDataExamples.SimpleLine2.ToList(),
+                BackgroundColor = "rgba(75,192,192,0.2)",
+                BorderColor = "rgba(75,192,192,1)",
+                Fill = true
+            });
+
+        _config2 = new LineChartConfig()
+            {
+                Options = new Options()
+                {
+                    Responsive = true,
+                    MaintainAspectRatio = false,
+                    Plugins = new Plugins()
+                    {
+                        Zoom = new Zoom()
+                        {
+                            Enabled = true,
+                            Mode = "xy",
+                            ZoomOptions = new ZoomOptions()
+                            {
+                                Wheel = new Wheel()
+                                {
+                                    Enabled = true
+                                },
+                                Pinch = new Pinch()
+                                {
+                                    Enabled = true
+                                }
+                            },
+                            Pan = new Pan()
+                            {
+                                Enabled = true,
+                                Mode = "x"
+                            }
+                        }
+                    }
+                }
+            };
+
+        _config2.Data.Labels = LineDataExamples.SimpleLineText;
+        _config2.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My First Dataset",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Fill = false
+            });
+        _config2.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My Second Dataset",
+                Data = LineDataExamples.SimpleLine2.ToList(),
+                BackgroundColor = "rgba(75,192,192,0.2)",
+                BorderColor = "rgba(75,192,192,1)",
+                Fill = true
+            });
+
+
+        _config3 = new LineChartConfig()
+            {
+                Options = new Options()
+                {
+                    Responsive = true,
+                    MaintainAspectRatio = false,
+                    Plugins = new Plugins()
+                    {
+                        Zoom = new Zoom()
+                        {
+                            Enabled = true,
+                            Mode = "xy",
+                            ZoomOptions = new ZoomOptions()
+                            {
+                                Drag = new Drag()
+                                {
+                                    Enabled = true,
+                                    BackgroundColor = "rgba(255, 99, 132, 0.2)",
+                                    BorderColor = "rgb(255, 99, 132)",
+                                    BorderWidth = 1
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+        _config3.Data.Labels = LineDataExamples.SimpleLineText;
+        _config3.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My First Dataset",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Fill = false
+            });
+        _config3.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My Second Dataset",
+                Data = LineDataExamples.SimpleLine2.ToList(),
+                BackgroundColor = "rgba(75,192,192,0.2)",
+                BorderColor = "rgba(75,192,192,1)",
+                Fill = true
+            });
+    }
+}

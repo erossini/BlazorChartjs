@@ -62,3 +62,8 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.flex-column {
+    overflow: auto;
+    max-height: calc(100vh - 56px);
+}
