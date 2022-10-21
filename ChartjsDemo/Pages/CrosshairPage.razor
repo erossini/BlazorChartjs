@@ -1,0 +1,241 @@
+﻿@page "/crosshair"
+
+<h3>Line with crosshair</h3>
+
+<p>
+    In every graph, you can add options. In the component, we added the <code>crossair</code>: this shows horizontal and vertical lines
+    on the graph to identify better where a point is. See the example below.
+</p>
+
+<h4>Horizontal crosshair</h4>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config1;
+private Chart? _chart1;
+
+protected override async Task OnInitializedAsync()
+    _config1 = new LineChartConfig()
+    {
+        Options = new Options()
+        {
+            Plugins = new Plugins()
+            {
+                Crosshair = new Crosshair()
+                {
+                    Vertical = new CrosshairLine()
+                    {
+                        Color = Colors.PaletteBorder1[0]
+                    }
+                }                
+            }
+        }
+    };
+
+    _config1.Data.Labels = LineDataExamples.SimpleLineText;
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My First Dataset",
+            Data = LineDataExamples.SimpleLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Tension = 0.1M,
+            Fill = false
+        });
+}
+</CodeSnippet>
+
+<hr/>
+
+<h4>Vertical crosshair</h4>
+
+<Chart Config="_config2" @ref="_chart1" Height="400px"></Chart>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config2" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config2;
+private Chart? _chart2;
+
+protected override async Task OnInitializedAsync()
+    _config2 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                Plugins = new Plugins()
+                {
+                    Crosshair = new Crosshair()
+                    {
+                        Horizontal = new CrosshairLine()
+                        {
+                            Color = Colors.PaletteBorder1[0]
+                        }
+                    }
+                }
+            }
+        };
+
+    _config2.Data.Labels = LineDataExamples.SimpleLineText;
+    _config2.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My First Dataset",
+            Data = LineDataExamples.SimpleLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Tension = 0.1M,
+            Fill = false
+        });
+}
+</CodeSnippet>
+
+<hr />
+
+<h4>Horizontal & Vertical crosshair</h4>
+
+<Chart Config="_config3" @ref="_chart1" Height="400px"></Chart>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config3" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config3;
+private Chart? _chart3;
+
+protected override async Task OnInitializedAsync()
+{
+    _config3 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                Plugins = new Plugins()
+                {
+                    Crosshair = new Crosshair()
+                    {
+                        Horizontal = new CrosshairLine()
+                        {
+                            Color = Colors.PaletteBorder1[0]
+                        },
+                        Vertical = new CrosshairLine()
+                        {
+                            Color = Colors.PaletteBorder1[0]
+                        }
+                    }
+                }
+            }
+        };
+
+    _config3.Data.Labels = LineDataExamples.SimpleLineText;
+    _config3.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My First Dataset",
+            Data = LineDataExamples.SimpleLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Tension = 0.1M,
+            Fill = false
+        });
+}
+</CodeSnippet>
+
+@code {
+    private LineChartConfig? _config1;
+    private LineChartConfig? _config2;
+    private LineChartConfig? _config3;
+
+    private Chart? _chart1;
+    private Chart? _chart2;
+    private Chart? _chart3;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                Plugins = new Plugins()
+                {
+                    Crosshair = new Crosshair()
+                    {
+                        Vertical = new CrosshairLine()
+                        {
+                            Color = Colors.PaletteBorder1[0]
+                        }
+                    }                
+                }
+            }
+        };
+
+        _config1.Data.Labels = LineDataExamples.SimpleLineText;
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My First Dataset",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Tension = 0.1M,
+                Fill = false
+            });
+
+        _config2 = new LineChartConfig()
+            {
+                Options = new Options()
+                {
+                    Plugins = new Plugins()
+                    {
+                        Crosshair = new Crosshair()
+                        {
+                            Horizontal = new CrosshairLine()
+                            {
+                                Color = Colors.PaletteBorder1[0]
+                            }
+                        }
+                    }
+                }
+            };
+
+        _config2.Data.Labels = LineDataExamples.SimpleLineText;
+        _config2.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My First Dataset",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Tension = 0.1M,
+                Fill = false
+            });
+
+        _config3 = new LineChartConfig()
+            {
+                Options = new Options()
+                {
+                    Plugins = new Plugins()
+                    {
+                        Crosshair = new Crosshair()
+                        {
+                            Horizontal = new CrosshairLine()
+                            {
+                                Color = Colors.PaletteBorder1[0]
+                            },
+                            Vertical = new CrosshairLine()
+                            {
+                                Color = Colors.PaletteBorder1[0]
+                            }
+                        }
+                    }
+                }
+            };
+
+        _config3.Data.Labels = LineDataExamples.SimpleLineText;
+        _config3.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My First Dataset",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Tension = 0.1M,
+                Fill = false
+            });
+    }
+}

@@ -25,8 +25,24 @@
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Tooltip? Tooltip { get; set; }
 
+        /// <summary>
+        /// Gets or sets the crosshair.
+        /// </summary>
+        /// <value>
+        /// The crosshair.
+        /// </value>
         [JsonPropertyName("crosshair")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Crosshair? Crosshair { get; set; }
+
+        /// <summary>
+        /// Gets or sets the zoom.
+        /// </summary>
+        /// <value>
+        /// The zoom.
+        /// </value>
+        [JsonPropertyName("zoom")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Zoom? Zoom { get; set; }
     }
 }
