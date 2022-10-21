@@ -24,5 +24,9 @@
         [JsonPropertyName("tooltip")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Tooltip? Tooltip { get; set; }
+
+        [JsonPropertyName("crosshair")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Crosshair? Crosshair { get; set; }
     }
 }

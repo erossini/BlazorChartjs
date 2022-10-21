@@ -105,7 +105,7 @@ namespace PSC.Blazor.Components.Chartjs
             this.oldReference?.Dispose();
         }
 
-        private ValueTask OnMouseOut(MouseEventArgs mouseEventArgs)
+        private ValueTask OnMouseOutAsync(MouseEventArgs mouseEventArgs)
         {
             if (Config.Options is Options { OnMouseOutAsync: { } } options)
                 return options.OnMouseOutAsync(mouseEventArgs);
