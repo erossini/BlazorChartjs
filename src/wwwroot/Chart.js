@@ -50,8 +50,6 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
     document.getElementById("chartcontainer" + id).innerHTML = '<canvas id="' + id + '"></canvas>';
     document.getElementById("chartcontainer" + id).style.display = '';
 
-    console.log(jsonConfig);
-
     var context2d = document.getElementById(id).getContext('2d');
     let config = eval(jsonConfig);
     if (config?.options?.plugins?.tooltip?.callbacks?.hasLabel) {
