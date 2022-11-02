@@ -106,25 +106,25 @@ protected override async Task OnInitializedAsync()
                         }
                     },
                     Scales = new Dictionary<string, Axis>()
-                {
                     {
-                        Scales.XAxisId, new Axis()
                         {
-                            Stacked = true,
-                            Ticks = new Ticks()
+                            Scales.XAxisId, new Axis()
                             {
-                                MaxRotation = 0,
-                                MinRotation = 0
+                                Stacked = true,
+                                Ticks = new Ticks()
+                                {
+                                    MaxRotation = 0,
+                                    MinRotation = 0
+                                }
+                            }
+                        },
+                        {
+                            Scales.YAxisId, new Axis()
+                            {
+                                Stacked = true
                             }
                         }
-                    },
-                    {
-                        Scales.YAxisId, new Axis()
-                        {
-                            Stacked = true
-                        }
                     }
-                }
                 }
             };
 

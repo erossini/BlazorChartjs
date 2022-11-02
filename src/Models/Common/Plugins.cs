@@ -36,6 +36,16 @@
         public Crosshair? Crosshair { get; set; }
 
         /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
+        [JsonPropertyName("title")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Title? Title { get; set; }
+
+        /// <summary>
         /// Gets or sets the zoom.
         /// </summary>
         /// <value>

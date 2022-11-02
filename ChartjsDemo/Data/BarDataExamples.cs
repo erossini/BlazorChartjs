@@ -1,4 +1,6 @@
-﻿namespace ChartjsDemo.Data;
+﻿using System.Diagnostics;
+
+namespace ChartjsDemo.Data;
 
 public static class BarDataExamples
 {
@@ -12,4 +14,8 @@ public static class BarDataExamples
             new DataItem() { Name = "June", Value = 55 },
             new DataItem() { Name = "July", Value = 40 }
         };
+
+    public static List<string> GroupedLabels = new List<string>() { "1900", "1950", "1999", "2050" };
+    public static List<decimal> Grouped1 = new List<decimal>() { 133, 221, 783, 2478 };
+    public static List<decimal> Grouped2 = new List<decimal>() { 408, 547, 675, 734 };
 }
