@@ -31,6 +31,26 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         #endregion Events
 
         /// <summary>
+        /// Gets or sets the animations.
+        /// </summary>
+        /// <value>
+        /// Enables/disables all animations
+        /// </value>
+        [JsonPropertyName("animation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public bool? Animation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the animations.
+        /// </summary>
+        /// <value>
+        /// The animations.
+        /// </value>
+        [JsonPropertyName("animations")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Animations? Animations { get; set; }
+
+        /// <summary>
         /// Gets or sets the elements.
         /// </summary>
         /// <value>

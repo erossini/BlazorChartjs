@@ -15,6 +15,7 @@
         [JsonPropertyName("backgroundColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<string> BackgroundColor { get; set; } = new List<string>();
+
         /// <summary>
         /// Gets or sets the arc offset when hovered (in pixels)
         /// </summary>

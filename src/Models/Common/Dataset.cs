@@ -33,7 +33,7 @@
         /// </value>
         [JsonPropertyName("order")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public int? Order { get; set; } = null;
+        public int? Order { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
@@ -43,6 +43,6 @@
         /// </value>
         [JsonPropertyName("type")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Type { get; set; } = null;
+        public string? Type { get; set; }
     }
 }
