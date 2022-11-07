@@ -3,15 +3,6 @@
     public class RadarDataset : Dataset
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="RadarDataset"/> is fill.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if fill; otherwise, <c>false</c>.
-        /// </value>
-        [JsonPropertyName("fill")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool Fill { get; set; }
-        /// <summary>
         /// Gets or sets the color of the background.
         /// </summary>
         /// <value>
@@ -20,6 +11,7 @@
         [JsonPropertyName("backgroundColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string BackgroundColor { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the border.
         /// </summary>
@@ -29,6 +21,27 @@
         [JsonPropertyName("borderColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string BorderColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the width of the border.
+        /// </summary>
+        /// <value>
+        /// The width of the border.
+        /// </value>
+        [JsonPropertyName("borderWidth")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? BorderWidth { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="RadarDataset"/> is fill.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if fill; otherwise, <c>false</c>.
+        /// </value>
+        [JsonPropertyName("fill")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool Fill { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the point background.
         /// </summary>
@@ -38,6 +51,7 @@
         [JsonPropertyName("pointBackgroundColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string PointBackgroundColor { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the point border.
         /// </summary>
@@ -47,6 +61,7 @@
         [JsonPropertyName("pointBorderColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string PointBorderColor { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the point hover background.
         /// </summary>
@@ -56,6 +71,7 @@
         [JsonPropertyName("pointHoverBackgroundColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string PointHoverBackgroundColor { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the point hover border.
         /// </summary>

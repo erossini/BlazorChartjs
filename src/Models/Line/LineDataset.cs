@@ -15,6 +15,7 @@
         [JsonPropertyName("backgroundColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string BackgroundColor { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the border.
         /// </summary>
@@ -24,6 +25,17 @@
         [JsonPropertyName("borderColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string BorderColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the width of the border.
+        /// </summary>
+        /// <value>
+        /// The width of the border.
+        /// </value>
+        [JsonPropertyName("borderWidth")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? BorderWidth { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="LineDataset"/> is fill.
         /// </summary>
@@ -33,6 +45,7 @@
         [JsonPropertyName("fill")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool Fill { get; set; } = false;
+
         /// <summary>
         /// Gets or sets the color of the fill.
         /// </summary>
@@ -42,6 +55,7 @@
         [JsonPropertyName("fillColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string FillColor { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the stroke.
         /// </summary>
@@ -51,6 +65,7 @@
         [JsonPropertyName("strokeColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string StrokeColor { get; set; }
+
         /// <summary>
         /// Gets or sets the tension.
         /// </summary>
