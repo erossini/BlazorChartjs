@@ -23,14 +23,14 @@
         public string BorderColor { get; set; }
 
         /// <summary>
-        /// Gets or sets the point radius.
+        /// Gets or sets the width of the border.
         /// </summary>
         /// <value>
-        /// The point radius.
+        /// The width of the border.
         /// </value>
-        [JsonPropertyName("pointRadius")]
+        [JsonPropertyName("borderWidth")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public decimal? PointRadius { get; set; }
+        public int? BorderWidth { get; set; }
 
         /// <summary>
         /// Gets or sets the point hit radius.
@@ -41,6 +41,16 @@
         [JsonPropertyName("pointHitRadius")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public decimal? PointHitRadius { get; set; }
+
+        /// <summary>
+        /// Gets or sets the point radius.
+        /// </summary>
+        /// <value>
+        /// The point radius.
+        /// </value>
+        [JsonPropertyName("pointRadius")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public decimal? PointRadius { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether show line.
@@ -68,9 +78,9 @@
         /// <value>
         /// The y axis identifier.
         /// </value>
-        [JsonPropertyName("yAxisID")]
+        [JsonPropertyName("y2AxisID")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? YAxisId { get; set; }
+        public string? Y2AxisId { get; set; }
 
         /// <summary>
         /// Gets or sets the y axis identifier.
@@ -78,8 +88,8 @@
         /// <value>
         /// The y axis identifier.
         /// </value>
-        [JsonPropertyName("y2AxisID")]
+        [JsonPropertyName("yAxisID")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Y2AxisId { get; set; }
+        public string? YAxisId { get; set; }
     }
 }

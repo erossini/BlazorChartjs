@@ -11,5 +11,15 @@
         [JsonPropertyName("backgroundColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<string> BackgroundColor { get; set; } = new List<string>();
+
+        /// <summary>
+        /// Gets or sets the width of the border.
+        /// </summary>
+        /// <value>
+        /// The width of the border.
+        /// </value>
+        [JsonPropertyName("borderWidth")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? BorderWidth { get; set; }
     }
 }
