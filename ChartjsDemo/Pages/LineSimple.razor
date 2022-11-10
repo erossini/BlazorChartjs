@@ -37,7 +37,9 @@ protected override async Task OnInitializedAsync()
             Data = LineDataExamples.SimpleLine.ToList(),
             BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
             Tension = 0.1M,
-            Fill = false
+            Fill = false,
+            PointRadius= 15,
+            PointStyle = PointStyle.Cross
         });
 }
 </CodeSnippet>
@@ -59,7 +61,9 @@ protected override async Task OnInitializedAsync()
                 Data = LineDataExamples.SimpleLine.ToList(),
                 BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
                 Tension = 0.1M,
-                Fill = false
+                Fill = false,
+                PointRadius= 15,
+                PointStyle = PointStyle.Cross
             });
     }
 }

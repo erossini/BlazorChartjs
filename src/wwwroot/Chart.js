@@ -1,5 +1,4 @@
 ﻿function crosshairLine(chart, evt, plugin) {
-    // https://www.youtube.com/watch?v=M3SOJJOf6L8
     const { canvas, ctx, chartArea: { left, right, top, bottom } } = chart;
 
     chart.update("none");
@@ -49,6 +48,8 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
     document.getElementById("chartcontainer" + id).innerHTML = '&nbsp;';
     document.getElementById("chartcontainer" + id).innerHTML = '<canvas id="' + id + '"></canvas>';
     document.getElementById("chartcontainer" + id).style.display = '';
+
+    console.log(jsonConfig);
 
     var context2d = document.getElementById(id).getContext('2d');
     let config = eval(jsonConfig);

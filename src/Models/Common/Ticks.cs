@@ -26,6 +26,34 @@
         public string? Color { get; set; }
 
         /// <summary>
+        /// Gets or sets the cross align.
+        /// </summary>
+        /// <value>
+        /// The cross align
+        /// </value>
+        [JsonIgnore]
+        public CrossAlign? CrossAlign
+        {
+            get => _crossAlign;
+            set
+            {
+                _crossAlign = value;
+                CrossAlignString = _crossAlign.Value;
+            }
+        }
+        private CrossAlign? _crossAlign;
+
+        /// <summary>
+        /// Gets or sets the cross align.
+        /// </summary>
+        /// <value>
+        /// The cross align.
+        /// </value>
+        [JsonPropertyName("crossAlign")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? CrossAlignString { get; set; }
+
+        /// <summary>
         /// Gets or sets the maximum rotation.
         /// </summary>
         /// <value>

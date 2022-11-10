@@ -1,6 +1,6 @@
-﻿@page "/pieSimple"
+﻿@page "/pieGauge"
 
-<h3>Pie Simple</h3>
+<h3>Pie Gauge</h3>
 
 <Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
 
@@ -21,13 +21,20 @@
 </p>
 
 <CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
-private PieChartConfig _config1;
-private Chart _chart1;
+private PieChartConfig? _config1;
+private Chart? _chart1;
 
 protected override async Task OnInitializedAsync()
 {
     _config1 = new PieChartConfig()
         {
+            Options = new PieOptions()
+            {
+                Responsive = true,
+                MaintainAspectRatio = false,
+                Rotation = -90,
+                Circumference = 180
+            }
         };
 
     _config1.Data.Labels = PieDataExamples.SimplePieText;
@@ -48,13 +55,15 @@ protected override async Task OnInitializedAsync()
     protected override async Task OnInitializedAsync()
     {
         _config1 = new PieChartConfig()
-        {
-            Options = new PieOptions()
             {
-                 Responsive = true,
-                 MaintainAspectRatio = false
-            }
-        };
+                Options = new PieOptions()
+                {
+                    Responsive = true,
+                    MaintainAspectRatio = false,
+                    Rotation = -90,
+                    Circumference = 180
+                }
+            };
 
         _config1.Data.Labels = PieDataExamples.SimplePieText;
         _config1.Data.Datasets.Add(new PieDataset()

@@ -13,7 +13,7 @@
         /// </value>
         [JsonPropertyName("display")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public bool? Display { get; set; } = null;
+        public bool? Display { get; set; }
 
         /// <summary>
         /// Gets or sets the text.
