@@ -7,7 +7,7 @@
     <PackageIcon>psc_logo.png</PackageIcon>
     <ApplicationIcon>psc_ico.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Tooltip callbacks by https://github.com/macias - Update ChartJs to 3.9.1</PackageReleaseNotes>
+    <PackageReleaseNotes>Add for Line chart Y and Y2 - Add Pie chart options - Introduce StringEnum for Align, LegendAlign, CrossAlign, PointStyle and Poistion</PackageReleaseNotes>
     <PackAsTool>False</PackAsTool>
     <Copyright>Enrico Rossini - PureSourceCode.com</Copyright>
     <RepositoryType>git</RepositoryType>

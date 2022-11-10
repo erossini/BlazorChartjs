@@ -57,6 +57,43 @@
         public string FillColor { get; set; }
 
         /// <summary>
+        /// Gets or sets the point radius.
+        /// </summary>
+        /// <value>
+        /// The point radius.
+        /// </value>
+        [JsonPropertyName("pointRadius")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public int? PointRadius { get; set; }
+
+        /// <summary>
+        /// Gets or sets the point style.
+        /// </summary>
+        /// <value>
+        /// The point style.
+        /// </value>
+        [JsonIgnore]
+        public PointStyle? PointStyle { 
+            get => _pointStyle; 
+            set
+            {
+                _pointStyle = value;
+                PointStyleString = _pointStyle.Value;
+            }
+        }
+        private PointStyle? _pointStyle;
+
+        /// <summary>
+        /// Gets or sets the point style string.
+        /// </summary>
+        /// <value>
+        /// The point style string.
+        /// </value>
+        [JsonPropertyName("pointStyle")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string? PointStyleString { get; set; }
+
+        /// <summary>
         /// Gets or sets the color of the stroke.
         /// </summary>
         /// <value>
@@ -75,5 +112,25 @@
         [JsonPropertyName("tension")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public decimal Tension { get; set; } = 0;
+
+        /// <summary>
+        /// Gets or sets the y axis identifier.
+        /// </summary>
+        /// <value>
+        /// The y axis identifier.
+        /// </value>
+        [JsonPropertyName("y2AxisID")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Y2AxisId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the y axis identifier.
+        /// </summary>
+        /// <value>
+        /// The y axis identifier.
+        /// </value>
+        [JsonPropertyName("yAxisID")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? YAxisId { get; set; }
     }
 }

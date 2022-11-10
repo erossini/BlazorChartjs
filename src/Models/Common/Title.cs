@@ -11,6 +11,23 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
     /// </summary>
     public class Title
     {
+        /// <summary>
+        /// Gets or sets the align.
+        /// </summary>
+        /// <value>
+        /// The align.
+        /// </value>
+        [JsonIgnore]
+        public Align? Align {
+            get => _align;
+            set
+            {
+                _align = value;
+                AlignString = _align.Value;
+            }
+        }
+        private Align? _align;
+
         /// <summary>Gets or sets the align of the title</summary>
         /// <value>
         ///   <para>
@@ -29,7 +46,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// </value>
         [JsonPropertyName("align")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Align { get; set; }
+        public string? AlignString { get; set; }
 
         /// <summary>
         /// Gets or sets the color.
@@ -66,6 +83,24 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// Gets or sets the position.
         /// </summary>
         /// <value>
+        /// The position.
+        /// </value>
+        [JsonIgnore]
+        public Position Position
+        {
+            get => _position;
+            set
+            {
+                _position = value;
+                PositionString = value.Value;
+            }
+        }
+        private Position _position;
+
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
+        /// <value>
         /// The position of the title. It accepts those values:
         ///   <list type="bullet">
         ///     <item>
@@ -83,8 +118,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         ///   </list>
         /// </value>
         [JsonPropertyName("position")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Position { get; set; }
+        public string? PositionString { get; set; }
 
         /// <summary>
         /// Gets or sets the text.

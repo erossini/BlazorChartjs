@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace PSC.Blazor.Components.Chartjs

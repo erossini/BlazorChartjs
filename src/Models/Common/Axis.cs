@@ -13,6 +13,26 @@
         public bool? BeginAtZero { get; set; }
 
         /// <summary>
+        /// Gets or sets the color.
+        /// </summary>
+        /// <value>
+        /// The color.
+        /// </value>
+        [JsonPropertyName("color")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Color { get; set; }
+
+        /// <summary>
+        /// Gets or sets the display.
+        /// </summary>
+        /// <value>
+        /// Display the axis or not
+        /// </value>
+        [JsonPropertyName("display")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public bool? Display { get; set; }
+
+        /// <summary>
         /// Gets or sets the grid.
         /// </summary>
         /// <value>
@@ -48,9 +68,27 @@
         /// <value>
         /// The position.
         /// </value>
+        [JsonIgnore]
+        public Position Position
+        {
+            get => _position;
+            set
+            {
+                _position = value;
+                PositionString = _position.Value;
+            }
+        }
+        private Position _position;
+
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
+        /// <value>
+        /// The position.
+        /// </value>
         [JsonPropertyName("position")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Position { get; set; }
+        public string? PositionString { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this axis is stacked.
@@ -61,6 +99,16 @@
         [JsonPropertyName("stacked")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? Stacked { get; set; }
+
+        /// <summary>
+        /// Gets or sets the text.
+        /// </summary>
+        /// <value>
+        /// The text.
+        /// </value>
+        [JsonPropertyName("Text")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Text { get; set; }
 
         /// <summary>
         /// Gets or sets the ticks.

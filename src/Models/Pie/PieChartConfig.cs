@@ -38,7 +38,7 @@
         /// </value>
         [JsonPropertyName("options")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public Options Options { get; set; }
+        public PieOptions Options { get; set; }
 
         /// <summary>
         /// Gets the options.
