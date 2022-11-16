@@ -54,7 +54,7 @@
         /// </value>
         [JsonPropertyName("hoverBackgroundColor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public List<string> HoverBackgroundColor { get; set; } = new List<string>();
+        public List<string>? HoverBackgroundColor { get; set; }
 
         /// <summary>
         /// Gets or sets the stack.
@@ -64,6 +64,6 @@
         /// </value>
         [JsonPropertyName("stack")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public List<string> Stack { get; set; }
+        public List<string>? Stack { get; set; }
     }
 }

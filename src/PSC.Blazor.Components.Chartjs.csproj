@@ -7,7 +7,7 @@
     <PackageIcon>psc_logo.png</PackageIcon>
     <ApplicationIcon>psc_ico.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Add for Line chart Y and Y2 - Add Pie chart options - Introduce StringEnum for Align, LegendAlign, CrossAlign, PointStyle and Poistion</PackageReleaseNotes>
+    <PackageReleaseNotes>Add multiple axes - Fix few bugs</PackageReleaseNotes>
     <PackAsTool>False</PackAsTool>
     <Copyright>Enrico Rossini - PureSourceCode.com</Copyright>
     <RepositoryType>git</RepositoryType>
@@ -16,6 +16,7 @@
     <RepositoryUrl>https://github.com/erossini/BlazorChartjs</RepositoryUrl>
     <Title>Chart.js Blazor component</Title>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

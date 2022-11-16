@@ -27,8 +27,21 @@ private Chart? _chart1;
 protected override async Task OnInitializedAsync()
 {
     _config1 = new DoughnutChartConfig()
+    {
+        Options = new Options()
         {
-        };
+            Responsive = true,
+            MaintainAspectRatio = false,
+            Plugins = new Plugins()
+            {
+                Legend = new Legend()
+                {
+                    Display = true,
+                    Position = LegendPosition.Left
+                }
+            }
+        }
+    };
 
     _config1.Data.Labels = PieDataExamples.SimplePieText;
     _config1.Data.Datasets.Add(new DoughnutDataset()
@@ -52,7 +65,15 @@ protected override async Task OnInitializedAsync()
             Options = new Options()
             {
                  Responsive = true,
-                 MaintainAspectRatio = false
+                 MaintainAspectRatio = false,
+                 Plugins = new Plugins()
+                 {
+                     Legend = new Legend()
+                     {
+                         Display = true,
+                         Position = LegendPosition.Left
+                     }
+                 }
             }
         };
 

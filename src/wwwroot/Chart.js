@@ -80,6 +80,30 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
         };
     }
 
+    if (config?.options?.groupXAxis) {
+        config.options.groupXAxis = undefined;
+
+        config.options.scales.x.ticks.callback = function (label) {
+            let realLabel = this.getLabelForValue(label)
+            var lbl = realLabel.split(";")[0];
+            return lbl;
+        }
+
+        config.options.scales.xAxis2.type = 'category';
+        config.options.scales.xAxis2.grid.drawOnChartArea = false;
+        config.options.scales.xAxis2.ticks.callback = function (label) {
+            let realLabel = this.getLabelForValue(label)
+
+            var lbl = realLabel.split(";")[1];
+            var position = realLabel.split(";")[2];
+            if (position !== undefined && position !== '') {
+                return lbl;
+            } else {
+                return "";
+            }
+        }
+    }
+
     var chart = new Chart(context2d, config);
     if (crosshair_plugin) {
         chart.canvas.addEventListener("mousemove", (evt) => {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PSC.Blazor.Components.Chartjs.Models.Common
@@ -59,6 +60,35 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonPropertyName("elements")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Elements? Elements { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether there are groups for axes.
+        /// </summary>
+        /// <value><c>true</c> if there are groups for axes (the label should have a semicolumn (;) to divide the label to the name of the gorup); otherwise, <c>false</c>.</value>
+        [JsonPropertyName("groupXAxis")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public bool? GroupXAxis {
+            get => _groupXAxis;
+            set
+            {
+                _groupXAxis = value;
+
+                if (Scales == null)
+                    Scales = new Dictionary<string, Axis>();
+
+                if(Scales.Keys.Where(k => k == "x").Count() == 0)
+                    Scales.Add("x", new Axis() { Ticks = new Ticks() });
+                if (Scales.Keys.Where(k => k == "xAxis2").Count() == 0)
+                    Scales.Add("xAxis2", new Axis() { 
+                        Type = "category", 
+                        Grid = new Grid() { 
+                            DrawOnChartArea = false
+                        }, 
+                        Ticks = new Ticks()
+                    });
+            }
+        }
+        private bool? _groupXAxis;
 
         /// <summary>
         /// Gets a value indicating whether this instance has on hover asynchronous.

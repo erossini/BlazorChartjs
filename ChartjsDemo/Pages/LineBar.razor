@@ -42,25 +42,30 @@ protected override async Task OnInitializedAsync()
                     }
                 },
                 Scales = new Dictionary&lt;string, Axis&gt;()
-            {
                 {
-                    Scales.XAxisId, new Axis()
                     {
-                        Stacked = true,
-                        Ticks = new Ticks()
+                        Scales.XAxisId, new Axis()
                         {
-                            MaxRotation = 0,
-                            MinRotation = 0
+                            Stacked = true,
+                            Ticks = new Ticks()
+                            {
+                                MaxRotation = 0,
+                                MinRotation = 0
+                            }
+                        }
+                    },
+                    {
+                        Scales.YAxisId, new Axis()
+                        {
+                            Stacked = true,
+                            Title = new AxesTitle()
+                            {
+                                Display = true,
+                                Text = "This is an Y title"
+                            }
                         }
                     }
-                },
-                {
-                    Scales.YAxisId, new Axis()
-                    {
-                        Stacked = true
-                    }
                 }
-            }
             }
         };
 
@@ -121,7 +126,12 @@ protected override async Task OnInitializedAsync()
                         {
                             Scales.YAxisId, new Axis()
                             {
-                                Stacked = true
+                                Stacked = true,
+                                Title = new AxesTitle()
+                                {
+                                    Display = true,
+                                    Text = "This is an Y title"
+                                }
                             }
                         }
                     }

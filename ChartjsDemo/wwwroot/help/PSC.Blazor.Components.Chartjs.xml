@@ -1,0 +1,2578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>PSC.Blazor.Components.Chartjs</name>
+  </assembly>
+  <members>
+    <member name="T:PSC.Blazor.Components.Chartjs.Enums.Axes">
+      <summary>
+   Axes
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.Axes.X">
+      <summary>
+   The x
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.Axes.Y">
+      <summary>
+   The y
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.Axes.Default">
+      <summary>
+   The default
+   </summary>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Enums.ChartType">
+      <summary>
+   Defines the chart types.
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.ChartType.Bar">
+      <summary>
+   The bar chart type.
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.ChartType.Line">
+      <summary>
+   The line chart type.
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.ChartType.Pie">
+      <summary>
+   The pie chart type.
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.ChartType.Doughnut">
+      <summary>
+   The doughnut chart type.
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.ChartType.Radar">
+      <summary>
+   The radar chart type.
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.ChartType.Bubble">
+      <summary>
+   The bubble chart type.
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.ChartType.PolarArea">
+      <summary>
+   The polar area chart type.
+   </summary>
+    </member>
+    <member name="F:PSC.Blazor.Components.Chartjs.Enums.ChartType.Scatter">
+      <summary>
+   The scatter chart type.
+   </summary>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Interfaces.IDataset">
+      <summary>
+   Represents a dataset with an id and a type.
+   </summary>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Interfaces.IDataset`1">
+      <summary>
+   Represents a strongly typed dataset that holds data of type <typeparamref name="T" />.
+   </summary>
+      <typeparam name="T">The type of data this dataset contains.</typeparam>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Interfaces.IDataset.Id">
+      <summary>
+   Gets the ID of this dataset. Used to keep track of the datasets
+   across the .NET &lt;-&gt; JavaScript boundary.
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Interfaces.IDataset.Type">
+      <summary>
+   Gets the <see cref="ChartType" /> this dataset is for.
+   Important to set in mixed charts.
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Interfaces.IDataset`1.Data">
+      <summary>
+   Gets the data contained in this dataset. This property is read-only.
+   This is in addition to implementing <see cref="IList{T}" />.
+   </summary>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Interfaces.IOptions">
+      <summary>
+   IOptions
+   </summary>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Bar.BarChartConfig">
+      <summary>
+   Chart config for Bars
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarChartConfig.CanvasId">
+      <summary>
+   Gets the canvas identifier.
+   </summary>
+      <value>
+   The canvas identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarChartConfig.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarChartConfig.OnAnimationComplete">
+      <summary>
+   Gets or sets the on animation complete.
+   </summary>
+      <value>
+   The on animation complete.
+   </value>
+      <exception cref="T:System.NotImplementedException">
+      </exception>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarChartConfig.Options">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarChartConfig.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Bar.BarDataset">
+      <summary>
+   Bar Dataset
+   </summary>
+      <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Dataset" />
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarDataset.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarDataset.BorderColor">
+      <summary>
+   Gets or sets the color of the border.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarDataset.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarDataset.Fill">
+      <summary>
+   Gets or sets the fill.
+   </summary>
+      <value>
+   The fill.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarDataset.HoverBackgroundColor">
+      <summary>
+   Gets or sets the background color hover.
+   </summary>
+      <value>
+   The background color hover.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bar.BarDataset.Stack">
+      <summary>
+   Gets or sets the stack.
+   </summary>
+      <value>
+   The stack.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleChartConfig.CanvasId">
+      <summary>
+   Gets the canvas identifier.
+   </summary>
+      <value>
+   The canvas identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleChartConfig.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleChartConfig.OnAnimationComplete">
+      <summary>
+   Gets or sets the on animation complete.
+   </summary>
+      <value>
+   The on animation complete.
+   </value>
+      <exception cref="T:System.NotImplementedException">
+      </exception>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleChartConfig.Options">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleChartConfig.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleCoords">
+      <summary>
+   Bubble Coords
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleCoords.X">
+      <summary>
+   Gets or sets the x.
+   </summary>
+      <value>
+   The x.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleCoords.Y">
+      <summary>
+   Gets or sets the y.
+   </summary>
+      <value>
+   The y.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleCoords.R">
+      <summary>
+   Gets or sets the r.
+   </summary>
+      <value>
+   The r.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Bubble.BubbleDataset.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Animation.Delay">
+      <summary>
+   Gets or sets the delay before starting the animations.
+   </summary>
+      <value>
+   The delay.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Animation.Duration">
+      <summary>
+   Gets or sets the number of milliseconds an animation takes.
+   </summary>
+      <value>
+   The duration.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Animation.Easing">
+      <summary>Gets or sets the easing function to use</summary>
+      <value>
+        <para>
+   Easing function to use. Choose one of the following options</para>
+        <list type="bullet">
+          <item>linear</item>
+          <item>easeInQuad</item>
+          <item>easeOutQuad</item>
+          <item>easeInOutQuad</item>
+          <item>easeInCubic</item>
+          <item>easeOutCubic</item>
+          <item>easeInOutCubic</item>
+          <item>easeInQuart</item>
+          <item>easeOutQuart</item>
+          <item>easeInOutQuart</item>
+          <item>easeInQuint</item>
+          <item>easeOutQuint</item>
+          <item>easeInOutQuint</item>
+          <item>easeInSine</item>
+          <item>easeOutSine</item>
+          <item>easeInOutSine</item>
+          <item>easeInExpo</item>
+          <item>easeOutExpo</item>
+          <item>easeInOutExpo</item>
+          <item>easeInCirc</item>
+          <item>easeOutCirc</item>
+          <item>easeInOutCirc</item>
+          <item>easeInElastic</item>
+          <item>easeOutElastic</item>
+          <item>easeInOutElastic</item>
+          <item>easeInBack</item>
+          <item>easeOutBack</item>
+          <item>easeInOutBack</item>
+          <item>easeInBounce</item>
+          <item>easeOutBounce</item>
+          <item>easeInOutBounce</item>
+        </list>
+      </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Animation.Loop">
+      <summary>
+   Gets or sets the loop.
+   </summary>
+      <value>
+   The loop.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Animations">
+      <summary>
+   Animations
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Animations.Colors">
+      <summary>
+   Gets or sets the colors.
+   </summary>
+      <value>
+   Enables/Disables animation defined by the collection of 'colors' properties
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Animations.Tension">
+      <summary>
+   Gets or sets the tension.
+   </summary>
+      <value>
+   The tension.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Animations.X">
+      <summary>
+   Gets or sets the colors.
+   </summary>
+      <value>
+   Enables/Disables animation defined by the 'x' property
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Tension">
+      <summary>
+   Tension
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Tension.From">
+      <summary>
+   Gets or sets from.
+   </summary>
+      <value>
+   From.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Tension.To">
+      <summary>
+   Gets or sets to.
+   </summary>
+      <value>
+   To.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.HoverContext">
+      <summary>
+Hover Context
+</summary>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.TooltipContext">
+      <summary>
+Tooltip Context
+</summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Align.Start">
+      <summary>
+   Start
+   </summary>
+      <value>
+   Start
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Align.Center">
+      <summary>
+   Center
+   </summary>
+      <value>
+   Center
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Align.End">
+      <summary>
+   End
+   </summary>
+      <value>
+   End
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Align.Value">
+      <summary>
+   Gets the value.
+   </summary>
+      <value>
+   The value.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.CrossAlign">
+      <summary>
+   Point Style
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.CrossAlign.Near">
+      <summary>
+   Near
+   </summary>
+      <value>
+   Near
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.CrossAlign.Center">
+      <summary>
+   Center
+   </summary>
+      <value>
+   Center
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.CrossAlign.Far">
+      <summary>
+   Far
+   </summary>
+      <value>
+   Far
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.CrossAlign.Value">
+      <summary>
+   Gets the value.
+   </summary>
+      <value>
+   The value.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.LegendPosition.Bar">
+      <summary>
+   Bar
+   </summary>
+      <value>
+   Bar
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.LegendPosition.Bottom">
+      <summary>
+   Bottom
+   </summary>
+      <value>
+   Bottom
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.LegendPosition.ChartArea">
+      <summary>
+   Chart area
+   </summary>
+      <value>
+   Chart area
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.LegendPosition.Left">
+      <summary>
+   Left
+   </summary>
+      <value>
+   Left
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.LegendPosition.Right">
+      <summary>
+   Right.
+   </summary>
+      <value>
+   Right
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.LegendPosition.Value">
+      <summary>
+   Gets the value.
+   </summary>
+      <value>
+   The value.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle">
+      <summary>
+   Point Style
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.Circle">
+      <summary>
+   The circle.
+   </summary>
+      <value>
+   The circle.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.Cross">
+      <summary>
+   The cross.
+   </summary>
+      <value>
+   The cross.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.CrossRot">
+      <summary>
+   The cross rot.
+   </summary>
+      <value>
+   The cross rot.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.Dash">
+      <summary>
+   The dash.
+   </summary>
+      <value>
+   The dash.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.Line">
+      <summary>
+   The line.
+   </summary>
+      <value>
+   The line.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.Rectangle">
+      <summary>
+   The rectangle.
+   </summary>
+      <value>
+   The rectangle.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.RectangleRot">
+      <summary>
+   The rectangle rot.
+   </summary>
+      <value>
+   The rectangle rot.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.RectangleRounded">
+      <summary>
+   The rectangle rounded.
+   </summary>
+      <value>
+   The rectangle rounded.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.Star">
+      <summary>
+   The star.
+   </summary>
+      <value>
+   The star.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.Triangle">
+      <summary>
+   The triangle.
+   </summary>
+      <value>
+   The triangle.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.PointStyle.Value">
+      <summary>
+   Gets the value.
+   </summary>
+      <value>
+   The value.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Position.Value">
+      <summary>
+   Gets the value.
+   </summary>
+      <value>
+   The value.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Position.Top">
+      <summary>
+   Top.
+   </summary>
+      <value>
+   Top.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Position.Left">
+      <summary>
+   Left.
+   </summary>
+      <value>
+   Left.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Position.Bottom">
+      <summary>
+   Bottom.
+   </summary>
+      <value>
+   Bottom.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Position.Right">
+      <summary>
+   Right.
+   </summary>
+      <value>
+   Right.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.TextDirection">
+      <summary>
+   Class TextDirection.
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.TextDirection.LTR">
+      <summary>
+   Gets the left to right.
+   </summary>
+      <value>The LTR.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.TextDirection.RTL">
+      <summary>
+   Gets the right to left.
+   </summary>
+      <value>The RTL.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.TextDirection.Value">
+      <summary>
+   Gets the value.
+   </summary>
+      <value>
+   The value.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Drag">
+      <summary>
+   Drag options
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Drag.Enabled">
+      <summary>
+   Gets or sets enable drag-to-zoom
+   </summary>
+      <value>
+   The enabled.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Drag.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Drag.BorderColor">
+      <summary>
+   Gets or sets the color of the border.
+   </summary>
+      <value>
+   The color of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Drag.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Drag.ModifierKey">
+      <summary>Gets or sets the modifier key.
+   Modifier key required for panning with mouse</summary>
+      <value>The modifier key can have one of those values: ctrl, alt, shift, meta. Default: null</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Drag.Threshold">
+      <summary>
+   Gets or sets the threshold.
+   </summary>
+      <value>
+   The threshold. Default: 0
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Limits">
+      <summary>
+   Limits
+   </summary>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Pan">
+      <summary>
+   Pan
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Pan.Enabled">
+      <summary>
+   Gets or sets enable panning
+   </summary>
+      <value>
+   The enabled.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Pan.Mode">
+      <summary>
+   Gets or sets the mode how allowed panning directions
+   </summary>
+      <value>
+   The mode can have one of those values: x, y, xy (default)
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Pan.ModifierKey">
+      <summary>Gets or sets the modifier key.
+   Modifier key required for panning with mouse</summary>
+      <value>The modifier key can have one of those values: ctrl, alt, shift, meta. Default: null</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Pan.OverScaleMode">
+      <summary>
+   Gets or sets the over scale mode.
+   Which of the enabled panning directions should only be available when the mouse cursor is over a scale for that axis.
+   </summary>
+      <value>
+   The over scale mode can have one of those values: x, y, xy. Default: Undefined
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Pan.Threshold">
+      <summary>
+   Gets or sets the threshold.
+   </summary>
+      <value>
+   The threshold. Default: 10
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Pinch">
+      <summary>
+   Pinch
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Pinch.Enabled">
+      <summary>
+   Gets or sets enable zooming via pinch
+   </summary>
+      <value>
+   The enabled.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Wheel">
+      <summary>
+   Wheel
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Wheel.Enabled">
+      <summary>
+   Gets or sets zooming via mouse wheel
+   </summary>
+      <value>
+   The enabled.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Wheel.ModifierKey">
+      <summary>Gets or sets the modifier key.
+   Modifier key required for panning with mouse</summary>
+      <value>The modifier key can have one of those values: ctrl, alt, shift, meta. Default: null</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Wheel.Speed">
+      <summary>
+   Gets or sets the factor of zoom speed via mouse wheel
+   </summary>
+      <value>
+   The factor of zoom speed via mouse wheel. Default: 0.1M
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Zoom">
+      <summary>
+   Zoom
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Zoom.Enabled">
+      <summary>
+   Gets or sets zooming via mouse wheel
+   </summary>
+      <value>
+   The enabled.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Zoom.Limits">
+      <summary>
+   Gets or sets the limits.
+   </summary>
+      <value>
+   The limits.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Zoom.Mode">
+      <summary>
+   Gets or sets the zoom direction
+   </summary>
+      <value>
+   The mode. Values: x, y, xy
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Zoom.OverScaleMode">
+      <summary>
+   Gets or sets the over scale mode.
+   </summary>
+      <value>
+   The over scale mode. Values: x, y, xy
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Zoom.Pan">
+      <summary>
+   Gets or sets the pan.
+   </summary>
+      <value>
+   The pan.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Zoom.ZoomOptions">
+      <summary>
+   Gets or sets the zoom options.
+   </summary>
+      <value>
+   The zoom options.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.ZoomOptions">
+      <summary>
+   Zoom options
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.ZoomOptions.Drag">
+      <summary>
+   Gets or sets the drag.
+   </summary>
+      <value>
+   The drag.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.ZoomOptions.Pinch">
+      <summary>
+   Gets or sets the pinch.
+   </summary>
+      <value>
+   The pinch.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.ZoomOptions.Wheel">
+      <summary>
+   Gets or sets the wheel.
+   </summary>
+      <value>
+   The wheel.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.AxesTitle">
+      <summary>
+   Axes Title
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.AxesTitle.Align">
+      <summary>
+   Gets or sets the align.
+   </summary>
+      <value>The align.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.AxesTitle.AlignString">
+      <summary>
+   Gets or sets the align string.
+   </summary>
+      <value>The align string.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.AxesTitle.Color">
+      <summary>
+   Gets or sets the color.
+   </summary>
+      <value>The color.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.AxesTitle.Font">
+      <summary>
+   Gets or sets the font.
+   </summary>
+      <value>The font.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.AxesTitle.Display">
+      <summary>
+   Gets or sets the display.
+   </summary>
+      <value>
+   The display.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.AxesTitle.Text">
+      <summary>
+   Gets or sets the text.
+   </summary>
+      <value>
+   The text.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.BeginAtZero">
+      <summary>
+   Gets or sets the begin at zero.
+   </summary>
+      <value>
+   The begin at zero.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Color">
+      <summary>
+   Gets or sets the color.
+   </summary>
+      <value>
+   The color.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Display">
+      <summary>
+   Gets or sets the display.
+   </summary>
+      <value>
+   Display the axis or not
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Grid">
+      <summary>
+   Gets or sets the grid.
+   </summary>
+      <value>
+   The grid.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Max">
+      <summary>
+   Determines the maximum of the parameters.
+   </summary>
+      <value>
+   The maximum.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Min">
+      <summary>
+   Determines the minimum of the parameters.
+   </summary>
+      <value>
+   The minimum.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Position">
+      <summary>
+   Gets or sets the position.
+   </summary>
+      <value>
+   The position.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.PositionString">
+      <summary>
+   Gets or sets the position.
+   </summary>
+      <value>
+   The position.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Stacked">
+      <summary>
+   Gets or sets a value indicating whether this axis is stacked.
+   </summary>
+      <value>
+        <c>true</c> if stacked; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Text">
+      <summary>
+   Gets or sets the text.
+   </summary>
+      <value>
+   The text.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Ticks">
+      <summary>
+   Gets or sets the ticks.
+   </summary>
+      <value>
+   The ticks.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Title">
+      <summary>
+   Gets or sets the title.
+   </summary>
+      <value>
+   The title.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Axis.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Callbacks">
+      <summary>
+   Callbacks
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Callbacks.HasLabel">
+      <summary>
+   Gets a value indicating whether this instance has label.
+   </summary>
+      <value>
+        <c>true</c> if this instance has label; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Callbacks.Label">
+      <summary>
+   Gets or sets the label.
+   </summary>
+      <value>
+   The label.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Crosshair">
+      <summary>
+   Crosshair
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Crosshair.Cursor">
+      <summary>
+   Gets or sets the cursor.
+   </summary>
+      <value>
+   The cursor.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Crosshair.Horizontal">
+      <summary>
+   Gets or sets the horizontal.
+   </summary>
+      <value>
+   The horizontal.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Crosshair.Vertical">
+      <summary>
+   Gets or sets the vertical.
+   </summary>
+      <value>
+   The vertical.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.CrosshairLine">
+      <summary>
+   Crosshair line
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.CrosshairLine.Color">
+      <summary>
+   Gets or sets the color.
+   </summary>
+      <value>
+   The color.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.CrosshairLine.Dash">
+      <summary>
+   Gets or sets the dash.
+   </summary>
+      <value>
+   The dash.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.CrosshairLine.Width">
+      <summary>
+   Gets or sets the width.
+   </summary>
+      <value>
+   The width.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.CustomDataset`1">
+      <summary>
+   Datatset for charts
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.CustomDataset`1.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.CustomDataset`1.Label">
+      <summary>
+   Gets or sets the label.
+   </summary>
+      <value>
+   The label.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Data`1">
+      <summary>
+   Data for Bar
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Data`1.Datasets">
+      <summary>
+   Gets or sets the datasets.
+   </summary>
+      <value>
+   The datasets.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Data`1.Labels">
+      <summary>
+   Gets or sets the labels.
+   </summary>
+      <value>
+   The labels.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Dataset">
+      <summary>
+   Datatset for charts
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Dataset.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Dataset.Label">
+      <summary>
+   Gets or sets the label.
+   </summary>
+      <value>
+   The label.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Dataset.Order">
+      <summary>
+   Gets or sets the order.
+   </summary>
+      <value>
+   The order.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Dataset.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Elements">
+      <summary>
+   Elements
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Elements.Line">
+      <summary>
+   Gets or sets the line.
+   </summary>
+      <value>
+   The line.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Font">
+      <summary>
+   Font
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Font.Family">
+      <summary>
+   Gets or sets the family.
+   </summary>
+      <value>
+   Default font family for all text, follows CSS font-family options
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Font.LineHeight">
+      <summary>Gets or sets the height of the line.</summary>
+      <value>Height of an individual line of text (see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height" target="_blank">MDN</a>)</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Font.Size">
+      <summary>
+   Gets or sets the size.
+   </summary>
+      <value>
+   Default font size (in px) for text. Does not apply to radialLinear scale point labels.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Font.Style">
+      <summary>
+   Gets or sets the style.
+   </summary>
+      <value>
+   Default font style. Does not apply to tooltip title or footer. Does not apply to chart title.
+   Follows CSS font-style options (i.e. normal, italic, oblique, initial, inherit).
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Font.Weight">
+      <summary>Gets or sets the weight.</summary>
+      <value>Default font weight (boldness) (see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight" target="_blank">MDN</a>)</value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Grid">
+      <summary>
+   Grid
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Grid.Color">
+      <summary>
+   Gets or sets the color.
+   </summary>
+      <value>
+   The color.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Grid.Display">
+      <summary>
+   Gets or sets a value indicating whether this <see cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Grid" /> is display.
+   </summary>
+      <value>
+        <c>true</c> if display; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Grid.DrawBorder">
+      <summary>
+   Gets or sets a value indicating whether [draw border].
+   </summary>
+      <value>
+        <c>true</c> if [draw border]; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Grid.DrawOnChartArea">
+      <summary>
+   Gets or sets a value indicating whether [draw on chart area].
+   </summary>
+      <value>
+        <c>true</c> if [draw on chart area]; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Grid.DrawTicks">
+      <summary>
+   Gets or sets a value indicating whether [draw ticks].
+   </summary>
+      <value>
+        <c>true</c> if [draw ticks]; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Legend">
+      <summary>
+   Legend
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.Align">
+      <summary>
+   Gets or sets the align. <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Align" /></summary>
+      <value>
+   The align.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.AlignString">
+      <summary>
+   Gets or sets the align string.
+   </summary>
+      <value>
+   The align string.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.Display">
+      <summary>
+   Gets or sets a value indicating whether this <see cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Legend" /> is display.
+   </summary>
+      <value>
+        <c>true</c> if display; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.FullSize">
+      <summary>
+   Gets or sets a value indicating whether full size.
+   Marks that this box should take the full width/height of the canvas (moving other boxes).
+   This is unlikely to need to be changed in day-to-day use.
+   </summary>
+      <value>
+        <c>null</c> if fullSize contains no value, <c>true</c> is the default; otherwise, <c>false</c>.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.Position">
+      <summary>
+   Gets or sets the position.
+   </summary>
+      <value>
+   The position.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.PositionString">
+      <summary>
+   Gets or sets the position. <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.LegendPosition" /></summary>
+      <value>
+   The position.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.Reverse">
+      <summary>
+   Gets or sets a value indicating that the <see cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Legend" /> will show in reverse order.
+   </summary>
+      <value>
+        <c>true</c> if reverse; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.RTL">
+      <summary>
+   Gets or sets a value indicating if the <see cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Legend" /> will be rendered from right to left.
+   </summary>
+      <value>
+        <c>null</c> if [RTL] contains no value, <c>true</c> if [RTL]; otherwise, <c>false</c>.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.TextDirection">
+      <summary>
+   Gets or sets the text direction (ltr or rlt)
+   </summary>
+      <value>The text direction.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Legend.TextDirectionString">
+      <summary>
+   Gets or sets the text direction string (ltr or rtl)
+   </summary>
+      <value>The text direction string.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Line.BorderColor">
+      <summary>
+   Gets or sets the color of the border.
+   </summary>
+      <value>
+   The color of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Line.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Options">
+      <summary>
+   Options
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.OnHoverAsync">
+      <summary>
+   Gets or sets the on hover asynchronous.
+   </summary>
+      <value>
+   The on hover asynchronous.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.OnMouseOutAsync">
+      <summary>
+   Gets or sets the on mouse out asynchronous.
+   </summary>
+      <value>
+   The on mouse out asynchronous.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.Animation">
+      <summary>
+   Gets or sets the animations.
+   </summary>
+      <value>
+   Enables/disables all animations
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.Animations">
+      <summary>
+   Gets or sets the animations.
+   </summary>
+      <value>
+   The animations.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.Elements">
+      <summary>
+   Gets or sets the elements.
+   </summary>
+      <value>
+   The elements.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.GroupXAxis">
+      <summary>
+   Gets or sets a value indicating whether there are groups for axes.
+   </summary>
+      <value>
+        <c>true</c> if there are groups for axes (the label should have a semicolumn (;) to divide the label to the name of the gorup); otherwise, <c>false</c>.</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.HasOnHoverAsync">
+      <summary>
+   Gets a value indicating whether this instance has on hover asynchronous.
+   </summary>
+      <value>
+        <c>true</c> if this instance has on hover asynchronous; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.Height">
+      <summary>
+   Gets or sets the height.
+   </summary>
+      <value>
+   The height.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.IndexAxis">
+      <summary>
+   Gets or sets the index axis. <seealso cref="Axes" /></summary>
+      <value>
+   X or Y
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.MaintainAspectRatio">
+      <summary>
+   Gets or sets a value indicating whether [maintain aspect ratio].
+   </summary>
+      <value>
+        <c>true</c> if [maintain aspect ratio]; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.Plugins">
+      <summary>
+   Gets or sets the plugins.
+   </summary>
+      <value>
+   The plugins.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.Responsive">
+      <summary>
+   Gets or sets a value indicating whether this <see cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Options" /> is responsive.
+   </summary>
+      <value>
+        <c>true</c> if responsive; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Options.Scales">
+      <summary>
+   Gets or sets the scales.
+   </summary>
+      <value>
+   The scales.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Padding">
+      <summary>
+   Padding
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Padding.Top">
+      <summary>
+   Gets or sets the top.
+   </summary>
+      <value>
+   The top.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Padding.Left">
+      <summary>
+   Gets or sets the left.
+   </summary>
+      <value>
+   The left.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Padding.Bottom">
+      <summary>
+   Gets or sets the bottom.
+   </summary>
+      <value>
+   The bottom.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Padding.Right">
+      <summary>
+   Gets or sets the right.
+   </summary>
+      <value>
+   The right.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Plugins">
+      <summary>
+   Plugins
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Plugins.Legend">
+      <summary>
+   Gets or sets the legend.
+   </summary>
+      <value>
+   The legend.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Plugins.Tooltip">
+      <summary>
+   Gets or sets the tooltip.
+   </summary>
+      <value>
+   The tooltip.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Plugins.Crosshair">
+      <summary>
+   Gets or sets the crosshair.
+   </summary>
+      <value>
+   The crosshair.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Plugins.Title">
+      <summary>
+   Gets or sets the title.
+   </summary>
+      <value>
+   The title.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Plugins.Zoom">
+      <summary>
+   Gets or sets the zoom.
+   </summary>
+      <value>
+   The zoom.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Scales">
+      <summary>
+   Default scales identifiers for Bar
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Scales.XAxisId">
+      <summary>
+   Gets the x axis identifier.
+   </summary>
+      <value>
+   The x axis identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Scales.YAxisId">
+      <summary>
+   Gets the y axis identifier.
+   </summary>
+      <value>
+   The y axis identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Scales.Y2AxisId">
+      <summary>
+   Gets the y2 axis identifier.
+   </summary>
+      <value>
+   The y axis identifier.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Ticks">
+      <summary>
+   Ticks
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Ticks.CallBack">
+      <summary>
+   Gets or sets the call back.
+   </summary>
+      <value>
+   The call back.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Ticks.Color">
+      <summary>
+   Gets or sets the color.
+   </summary>
+      <value>
+   The color.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Ticks.CrossAlign">
+      <summary>
+   Gets or sets the cross align.
+   </summary>
+      <value>
+   The cross align
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Ticks.CrossAlignString">
+      <summary>
+   Gets or sets the cross align.
+   </summary>
+      <value>
+   The cross align.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Ticks.MaxRotation">
+      <summary>
+   Gets or sets the maximum rotation.
+   </summary>
+      <value>
+   The maximum rotation.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Ticks.MinRotation">
+      <summary>
+   Gets or sets the minimum rotation.
+   </summary>
+      <value>
+   The minimum rotation.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Title">
+      <summary>
+   Title
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.Align">
+      <summary>
+   Gets or sets the align.
+   </summary>
+      <value>
+   The align.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.AlignString">
+      <summary>Gets or sets the align of the title</summary>
+      <value>
+        <para>
+   The align of the title. It accepts those values:</para>
+        <list type="bullet">
+          <item>
+         start
+       </item>
+          <item>
+         center
+       </item>
+          <item>
+         end
+       </item>
+        </list>
+      </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.Color">
+      <summary>
+   Gets or sets the color.
+   </summary>
+      <value>
+   The color.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.Display">
+      <summary>
+   Gets or sets if the title is shown.
+   </summary>
+      <value>
+   The display.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.FullSize">
+      <summary>
+   Gets or sets the full size.
+   </summary>
+      <value>
+   Marks that this box should take the full width/height of the canvas.
+   If false, the box is sized and placed above/beside the chart area.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.Position">
+      <summary>
+   Gets or sets the position.
+   </summary>
+      <value>
+   The position.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.PositionString">
+      <summary>
+   Gets or sets the position.
+   </summary>
+      <value>
+   The position of the title. It accepts those values:
+     <list type="bullet"><item>
+         top
+       </item><item>
+         left
+       </item><item>
+         bottom
+       </item><item>
+         right
+       </item></list></value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.Text">
+      <summary>
+   Gets or sets the text.
+   </summary>
+      <value>
+   The Title text to display. If specified as an array, text is rendered on multiple lines
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.Padding">
+      <summary>
+   Gets or sets the padding.
+   </summary>
+      <value>
+   The padding to apply around the title.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Title.Font">
+      <summary>
+   Gets or sets the font.
+   </summary>
+      <value>
+   The font.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Common.Tooltip">
+      <summary>
+   Tooltip
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Common.Tooltip.Callbacks">
+      <summary>
+   Gets or sets the callbacks.
+   </summary>
+      <value>
+   The callbacks.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutChartConfig.CanvasId">
+      <summary>
+   Gets the canvas identifier.
+   </summary>
+      <value>
+   The canvas identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutChartConfig.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutChartConfig.OnAnimationComplete">
+      <summary>
+   Gets or sets the on animation complete.
+   </summary>
+      <value>
+   The on animation complete.
+   </value>
+      <exception cref="T:System.NotImplementedException">
+      </exception>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutChartConfig.Options">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutChartConfig.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutDataset">
+      <summary>
+   Doughnut Dataset
+   </summary>
+      <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Dataset" />
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutDataset.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutDataset.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Doughnut.DoughnutDataset.HoverOffset">
+      <summary>
+   Gets or sets the arc offset when hovered (in pixels)
+   </summary>
+      <value>
+   The hover offset.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Line.LineChartConfig">
+      <summary>
+   Chart config for Bars
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineChartConfig.CanvasId">
+      <summary>
+   Gets the canvas identifier.
+   </summary>
+      <value>
+   The canvas identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineChartConfig.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineChartConfig.Options">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineChartConfig.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset">
+      <summary>
+   Line Dataset
+   </summary>
+      <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Dataset" />
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.BorderColor">
+      <summary>
+   Gets or sets the color of the border.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.Fill">
+      <summary>
+   Gets or sets a value indicating whether this <see cref="T:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset" /> is fill.
+   </summary>
+      <value>
+        <c>true</c> if fill; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.FillColor">
+      <summary>
+   Gets or sets the color of the fill.
+   </summary>
+      <value>
+   The color of the fill.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.PointRadius">
+      <summary>
+   Gets or sets the point radius.
+   </summary>
+      <value>
+   The point radius.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.PointStyle">
+      <summary>
+   Gets or sets the point style.
+   </summary>
+      <value>
+   The point style.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.PointStyleString">
+      <summary>
+   Gets or sets the point style string.
+   </summary>
+      <value>
+   The point style string.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.StrokeColor">
+      <summary>
+   Gets or sets the color of the stroke.
+   </summary>
+      <value>
+   The color of the stroke.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.Tension">
+      <summary>
+   Gets or sets the tension.
+   </summary>
+      <value>
+   The tension.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.Y2AxisId">
+      <summary>
+   Gets or sets the y axis identifier.
+   </summary>
+      <value>
+   The y axis identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Line.LineDataset.YAxisId">
+      <summary>
+   Gets or sets the y axis identifier.
+   </summary>
+      <value>
+   The y axis identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieChartConfig.CanvasId">
+      <summary>
+   Gets the canvas identifier.
+   </summary>
+      <value>
+   The canvas identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieChartConfig.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieChartConfig.OnAnimationComplete">
+      <summary>
+   Gets or sets the on animation complete.
+   </summary>
+      <value>
+   The on animation complete.
+   </value>
+      <exception cref="T:System.NotImplementedException">
+      </exception>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieChartConfig.Options">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieChartConfig.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Pie.PieDataset">
+      <summary>
+   Pie Dataset
+   </summary>
+      <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Dataset" />
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieDataset.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieDataset.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieDataset.HoverOffset">
+      <summary>
+   Gets or sets the arc offset when hovered (in pixels)
+   </summary>
+      <value>
+   The hover offset.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Pie.PieOptions">
+      <summary>
+   Pie Options
+   </summary>
+      <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Options" />
+      <seealso cref="T:PSC.Blazor.Components.Chartjs.Interfaces.IOptions" />
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieOptions.Circumference">
+      <summary>
+   Gets or sets the circumference.
+   </summary>
+      <value>
+   The circumference.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Pie.PieOptions.Rotation">
+      <summary>
+   Gets or sets the rotation.
+   </summary>
+      <value>
+   The rotation.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Polar.PolarChartConfig.CanvasId">
+      <summary>
+   Gets the canvas identifier.
+   </summary>
+      <value>
+   The canvas identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Polar.PolarChartConfig.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Polar.PolarChartConfig.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Polar.PolarChartConfig.Options">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Polar.PolarChartConfig.OnAnimationComplete">
+      <summary>
+   Gets or sets the on animation complete.
+   </summary>
+      <value>
+   The on animation complete.
+   </value>
+      <exception cref="T:System.NotImplementedException">
+      </exception>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Polar.PolarData">
+      <summary>
+   Polar Data
+   </summary>
+      <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.Data`1" />
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Polar.PolarDataset.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Polar.PolarDataset.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarChartConfig.CanvasId">
+      <summary>
+   Gets the canvas identifier.
+   </summary>
+      <value>
+   The canvas identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarChartConfig.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarChartConfig.OnAnimationComplete">
+      <summary>
+   Gets or sets the on animation complete.
+   </summary>
+      <value>
+   The on animation complete.
+   </value>
+      <exception cref="T:System.NotImplementedException">
+      </exception>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarChartConfig.Options">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarChartConfig.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset.BorderColor">
+      <summary>
+   Gets or sets the color of the border.
+   </summary>
+      <value>
+   The color of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset.Fill">
+      <summary>
+   Gets or sets a value indicating whether this <see cref="T:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset" /> is fill.
+   </summary>
+      <value>
+        <c>true</c> if fill; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset.PointBackgroundColor">
+      <summary>
+   Gets or sets the color of the point background.
+   </summary>
+      <value>
+   The color of the point background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset.PointBorderColor">
+      <summary>
+   Gets or sets the color of the point border.
+   </summary>
+      <value>
+   The color of the point border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset.PointHoverBackgroundColor">
+      <summary>
+   Gets or sets the color of the point hover background.
+   </summary>
+      <value>
+   The color of the point hover background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarDataset.PointHoverBorderColor">
+      <summary>
+   Gets or sets the color of the point hover border.
+   </summary>
+      <value>
+   The color of the point hover border.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Radar.RadarOptions">
+      <summary>
+   Radar Options
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarOptions.Elements">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarOptions.MaintainAspectRatio">
+      <summary>
+   Gets or sets a value indicating whether [maintain aspect ratio].
+   </summary>
+      <value>
+        <c>true</c> if [maintain aspect ratio]; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarOptions.Responsive">
+      <summary>
+   Gets or sets a value indicating whether this <see cref="Options" /> is responsive.
+   </summary>
+      <value>
+        <c>true</c> if responsive; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Radar.RadarOptionsElements">
+      <summary>
+   Radar Options Elements
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarOptionsElements.Line">
+      <summary>
+   Gets or sets the radar options elements line.
+   </summary>
+      <value>
+   The radar options elements line.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Radar.RadarOptionsElementsLine">
+      <summary>
+   Radar Options Elements Line
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Radar.RadarOptionsElementsLine.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterChartConfig.CanvasId">
+      <summary>
+   Gets the canvas identifier.
+   </summary>
+      <value>
+   The canvas identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterChartConfig.Data">
+      <summary>
+   Gets or sets the data.
+   </summary>
+      <value>
+   The data.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterChartConfig.OnAnimationComplete">
+      <summary>
+   Gets or sets the on animation complete.
+   </summary>
+      <value>
+   The on animation complete.
+   </value>
+      <exception cref="T:System.NotImplementedException">
+      </exception>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterChartConfig.Options">
+      <summary>
+   Gets or sets the options.
+   </summary>
+      <value>
+   The options.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterChartConfig.Type">
+      <summary>
+   Gets or sets the type.
+   </summary>
+      <value>
+   The type.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterData">
+      <summary>
+   Scatter Data
+   </summary>
+      <seealso cref="T:PSC.Blazor.Components.Chartjs.Models.Common.CustomDataset`1" />
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.BackgroundColor">
+      <summary>
+   Gets or sets the color of the background.
+   </summary>
+      <value>
+   The color of the background.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.BorderColor">
+      <summary>
+   Gets or sets the color of the border.
+   </summary>
+      <value>
+   The color of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.BorderWidth">
+      <summary>
+   Gets or sets the width of the border.
+   </summary>
+      <value>
+   The width of the border.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.PointHitRadius">
+      <summary>
+   Gets or sets the point hit radius.
+   </summary>
+      <value>
+   The point hit radius.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.PointRadius">
+      <summary>
+   Gets or sets the point radius.
+   </summary>
+      <value>
+   The point radius.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.ShowLine">
+      <summary>
+   Gets or sets a value indicating whether show line.
+   </summary>
+      <value>
+        <c>true</c> if [show line]; otherwise, <c>false</c>.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.Tension">
+      <summary>
+   Gets or sets the tension.
+   </summary>
+      <value>
+   The tension.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.Y2AxisId">
+      <summary>
+   Gets or sets the y axis identifier.
+   </summary>
+      <value>
+   The y axis identifier.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterDataset.YAxisId">
+      <summary>
+   Gets or sets the y axis identifier.
+   </summary>
+      <value>
+   The y axis identifier.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterXYValue">
+      <summary>
+   Scatter XY Value
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterXYValue.X">
+      <summary>
+   Gets or sets the x.
+   </summary>
+      <value>
+   The x.
+   </value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Models.Scatter.ScatterXYValue.Y">
+      <summary>
+   Gets or sets the y.
+   </summary>
+      <value>
+   The y.
+   </value>
+    </member>
+    <member name="T:PSC.Blazor.Components.Chartjs.Util.ColorUtil">
+      <summary>
+   Provides useful methods for working with colors. Particularly the conversion from different kinds of C#-colors to string colors which are understood by javascript/css.
+   </summary>
+    </member>
+    <member name="M:PSC.Blazor.Components.Chartjs.Util.ColorUtil.ColorHexString(System.Byte,System.Byte,System.Byte)">
+      <summary>
+   Produces a string in the form '#rrggbb' with the provided rgb values.
+   </summary>
+      <param name="r">
+      </param>
+      <param name="g">
+      </param>
+      <param name="b">
+      </param>
+    </member>
+    <member name="M:PSC.Blazor.Components.Chartjs.Util.ColorUtil.ColorString(System.Byte,System.Byte,System.Byte)">
+      <summary>
+   Produces a string in the form 'rgba(r, g, b, 1)' with the provided rgb values where the alpha is fixed at 1.
+   </summary>
+      <param name="r">
+      </param>
+      <param name="g">
+      </param>
+      <param name="b">
+      </param>
+    </member>
+    <member name="M:PSC.Blazor.Components.Chartjs.Util.ColorUtil.ColorString(System.Byte,System.Byte,System.Byte,System.Double)">
+      <summary>
+   Produces a string in the form 'rgba(r, g, b, alpha)' with the provided rgb and alpha values.
+   </summary>
+      <param name="r">
+      </param>
+      <param name="g">
+      </param>
+      <param name="b">
+      </param>
+      <param name="alpha">
+      </param>
+    </member>
+    <member name="M:PSC.Blazor.Components.Chartjs.Util.ColorUtil.RandomColorString">
+      <summary>
+   Produces a string of the form 'rgba(r, g, b, alpha)' with random values for rgb and alpha.
+   </summary>
+    </member>
+    <member name="M:PSC.Blazor.Components.Chartjs.Util.ColorUtil.FromDrawingColor(System.Drawing.Color)">
+      <summary>
+   Generates the corresponding string representation of a <see cref="T:System.Drawing.Color" /> object.
+   Depending on the <see cref="P:System.Drawing.Color.A" /> value, it's returned as hex string or as rgba string.
+   </summary>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Chart.Class">
+      <summary>
+Gets or sets the class.
+</summary>
+      <value>
+The class.
+</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Chart.Config">
+      <summary>
+Gets or sets the configuration.
+</summary>
+      <value>
+The configuration.
+</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Chart.Height">
+      <summary>
+Gets or sets the height.
+</summary>
+      <value>
+The height.
+</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Chart.OldConfig">
+      <summary>
+Gets or sets the old configuration.
+</summary>
+      <value>
+The old configuration.
+</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Chart.OnChartClick">
+      <summary>
+Gets or sets the on chart click.
+</summary>
+      <value>
+The on chart click.
+</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Chart.OnChartOver">
+      <summary>
+Gets or sets the on chart over.
+</summary>
+      <value>
+The on chart over.
+</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Chart.Style">
+      <summary>
+Gets or sets the style.
+</summary>
+      <value>
+The style.
+</value>
+    </member>
+    <member name="P:PSC.Blazor.Components.Chartjs.Chart.Width">
+      <summary>
+Gets or sets the width.
+</summary>
+      <value>
+The width.
+</value>
+    </member>
+  </members>
+</doc>

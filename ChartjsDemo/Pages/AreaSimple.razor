@@ -65,7 +65,14 @@ protected override async Task OnInitializedAsync()
                 Options = new Options()
                 {
                     Responsive = true,
-                    MaintainAspectRatio = false
+                    MaintainAspectRatio = false,
+                    Plugins = new Plugins()
+                    {
+                        Legend = new Legend()
+                        {
+                            Display = true
+                        }
+                    }
                 }
             };
 

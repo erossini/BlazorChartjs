@@ -6,6 +6,45 @@
     public class AxesTitle
     {
         /// <summary>
+        /// Gets or sets the align.
+        /// </summary>
+        /// <value>The align.</value>
+        [JsonIgnore]
+        public Align Align {
+            get => _align;
+            set
+            {
+                _align = value;
+                AlignString = _align.Value;
+            }
+        }
+        private Align _align;
+
+        /// <summary>
+        /// Gets or sets the align string.
+        /// </summary>
+        /// <value>The align string.</value>
+        [JsonPropertyName("align")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string AlignString { get; set; }
+
+        /// <summary>
+        /// Gets or sets the color.
+        /// </summary>
+        /// <value>The color.</value>
+        [JsonPropertyName("color")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string Color { get; set; }
+
+        /// <summary>
+        /// Gets or sets the font.
+        /// </summary>
+        /// <value>The font.</value>
+        [JsonPropertyName("font")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Font Font { get; set; }
+
+        /// <summary>
         /// Gets or sets the display.
         /// </summary>
         /// <value>

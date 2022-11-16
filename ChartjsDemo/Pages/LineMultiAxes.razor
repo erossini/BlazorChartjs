@@ -1,0 +1,96 @@
+﻿@page "/lineMultiAxes"
+
+<h3>Line Multi Axes</h3>
+
+<p>
+The graph can have multiple X axis and this is useful when you want to group some data. In this example, the graph shows the number of votes for the years <b>2015</b> and <b>2015</b> for <b>January</b> to <b>March</b>.
+</p>
+
+<p>
+To achieve that, under <b>Options</b>, there is <b>GroupXAxis</b>: if the property is set to <b>True</b>, the property adds 2 <b>XAxis</b> and check for the labels to display. Separate one value from another with a semicolumn (<b>;</b>) The label should be contains:
+</p>
+
+<ol>
+    <li>the label to display</li>
+    <li>the label for the group</li>
+    <li>any value that identifies when the label for the group has to be display (in the example below the <i>Y</i> is where I define in corrispondence of what I want to display the label).</li>
+</ol>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config1;
+private Chart? _chart1;
+
+public static List&lt;string> MultiAxesLineText = new List&lt;string>() { 
+    "January;2015", "February;2015;Y", "March;2015", 
+    "January;2016", "February;2016;Y", "March;2016" };
+public static List&lt;decimal> MultiAxesLine = new List&lt;decimal>() { 12, 19, 3, 5, 2, 3 };
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new LineChartConfig()
+    {
+        Options = new Options()
+        {
+            GroupXAxis = true
+        }
+    };
+
+    _config1.Data.Labels = LineDataExamples.SimpleLineText;
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My First Dataset",
+            Data = LineDataExamples.SimpleLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Tension = 0.1M,
+            Fill = false,
+            PointRadius= 15,
+            PointStyle = PointStyle.Cross
+        });
+}
+</CodeSnippet>
+
+@code {
+    private LineChartConfig? _config1;
+    private Chart? _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                GroupXAxis = true
+            }
+        };
+
+        _config1.Data.Labels = LineDataExamples.MultiAxesLineText;
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "# of Votes",
+                Data = LineDataExamples.MultiAxesLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Tension = 0.1M,
+                Fill = false,
+                PointRadius= 15,
+                PointStyle = PointStyle.Cross
+            });
+    }
+}
