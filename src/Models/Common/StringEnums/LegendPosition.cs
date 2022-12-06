@@ -52,7 +52,7 @@
         /// Right
         /// </value>
         public static LegendPosition Right
-        { get { return new LegendPosition("Right"); } }
+        { get { return new LegendPosition("right"); } }
 
         /// <summary>
         /// Gets the value.

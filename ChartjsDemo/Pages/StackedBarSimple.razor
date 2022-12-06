@@ -1,0 +1,151 @@
+﻿@page "/stackedbar"
+
+<h3>Bar Simple</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private BarChartConfig? _config1;
+private Chart? _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new BarChartConfig()
+        {
+            Options = new Options()
+            {
+                Responsive = true,
+                MaintainAspectRatio = false,
+                Plugins = new Plugins()
+                {
+                    Legend = new Legend()
+                    {
+                        Align = Align.Center,
+                        Display = true,
+                        Position = LegendPosition.Right
+                    }
+                },
+                Scales = new Dictionary&lt;string, Axis>()
+                {
+                    {
+                        Scales.XAxisId, new Axis()
+                        {
+                            Stacked = true,
+                            Ticks = new Ticks()
+                            {
+                                MaxRotation = 0,
+                                MinRotation = 0
+                            }
+                        }
+                    },
+                    {
+                        Scales.YAxisId, new Axis()
+                        {
+                            Stacked = true
+                        }
+                    }
+                },
+                IndexAxis = Axes.Y
+            }
+        };
+
+    _config1.Data.Labels = BarDataExamples.GroupedLabels;
+    _config1.Data.Datasets.Add(new BarDataset()
+        {
+            Label = "Value",
+            Data = BarDataExamples.Grouped1,
+            BackgroundColor = new List&lt;string>() { Colors.Palette1.First() },
+            BorderColor = new List&lt;string>() { Colors.Palette1.First() },
+            BorderWidth = 1
+        });
+    _config1.Data.Datasets.Add(new BarDataset()
+        {
+            Label = "Value2",
+            Data = BarDataExamples.Grouped2,
+            BackgroundColor = new List&lt;string>() { Colors.PaletteBorder1.First() },
+            BorderColor = new List&lt;string>() { Colors.PaletteBorder1.First() },
+            BorderWidth = 1
+        });
+}
+</CodeSnippet>
+
+@code {
+    private BarChartConfig? _config1;
+    private Chart? _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new BarChartConfig()
+            {
+                Options = new Options()
+                {
+                    Responsive = true,
+                    MaintainAspectRatio = false,
+                    Plugins = new Plugins()
+                    {
+                        Legend = new Legend()
+                        {
+                            Align = Align.Center,
+                            Display = true,
+                            Position = LegendPosition.Right
+                        }
+                    },
+                    Scales = new Dictionary<string, Axis>()
+                    {
+                        {
+                            Scales.XAxisId, new Axis()
+                            {
+                                Stacked = true,
+                                Ticks = new Ticks()
+                                {
+                                    MaxRotation = 0,
+                                    MinRotation = 0
+                                }
+                            }
+                        },
+                        {
+                            Scales.YAxisId, new Axis()
+                            {
+                                Stacked = true
+                            }
+                        }
+                    },
+                    IndexAxis = Axes.Y
+                }
+            };
+
+        _config1.Data.Labels = BarDataExamples.GroupedLabels;
+        _config1.Data.Datasets.Add(new BarDataset()
+            {
+                Label = "Value",
+                Data = BarDataExamples.Grouped1,
+                BackgroundColor = new List<string>() { Colors.Palette1.First() },
+                BorderColor = new List<string>() { Colors.Palette1.First() },
+                BorderWidth = 1
+            });
+        _config1.Data.Datasets.Add(new BarDataset()
+            {
+                Label = "Value2",
+                Data = BarDataExamples.Grouped2,
+                BackgroundColor = new List<string>() { Colors.PaletteBorder1.First() },
+                BorderColor = new List<string>() { Colors.PaletteBorder1.First() },
+                BorderWidth = 1
+            });
+    }
+}

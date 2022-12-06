@@ -1,4 +1,4 @@
-﻿@page "/barSimple"
+﻿@page "/barHorizontal"
 
 <h3>Bar Simple</h3>
 
@@ -30,6 +30,7 @@ protected override async Task OnInitializedAsync()
     {
         Options = new Options()
         {
+            IndexAxis = "y",
             Responsive = true,
             MaintainAspectRatio = false,
             Plugins = new Plugins()
@@ -86,6 +87,7 @@ protected override async Task OnInitializedAsync()
         {
             Options = new Options()
             {
+                IndexAxis = "y",
                 Responsive = true,
                 MaintainAspectRatio = false,
                 Plugins = new Plugins()
