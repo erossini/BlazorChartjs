@@ -54,7 +54,7 @@
         /// <value><c>null</c> if fullSize contains no value, <c>true</c> is the default; otherwise, <c>false</c>.</value>
         [JsonPropertyName("fullSize")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public bool? FullSize { get; set; } = true;
+        public bool? FullSize { get; set; }
 
         /// <summary>
         /// Gets or sets the position.
@@ -90,7 +90,7 @@
         ///   <c>true</c> if reverse; otherwise, <c>false</c>.
         /// </value>
         [JsonPropertyName("reverse")]
-        public bool Reverse { get; set; } = false;
+        public bool Reverse { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating if the <see cref="Legend"/> will be rendered from right to left.

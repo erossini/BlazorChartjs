@@ -7,7 +7,7 @@
     <PackageIcon>psc_logo.png</PackageIcon>
     <ApplicationIcon>psc_ico.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Add multiple axes - Fix few bugs</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix legend</PackageReleaseNotes>
     <PackAsTool>False</PackAsTool>
     <Copyright>Enrico Rossini - PureSourceCode.com</Copyright>
     <RepositoryType>git</RepositoryType>

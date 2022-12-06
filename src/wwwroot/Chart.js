@@ -49,8 +49,6 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
     document.getElementById("chartcontainer" + id).innerHTML = '<canvas id="' + id + '"></canvas>';
     document.getElementById("chartcontainer" + id).style.display = '';
 
-    console.log(jsonConfig);
-
     var context2d = document.getElementById(id).getContext('2d');
     let config = eval(jsonConfig);
     if (config?.options?.plugins?.tooltip?.callbacks?.hasLabel) {
@@ -92,6 +90,30 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
         config.options.scales.xAxis2.type = 'category';
         config.options.scales.xAxis2.grid.drawOnChartArea = false;
         config.options.scales.xAxis2.ticks.callback = function (label) {
+            let realLabel = this.getLabelForValue(label)
+
+            var lbl = realLabel.split(";")[1];
+            var position = realLabel.split(";")[2];
+            if (position !== undefined && position !== '') {
+                return lbl;
+            } else {
+                return "";
+            }
+        }
+    }
+
+    if (config?.options?.groupYAxis) {
+        config.options.groupYAxis = undefined;
+
+        config.options.scales.y.ticks.callback = function (label) {
+            let realLabel = this.getLabelForValue(label)
+            var lbl = realLabel.split(";")[0];
+            return lbl;
+        }
+
+        config.options.scales.yAxis2.type = 'category';
+        config.options.scales.yAxis2.grid.drawOnChartArea = false;
+        config.options.scales.yAxis2.ticks.callback = function (label) {
             let realLabel = this.getLabelForValue(label)
 
             var lbl = realLabel.split(";")[1];

@@ -18,6 +18,12 @@ To achieve that, under <b>Options</b>, there is <b>GroupXAxis</b>: if the proper
 
 <Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
 
+<p>
+    Also, the graph can have multiple Y axis. In the following example, I use the same values from the example above but the axises are inverted and the group is on Y.
+</p>
+
+<Chart Config="_config2" @ref="_chart2" Height="400px"></Chart>
+
 <hr />
 
 <h3>Code</h3>
@@ -37,6 +43,8 @@ To achieve that, under <b>Options</b>, there is <b>GroupXAxis</b>: if the proper
 <CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
 private LineChartConfig? _config1;
 private Chart? _chart1;
+private LineChartConfig? _config2;
+private Chart? _chart2;
 
 public static List&lt;string> MultiAxesLineText = new List&lt;string>() { 
     "January;2015", "February;2015;Y", "March;2015", 
@@ -53,15 +61,36 @@ protected override async Task OnInitializedAsync()
         }
     };
 
-    _config1.Data.Labels = LineDataExamples.SimpleLineText;
+    _config1.Data.Labels = LineDataExamples.MultiAxesLineText;
     _config1.Data.Datasets.Add(new LineDataset()
         {
-            Label = "My First Dataset",
-            Data = LineDataExamples.SimpleLine.ToList(),
+            Label = "# of Votes",
+            Data = LineDataExamples.MultiAxesLine.ToList(),
             BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
             Tension = 0.1M,
             Fill = false,
             PointRadius= 15,
+            PointStyle = PointStyle.Cross
+        });
+
+    _config2 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                GroupYAxis = true,
+                IndexAxis = "y"
+            }
+        };
+
+    _config2.Data.Labels = LineDataExamples.MultiAxesLineText;
+    _config2.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "# of Votes",
+            Data = LineDataExamples.MultiAxesLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Tension = 0.1M,
+            Fill = false,
+            PointRadius = 15,
             PointStyle = PointStyle.Cross
         });
 }
@@ -70,6 +99,8 @@ protected override async Task OnInitializedAsync()
 @code {
     private LineChartConfig? _config1;
     private Chart? _chart1;
+    private LineChartConfig? _config2;
+    private Chart? _chart2;
 
     protected override async Task OnInitializedAsync()
     {
@@ -90,6 +121,27 @@ protected override async Task OnInitializedAsync()
                 Tension = 0.1M,
                 Fill = false,
                 PointRadius= 15,
+                PointStyle = PointStyle.Cross
+            });
+
+        _config2 = new LineChartConfig()
+            {
+                Options = new Options()
+                {
+                    GroupYAxis = true,
+                    IndexAxis = "y"
+                }
+            };
+
+        _config2.Data.Labels = LineDataExamples.MultiAxesLineText;
+        _config2.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "# of Votes",
+                Data = LineDataExamples.MultiAxesLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                Tension = 0.1M,
+                Fill = false,
+                PointRadius = 15,
                 PointStyle = PointStyle.Cross
             });
     }
