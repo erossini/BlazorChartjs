@@ -18,7 +18,7 @@ The first script is the Chart.js library version 3.7.1 because I'm using this ve
 
 Then, open your `_Imports.razor` and add the following:
 
-```
+```csharp
 @using PSC.Blazor.Components.Chartjs
 @using PSC.Blazor.Components.Chartjs.Enums
 @using PSC.Blazor.Components.Chartjs.Models
@@ -44,14 +44,14 @@ In your page you can create a new chart adding this code
 
 In the code section you have to define those variables:
 
-```
+```csharp
 private BarChartConfig _config1;
 private Chart _chart1;
 ```
 
 Then, you can pass the configuration for the chart into `_config1` (in the example code above). For a bar chart, the configuration is
 
-```
+```csharp
 _config1 = new BarChartConfig()
 {
     Options = new Options()
@@ -91,7 +91,7 @@ _config1 = new BarChartConfig()
 
 Then, you have to define the `Labels` and the `Datasets` like that
 
-```
+```csharp
 _config1.Data.Labels = BarDataExamples.SimpleBarText;
 _config1.Data.Datasets.Add(new Dataset()
 {
@@ -122,6 +122,7 @@ The result of the code above is this chart
   - [x] Radar skip points
   - [x] Combo bar/line
   - [x] Stacked bar/line
+
 
 ## Add labels to the chart
 
