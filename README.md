@@ -123,6 +123,42 @@ The result of the code above is this chart
   - [x] Combo bar/line
   - [x] Stacked bar/line
 
+## Add labels to the chart
+
+I added the `chartjs-plugin-datalabels` plugin in the component. This plugin shows the labels for each point in each graph. For more details abour this plugin, visit its [website](https://chartjs-plugin-datalabels.netlify.app/).
+
+![image](https://user-images.githubusercontent.com/9497415/224721251-da6959de-2b20-4d42-926b-b036de6695ee.png)
+
+First, in the _index.html_, we have to add after the `chart.js` script, another script for this component. It is important to add the script for `chartjs-plugin-datalabels` after `chart.js`. If the order is different, the plugin could not work. For example
+
+```
+<script src="_content/PSC.Blazor.Components.Chartjs/lib/Chart.js/chart.js"></script>
+<script src="_content/PSC.Blazor.Components.Chartjs/lib/hammer.js/hammer.js"></script>
+<script src="_content/PSC.Blazor.Components.Chartjs/lib/chartjs-plugin-zoom/chartjs-plugin-zoom.js"></script>
+<script src="_content/PSC.Blazor.Components.Chartjs/lib/chartjs-plugin-datalabels/chartjs-plugin-datalabels.js"></script>
+```
+
+In the code, you have to change the property `RegisterDataLabels` under `Options` to `true`. That asks to the component to register the library if the library is added to the page and there is data to show. For example, if I define a `LineChartConfig` the code is
+
+```csharp
+_config1 = new LineChartConfig()
+{
+    Options = new Options()
+    {
+        RegisterDataLabels = true,
+        Plugins = new Plugins()
+        {
+            DataLabels = new DataLabels()
+            {
+                Align = DatalabelsAlign.Start,
+                Anchor = DatalabelsAnchor.Start,
+            }
+        }
+    }
+};
+```
+
+With this code, the component will register the library in `chart.js`. It is possible to define a `DataLabels` for the entire chart. Also, each dataset can have its own `DataLabels` that rewrites the common settings.
 
 ---
     
