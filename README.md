@@ -161,6 +161,29 @@ _config1 = new LineChartConfig()
 
 With this code, the component will register the library in `chart.js`. It is possible to define a `DataLabels` for the entire chart. Also, each dataset can have its own `DataLabels` that rewrites the common settings.
 
+## OnClickChart
+
+When a user click on a chart and in particular on a point with value (bars, point, etc), the event `OnClickChart` returns the dataset index, the value index in the dataaet and the value.
+
+For example, in this chart the function `OnClickChart` is called in the event of `OnChartClick`.
+
+```
+<Chart Config="_config1" @ref="_chart1" Height="400px" OnChartClick="OnClickChart"></Chart>
+```
+
+The function receives `ClickValue` as parameter that contains the 3 values.
+
+```csharp
+public async Task OnClickChart(ClickValue value)
+{
+    ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.ValueIndex} - Value: {value.Value}";
+}
+```
+
+With this code, if the user clicks on a point, the function writes the values in the page.
+
+![image](https://user-images.githubusercontent.com/9497415/225041631-805cf3c6-4b3f-4475-b57e-2a1962472c35.png)
+
 ---
     
 ## PureSourceCode.com
