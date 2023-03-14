@@ -176,7 +176,8 @@ The function receives `ClickValue` as parameter that contains the 3 values.
 ```csharp
 public async Task OnClickChart(ClickValue value)
 {
-    ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.ValueIndex} - Value: {value.Value}";
+    ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.ValueIndex}" +
+                  $" - Value: {value.Value}";
 }
 ```
 
