@@ -128,6 +128,43 @@ The result of the code above is this chart
   - [x] Combo bar/line
   - [x] Stacked bar/line
 
+## Add new values
+
+When a graph is created, it means that the configuration is already defined and the datasets are passed to the chart engine. Without to recreate the graph, it is possible to add a new value to a specific dataset and/or add a completely new dataset to the graph.
+
+## Add a new value
+
+In an existing graph, it is possible to add a single new value to a specific dataset calling `AddData` function that it is available on the chart.
+
+In your page, create a new chart adding this code
+
+```
+<Chart Config="_config1" @ref="_chart1"></Chart>
+```
+
+In the code section you have to define those variables:
+
+```csharp
+private LineChartConfig _config1;
+private Chart _chart1;
+```
+
+_chart1_ is the reference to the `Chart` component and from it you can access to all the functions and properties the component has to offer.
+Now, the function `AddData` allows to add a new value in a specific existing dataset. The definition of `AddData` is the following
+
+```csharp
+AddData(string CanvasId, List<string> labels, int datasetIndex, List<decimal?> data)
+```
+
+For example, the following code adds a new label `Test1` to the list of labels, and for the dataset _0_ adding a random number.
+
+```csharp
+_chart1.AddData(new List<string?>() { "Test1" }, 0, new List<decimal?>() { rd.Next(0, 200) });
+```
+
+The result is visible in the following screenshot.
+
+![chart-addnewdata](https://user-images.githubusercontent.com/9497415/229902251-8a2adf61-b37c-4fdc-a869-ca8eb1a7cd81.gif)
 
 ## Callbacks
 
