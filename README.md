@@ -1,4 +1,4 @@
-# Create chart with Chart.js in Blazor
+# ChartJs component for Blazor
 This library is a wrap around [Chart.js](https://www.chartjs.org/) for using it with [Blazor WebAssembly](https://www.puresourcecode.com/tag/blazor-webassembly/) and [Blazor Server](https://www.puresourcecode.com/tag/blazor-server/). The components is build with .NET6.
 
 Few important links:
