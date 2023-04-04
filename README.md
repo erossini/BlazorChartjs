@@ -316,7 +316,7 @@ private ValueTask hoverAsync(HoverContext ctx)
 
 With this code, if the user move the mouse on the chart, the function writes the values in the page.
 
-![chart-hover](https://user-images.githubusercontent.com/9497415/229873984-10cddde1-467b-4060-bfcb-376163143408.gif)
+![chart-hover](https://user-images.githubusercontent.com/9497415/229874627-e720d5dc-bae2-4cfa-8dcc-55ddc58ef4f9.gif)
 
 ---
     
