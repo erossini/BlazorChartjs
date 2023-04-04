@@ -5,6 +5,11 @@ Few important links:
 * [Demo website](https://chartjs.puresourcecode.com/)
 * Source code on [GitHub](https://github.com/erossini/BlazorChartjs)
 * [Support forum](https://www.puresourcecode.com/forum/chart-js-for-blazor/)
+* [NuGet](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/) package
+
+Few articles to help you to use the component:
+* [ChartJs component for Blazor](https://www.puresourcecode.com/dotnet/blazor/blazor-component-for-chartjs/)
+* [Labels and OnClickChart for ChartJs](https://www.puresourcecode.com/dotnet/blazor/labels-and-onclickchart-for-chartjs/)
 
 ## Installation
 Fist, you have to add the component from [NuGet](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/). Then, open your `index.html` or `_Host` and add at the end of the page the following scripts:
@@ -18,7 +23,7 @@ The first script is the Chart.js library version 3.7.1 because I'm using this ve
 
 Then, open your `_Imports.razor` and add the following:
 
-```csharp
+```
 @using PSC.Blazor.Components.Chartjs
 @using PSC.Blazor.Components.Chartjs.Enums
 @using PSC.Blazor.Components.Chartjs.Models
@@ -124,6 +129,78 @@ The result of the code above is this chart
   - [x] Stacked bar/line
 
 
+## Callbacks
+
+The component has few callbacks (more in development) to customize your chart. The callbacks are ready to use are:
+
+- Tooltip
+  * Labels
+  * Titles
+
+### How to use it
+
+In the configuration of the chart in your Blazor page, you can add your custom code for each callback. 
+For an example, see the following code.
+
+```csharp
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new BarChartConfig()
+        {
+            Options = new Options()
+            {
+                Responsive = true,
+                MaintainAspectRatio = false,
+                Plugins = new Plugins()
+                {
+                    Legend = new Legend()
+                    {
+                        Align = Align.Center,
+                        Display = true,
+                        Position = LegendPosition.Right
+                    },
+                    Tooltip = new Tooltip()
+                    {
+                        Callbacks = new Callbacks()
+                        {
+                            Label = (ctx) =>
+                            {
+                                return new[] { 
+                                    $"DataIndex: {ctx.DataIndex}\nDatasetIndex: {ctx.DatasetIndex}" };
+                            },
+                            Title = (ctx) =>
+                            {
+                                return new[] { $"This is the value {ctx.Value}" };
+                            }
+                        }
+                    }
+                },
+                Scales = new Dictionary<string, Axis>()
+                {
+                    {
+                        Scales.XAxisId, new Axis()
+                        {
+                            Stacked = true,
+                            Ticks = new Ticks()
+                            {
+                                MaxRotation = 0,
+                                MinRotation = 0
+                            }
+                        }
+                    },
+                    {
+                        Scales.YAxisId, new Axis()
+                        {
+                            Stacked = true
+                        }
+                    }
+                }
+            }
+        };
+```
+
+For more info, please see my posts on [PureSourceCode.com](https://www.puresourcecode.com/dotnet/blazor/custom-javascript-function-in-blazor/).
+
 ## Add labels to the chart
 
 I added the `chartjs-plugin-datalabels` plugin in the component. This plugin shows the labels for each point in each graph. For more details abour this plugin, visit its [website](https://chartjs-plugin-datalabels.netlify.app/).
@@ -161,29 +238,85 @@ _config1 = new LineChartConfig()
 
 With this code, the component will register the library in `chart.js`. It is possible to define a `DataLabels` for the entire chart. Also, each dataset can have its own `DataLabels` that rewrites the common settings.
 
-## OnClickChart
+## OnClickAsync
 
-When a user click on a chart and in particular on a point with value (bars, point, etc), the event `OnClickChart` returns the dataset index, the value index in the dataaet and the value.
-
-For example, in this chart the function `OnClickChart` is called in the event of `OnChartClick`.
+When a user click on a point on the chart with a value, it is possible to add in the chart configuration a specific function to receive the data for that point ad in particular the index of the dataset, the index of the value in the dataset and the value.
 
 ```
-<Chart Config="_config1" @ref="_chart1" Height="400px" OnChartClick="OnClickChart"></Chart>
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
 ```
 
-The function receives `ClickValue` as parameter that contains the 3 values.
+In the configuration, under `Options`, there is `OnClickAsync`. Here, specified the function that has to receive the values (in this case `clickAsync`).
 
 ```csharp
-public async Task OnClickChart(ClickValue value)
+_config1 = new LineChartConfig()
+    {
+        Options = new Options()
+        {
+            OnClickAsync = clickAsync,
+            ...
+        }
+    }
+```
+
+The function `clickAsync` receives as parameter a `CallbackGenericContext` that contains the 3 values: `DatasetIndex` and `DataIndex` as int and the `Value` as decimal.
+
+In the following example, the function change the string `ClickString` using `values`.
+
+```csharp
+public ValueTask clickAsync(CallbackGenericContext value)
 {
-    ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.ValueIndex}" +
-                  $" - Value: {value.Value}";
+    ClickString = $"Dataset index: {value.DatasetIndex} - " +
+                    $"Value index: {value.DataIndex} - " + 
+                    $"Value: {value.Value}";
+    StateHasChanged();
+
+    return ValueTask.CompletedTask;
 }
 ```
 
 With this code, if the user clicks on a point, the function writes the values in the page.
 
 ![image](https://user-images.githubusercontent.com/9497415/225041631-805cf3c6-4b3f-4475-b57e-2a1962472c35.png)
+
+## OnHoverAsync
+
+This function returns the position of the cursor on the chart. Define a new chart as usual.
+
+```
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+```
+
+In the configuration, under `Options`, there is `OnHoverAsync`. This provides the position of the cursor on the chart.
+
+```csharp
+_config1 = new LineChartConfig()
+    {
+        Options = new Options()
+        {
+            OnHoverAsync = hoverAsync,
+            ...
+        }
+    }
+```
+
+The function `hoverAsync` receives as parameter a `HoverContext` that contains the 2 values: `DataX` and `DataY` as decimal.
+
+In the following example, the function change the string `HoverString` using `values`.
+
+```csharp
+private ValueTask hoverAsync(HoverContext ctx)
+{
+    HoverString = $"X: {ctx.DataX} - Y: {ctx.DataY}";
+    StateHasChanged();
+
+    return ValueTask.CompletedTask;
+}
+```
+
+With this code, if the user move the mouse on the chart, the function writes the values in the page.
+
+![chart-hover](https://user-images.githubusercontent.com/9497415/229873984-10cddde1-467b-4060-bfcb-376163143408.gif)
 
 ---
     
@@ -241,3 +374,5 @@ My name is Enrico Rossini and you can contact me via:
 *   [Modal Dialog component for Blazor](https://www.puresourcecode.com/dotnet/blazor/modal-dialog-component-for-blazor/)
 *   [Create Tooltip component for Blazor](https://www.puresourcecode.com/dotnet/blazor/create-tooltip-component-for-blazor/)
 *   [Consume ASP.NET Core Razor components from Razor class libraries | Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/class-libraries?view=aspnetcore-5.0&tabs=visual-studio)
+*   [ChartJs component for Blazor](https://www.puresourcecode.com/dotnet/blazor/blazor-component-for-chartjs/)
+*   [Labels and OnClickChart for ChartJs](https://www.puresourcecode.com/dotnet/blazor/labels-and-onclickchart-for-chartjs/)
