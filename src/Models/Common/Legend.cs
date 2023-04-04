@@ -1,4 +1,6 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
+﻿using System.Threading.Tasks;
+
+namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
     /// Legend
@@ -122,5 +124,20 @@
         [JsonPropertyName("textDirection")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? TextDirectionString { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance has legend click.
+        /// </summary>
+        /// <value><c>true</c> if this instance has legend click; otherwise, <c>false</c>.</value>
+        [JsonInclude]
+        [JsonPropertyName("hasLegendClick")]
+        public bool HasLegendClick => OnClickAsync != null;
+
+        /// <summary>
+        /// Gets or sets the on legend click asynchronous.
+        /// </summary>
+        /// <value>The on legend click asynchronous.</value>
+        [JsonIgnore]
+        public Func<LegendClickContext, ValueTask>? OnClickAsync { get; set; }
     }
 }

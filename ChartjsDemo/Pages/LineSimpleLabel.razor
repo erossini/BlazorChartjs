@@ -1,0 +1,202 @@
+﻿@page "/lineLabels"
+
+<h3>Line and Labels</h3>
+
+<p>
+    In this example, I show how to add labels to the graph using the <code>chartjs-plugin-datalabels</code>.
+</p>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px" OnChartOver="OnHoverChart"></Chart>
+
+@if (!string.IsNullOrEmpty(ClickString))
+{
+    <p>
+        You click on @ClickString
+    </p>
+}
+@if(!string.IsNullOrEmpty(HoverString))
+{
+    <p>
+        Mouse is on the chart at @HoverString
+    </p>
+}
+
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config1;
+private Chart? _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new LineChartConfig()
+    {
+        Options = new Options()
+        {
+            RegisterDataLabels = true,
+            Plugins = new Plugins()
+            {
+                DataLabels = new DataLabels()
+                {
+                    Align = DatalabelsAlign.Start,
+                    Anchor = DatalabelsAnchor.Start,
+                }
+            }
+        }
+    };
+
+    _config1.Data.Labels = LineDataExamples.SimpleLineText;
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "Line 1",
+            Data = LineDataExamples.SimpleLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Tension = 0.1M,
+            Fill = false,
+            PointRadius= 15,
+            PointStyle = PointStyle.Cross
+        });
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "Line 2",
+            Data = LineDataExamples.SimpleLine2.ToList(),
+            BorderColor = Colors.PaletteBorder1.Skip(1).FirstOrDefault(),
+            DataLabels = new DataLabels()
+            {
+                BackgroundColor = Colors.PaletteBorder1.Skip(1).FirstOrDefault(),
+                BorderRadius = 4,
+                Color = "white",
+                Font = new Font()
+                {
+                    Weight = "bold"
+                },
+                Padding = new Padding(6)
+            }
+        });
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "Line 3",
+            Data = LineDataExamples.SimpleLine3.ToList(),
+            BorderColor = Colors.PaletteBorder1.Skip(2).FirstOrDefault(),
+            DataLabels = new DataLabels()
+            {
+                BackgroundColor = Colors.PaletteBorder1.Skip(2).FirstOrDefault(),
+                BorderRadius = 4,
+                Color = "white",
+                Font = new Font()
+                {
+                    Weight = "bold"
+                },
+                Padding = new Padding(6)
+            }
+        });
+}
+</CodeSnippet>
+
+@code {
+    private LineChartConfig? _config1;
+    private Chart? _chart1;
+
+    private string? ClickString { get; set; }
+    private string? HoverString { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                RegisterDataLabels = true,
+                Plugins = new Plugins()
+                {
+                    DataLabels = new DataLabels()
+                    {
+                        Align = DatalabelsAlign.Start,
+                        Anchor = DatalabelsAnchor.Start,
+                    }
+                }
+            }
+        };
+
+        _config1.Data.Labels = LineDataExamples.SimpleLineText;
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "Line 1",
+                Data = LineDataExamples.SimpleLine.ToList(),
+                BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+                DataLabels = new DataLabels()
+                {
+                    BackgroundColor = Colors.PaletteBorder1.FirstOrDefault(),
+                    BorderRadius = 4,
+                    Color = "white",
+                    Font = new Font()
+                    {
+                        Weight = "bold"
+                    },
+                    Padding = new Padding(6)
+                }
+            });
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "Line 2",
+                Data = LineDataExamples.SimpleLine2.ToList(),
+                BorderColor = Colors.PaletteBorder1.Skip(1).FirstOrDefault(),
+                DataLabels = new DataLabels()
+                {
+                    BackgroundColor = Colors.PaletteBorder1.Skip(1).FirstOrDefault(),
+                    BorderRadius = 4,
+                    Color = "white",
+                    Font = new Font()
+                    {
+                        Weight = "bold"
+                    },
+                    Padding = new Padding(6)
+                }
+            });
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "Line 3",
+                Data = LineDataExamples.SimpleLine3.ToList(),
+                BorderColor = Colors.PaletteBorder1.Skip(2).FirstOrDefault(),
+                DataLabels = new DataLabels()
+                {
+                    BackgroundColor = Colors.PaletteBorder1.Skip(2).FirstOrDefault(),
+                    BorderRadius = 4,
+                    Color = "white",
+                    Font = new Font()
+                    {
+                        Weight = "bold"
+                    },
+                    Padding = new Padding(6)
+                }
+            });
+    }
+
+    public async Task OnClickChart(ClickValue value)
+    {
+        if (value == null)
+            ClickString = "";
+        else
+            ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.ValueIndex} - Value: {value.Value}";
+    }
+
+    public async Task OnHoverChart(HoverContext hoverContext)
+    {
+        HoverString = $"X: {hoverContext.DataX} - Y: {hoverContext.DataY}";
+    }
+}

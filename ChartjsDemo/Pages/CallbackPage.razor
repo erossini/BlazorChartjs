@@ -1,0 +1,240 @@
+﻿@page "/callback"
+
+<h3>Callback example</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+@if (!string.IsNullOrEmpty(HoverString))
+{
+    <p>
+        MouseOver: @HoverString
+    </p>
+}
+@if (!string.IsNullOrEmpty(ClickString))
+{
+    <p>
+        You click on @ClickString
+    </p>
+}
+@if (!string.IsNullOrEmpty(LegendString))
+{
+    <p>
+        Legend: @LegendString
+    </p>
+}
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private BarChartConfig? _config1;
+private Chart? _chart1;
+
+private string? ClickString { get; set; }
+private string? HoverString { get; set; }
+
+protected override async Task OnInitializedAsync()
+{
+    ClickString = "No point is clicked";
+    HoverString = "The mouse is not on the chart";
+
+    _config1 = new BarChartConfig()
+        {
+            Options = new Options()
+            {
+                OnClickAsync = onClickAsync,
+                OnHoverAsync = onHoverAsync,
+                Responsive = true,
+                MaintainAspectRatio = false,
+                Plugins = new Plugins()
+                {
+                    Legend = new Legend()
+                    {
+                        Align = Align.Center,
+                        Display = true,
+                        Position = LegendPosition.Right
+                    },
+                    Tooltip = new Tooltip()
+                    {
+                        Callbacks = new Callbacks()
+                        {
+                            Label = (ctx) =>
+                            {
+                                return new[] { $"DataIndex: {ctx.DataIndex}\nDatasetIndex: {ctx.DatasetIndex}" };
+                            },
+                            Title = (ctx) =>
+                            {
+                                return new[] { $"This is the value {ctx.Value}" };
+                            }
+                        }
+                    }
+                },
+                Scales = new Dictionary&lt;string, Axis>()
+                {
+                    {
+                        Scales.XAxisId, new Axis()
+                        {
+                            Stacked = true,
+                            Ticks = new Ticks()
+                            {
+                                MaxRotation = 0,
+                                MinRotation = 0
+                            }
+                        }
+                    },
+                    {
+                        Scales.YAxisId, new Axis()
+                        {
+                            Stacked = true
+                        }
+                    }
+                }
+            }
+        };
+
+    _config1.Data.Labels = BarDataExamples.CallbackLabels;
+    _config1.Data.Datasets.Add(new BarDataset()
+        {
+            Label = "Revenue",
+            Data = BarDataExamples.CallbackValues,
+            BackgroundColor = Colors.Palette1,
+            BorderColor = Colors.PaletteBorder1,
+            BorderWidth = 1
+        });
+}
+
+
+public ValueTask onClickAsync(CallbackGenericContext value)
+{
+    ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.DataIndex} - Value: {value.Value}";
+    StateHasChanged();
+
+    return ValueTask.CompletedTask;
+}
+
+private ValueTask onHoverAsync(HoverContext ctx)
+{
+    HoverString = $"X: {ctx.DataX} - Y: {ctx.DataY}";
+    StateHasChanged();
+
+    return ValueTask.CompletedTask;
+}
+</CodeSnippet>
+
+@code {
+    private BarChartConfig? _config1;
+    private Chart? _chart1;
+
+    private string? ClickString { get; set; }
+    private string? HoverString { get; set; }
+    private string? LegendString { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ClickString = "No point is clicked";
+        HoverString = "The mouse is not on the chart";
+        LegendString = "";
+
+        _config1 = new BarChartConfig()
+            {
+                Options = new Options()
+                {
+                    OnClickAsync = onClickAsync,
+                    OnHoverAsync = onHoverAsync,
+                    Responsive = true,
+                    MaintainAspectRatio = false,
+                    Plugins = new Plugins()
+                    {
+                        Legend = new Legend()
+                        {
+                            OnClickAsync = onLegendClick,
+                            Align = Align.Center,
+                            Display = true,
+                            Position = LegendPosition.Right
+                        },
+                        Tooltip = new Tooltip()
+                        {
+                            Callbacks = new Callbacks()
+                            {
+                                Label = (ctx) =>
+                                {
+                                    return new[] { $"DataIndex: {ctx.DataIndex}\nDatasetIndex: {ctx.DatasetIndex}" };
+                                },
+                                Title = (ctx) =>
+                                {
+                                    return new[] { $"This is the value {ctx.Value}" };
+                                }
+                            }
+                        }
+                    },
+                    Scales = new Dictionary<string, Axis>()
+                    {
+                        {
+                            Scales.XAxisId, new Axis()
+                            {
+                                Stacked = true,
+                                Ticks = new Ticks()
+                                {
+                                    MaxRotation = 0,
+                                    MinRotation = 0
+                                }
+                            }
+                        },
+                        {
+                            Scales.YAxisId, new Axis()
+                            {
+                                Stacked = true
+                            }
+                        }
+                    }
+                }
+            };
+
+        _config1.Data.Labels = BarDataExamples.CallbackLabels;
+        _config1.Data.Datasets.Add(new BarDataset()
+            {
+                Label = "Revenue",
+                Data = BarDataExamples.CallbackValues,
+                BackgroundColor = Colors.Palette1,
+                BorderColor = Colors.PaletteBorder1,
+                BorderWidth = 1
+            });
+    }
+
+    public ValueTask onClickAsync(CallbackGenericContext value)
+    {
+        ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.DataIndex} - Value: {value.Value}";
+        StateHasChanged();
+
+        return ValueTask.CompletedTask;
+    }
+
+    private ValueTask onHoverAsync(HoverContext ctx)
+    {
+        HoverString = $"DataX: {ctx.DataX} - DataY: {ctx.DataY}";
+        StateHasChanged();
+
+        return ValueTask.CompletedTask;
+    }
+
+    private ValueTask onLegendClick(LegendClickContext ctx)
+    {
+        LegendString = $"Click on index: {ctx.LegendIndex} - Text: {ctx.LegendText}";
+        StateHasChanged();
+
+        return ValueTask.CompletedTask;
+    }
+}

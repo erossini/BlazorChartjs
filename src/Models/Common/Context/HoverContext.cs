@@ -3,7 +3,7 @@
     /// <summary>
     /// Hover Context
     /// </summary>
-    public readonly record struct HoverContext(double DataX, double DataY)
+    public readonly record struct HoverContext(decimal DataX, decimal DataY)
     {
     }
 }

@@ -10,7 +10,8 @@
         /// </summary>
         /// <value>The align.</value>
         [JsonIgnore]
-        public Align Align {
+        public Align Align
+        {
             get => _align;
             set
             {

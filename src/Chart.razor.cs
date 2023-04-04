@@ -1,14 +1,28 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace PSC.Blazor.Components.Chartjs
 {
+    /// <summary>
+    /// Class Chart.
+    /// Implements the <see cref="ComponentBase" />
+    /// Implements the <see cref="System.IDisposable" />
+    /// </summary>
+    /// <seealso cref="ComponentBase" />
+    /// <seealso cref="System.IDisposable" />
     public partial class Chart : IDisposable
     {
-        private DotNetObjectReference<IChartConfig>? oldReference;
+        #region .NET Object references
+
+        /// <summary>
+        /// Gets or sets the js module.
+        /// </summary>
+        /// <value>The js module.</value>
+        protected ChartJsInterop? JSModule { get; set; }
+
+        #endregion .NET Object references
 
         #region Parameters
 
@@ -48,24 +62,6 @@ namespace PSC.Blazor.Components.Chartjs
         public IChartConfig OldConfig { get; set; }
 
         /// <summary>
-        /// Gets or sets the on chart click.
-        /// </summary>
-        /// <value>
-        /// The on chart click.
-        /// </value>
-        [Parameter]
-        public EventCallback<int> OnChartClick { get; set; }
-
-        /// <summary>
-        /// Gets or sets the on chart over.
-        /// </summary>
-        /// <value>
-        /// The on chart over.
-        /// </value>
-        [Parameter]
-        public EventCallback OnChartOver { get; set; }
-
-        /// <summary>
         /// Gets or sets the style.
         /// </summary>
         /// <value>
@@ -83,6 +79,49 @@ namespace PSC.Blazor.Components.Chartjs
         [Parameter]
         public string? Width { get; set; }
 
+        #region Events
+
+        /// <summary>
+        /// Gets or sets the on chart click.
+        /// </summary>
+        /// <value>
+        /// The on chart click.
+        /// </value>
+        [Parameter]
+        public EventCallback<CallbackGenericContext> OnChartClick { get; set; }
+
+        /// <summary>
+        /// Gets or sets the on chart over.
+        /// </summary>
+        /// <value>
+        /// The on chart over.
+        /// </value>
+        [Parameter]
+        public EventCallback<HoverContext> OnChartOver { get; set; }
+
+        /// <summary>
+        /// Gets or sets the on legend click.
+        /// </summary>
+        /// <value>The on legend click.</value>
+        [Parameter]
+        public EventCallback<LegendClickContext> OnLegendClick { get; set; }
+
+        #endregion
+
+        #region Public functions
+
+        public async void AddData(List<string?> labels, int datasetIndex, List<decimal?> data)
+        {
+            await JSModule.AddData(Config.CanvasId, labels, datasetIndex, data);
+        }
+
+        public async void AddDataset<T>(T dataset) where T : class
+        {
+            await JSModule.AddNewDataset(Config.CanvasId, dataset);
+        }
+
+        #endregion
+
         #endregion Parameters
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -91,19 +130,14 @@ namespace PSC.Blazor.Components.Chartjs
             {
                 if (OldConfig == null || Config != OldConfig)
                 {
-                    this.oldReference?.Dispose();
-                    var dotnet_ref = DotNetObjectReference.Create(Config);
-                    await JSRuntime.InvokeVoidAsync("setup", Config.CanvasId, dotnet_ref, Config);
-                    this.oldReference = dotnet_ref;
+                    var dotNetObjectRef = DotNetObjectReference.Create(Config);
+
+                    JSModule = new ChartJsInterop(JSRuntime);
+                    await JSModule.Setup(dotNetObjectRef, Config);
                 }
 
                 OldConfig = Config;
             }
-        }
-
-        public void Dispose()
-        {
-            this.oldReference?.Dispose();
         }
 
         private ValueTask OnMouseOutAsync(MouseEventArgs mouseEventArgs)
@@ -117,15 +151,19 @@ namespace PSC.Blazor.Components.Chartjs
         #region JavaScript invokable functions
 
         [JSInvokable]
-        public static Task ChartClick(int indexValue)
+        public static string[] TitleCallbacks(DotNetObjectReference<IChartConfig> config, decimal[] parameters)
         {
-            return Task.CompletedTask;
+            var ctx = new CallbackGenericContext((int)parameters[0], (int)parameters[1], parameters[2]);
+            if (config.Value.Options is Options options)
+                return options.Plugins.Tooltip.Callbacks.Title(ctx);
+            else
+                throw new NotSupportedException();
         }
 
         [JSInvokable]
         public static string[] TooltipCallbacksLabel(DotNetObjectReference<IChartConfig> config, int[] parameters)
         {
-            var ctx = new TooltipContext(parameters[0], parameters[1]);
+            var ctx = new CallbackGenericContext(parameters[0], parameters[1], parameters[2]);
             if (config.Value.Options is Options options)
                 return options.Plugins.Tooltip.Callbacks.Label(ctx);
             else
@@ -133,21 +171,38 @@ namespace PSC.Blazor.Components.Chartjs
         }
 
         [JSInvokable]
-        public static ValueTask OnHoverAsync(DotNetObjectReference<IChartConfig> config, double[] parameters)
+        public static async Task<ValueTask> OnClickAsync(DotNetObjectReference<IChartConfig> config, CallbackGenericContext ctx)
         {
-            var ctx = new HoverContext(parameters[0], parameters[1]);
-            if (config.Value.Options is Options options)
-                return options.OnHoverAsync(ctx);
+            //await OnChartClick.InvokeAsync(ctx);
+
+            if (config.Value.Options is Options options && options.OnClickAsync != null)
+                return options.OnClickAsync(ctx);
             else
-                throw new NotSupportedException();
+                return ValueTask.CompletedTask;
         }
 
         [JSInvokable]
-        public static string ChartScaleXTicks(string val, int index)
+        public static async Task<ValueTask> OnHoverAsync(DotNetObjectReference<IChartConfig> config, HoverContext ctx)
         {
-            return index % 2 == 0 ? val : "";
+            if (config.Value.Options is Options options && options.OnHoverAsync != null)
+                return options.OnHoverAsync(ctx);
+            else
+                return ValueTask.CompletedTask;
+        }
+
+        [JSInvokable]
+        public static async Task<ValueTask> OnLegendClickAsync(DotNetObjectReference<IChartConfig> config, LegendClickContext ctx)
+        {
+            if (config.Value.Options is Options options && options?.Plugins?.Legend?.OnClickAsync != null)
+                return options.Plugins.Legend.OnClickAsync(ctx);
+            else
+                return ValueTask.CompletedTask;
         }
 
         #endregion JavaScript invokable functions
+
+        public void Dispose()
+        {
+        }
     }
 }

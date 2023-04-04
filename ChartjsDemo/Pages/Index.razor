@@ -40,6 +40,27 @@ To use the Blazor component for ChartJS in your Blazor WebAssembly or Blazor Ser
 &#64;using PSC.Blazor.Components.Chartjs.Models.Scatter
 </CodeSnippet>
 
+<h3>
+    Add data labels to the graph
+</h3>
+
+<p>
+    I added the <code>chartjs-plugin-datalabels</code> plugin in the component. This plugin shows the labels for each point in each graph.
+    First, in the <em>index.html</em>, we have to add after the <code>chart.js</code> script, another script for this component. 
+    It is important to add the script for <code>chartjs-plugin-datalabels</code> after <code>chart.js</code>. If the order is different, the plugin could not work.
+</p>
+
+<CodeSnippet Language="Language.javascript" Style="Style.VisualStudio">
+&lt;script src="_content/PSC.Blazor.Components.Chartjs/lib/chartjs-plugin-datalabels/chartjs-plugin-datalabels.js">&lt;/script>
+</CodeSnippet>
+
+<p>
+    In the code, you have to change the property <code>RegisterDataLabels</code> under <code>Options</code> to <code>true</code>.
+    That asks to the component to register the library if the library is added to the page and there is data to show.
+</p>
+
+<h3>Wrap up</h3>
+
 <p>
     So, how you can see, there is a namespace for each type of charts plus the generics (Enums, Models and the base). This allows you to use the component across your application.
 </p>

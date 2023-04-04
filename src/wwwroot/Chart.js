@@ -43,7 +43,7 @@
     }
 }
 
-window.setup = (id, dotnetConfig, jsonConfig) => {
+export function chartSetup(id, dotnetConfig, jsonConfig) {
     document.getElementById("chartcontainer" + id).style.display = 'none';
     document.getElementById("chartcontainer" + id).innerHTML = '&nbsp;';
     document.getElementById("chartcontainer" + id).innerHTML = '<canvas id="' + id + '"></canvas>';
@@ -54,8 +54,32 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
     if (config?.options?.plugins?.tooltip?.callbacks?.hasLabel) {
         config.options.plugins.tooltip.callbacks.hasLabel = undefined;
         config.options.plugins.tooltip.callbacks.label = function (ctx) {
+            var dsIndex = -1;
+            var dIndex = -1;
+            var vl = 0;
+            if (ctx.datasetIndex >= 0 && ctx.dataIndex >= 0) {
+                dsIndex = ctx.datasetIndex;
+                dIndex = ctx.dataIndex;
+                vl = chart.data.datasets[dsIndex].data[dIndex];
+            }
             return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'TooltipCallbacksLabel',
-                dotnetConfig, [ctx.datasetIndex, ctx.dataIndex]);
+                dotnetConfig, [dsIndex, dIndex, vl]);
+        };
+    }
+
+    if (config?.options?.plugins?.tooltip?.callbacks?.hasCustomTitle) {
+        config.options.plugins.tooltip.callbacks.hasCustomTitle = undefined;
+        config.options.plugins.tooltip.callbacks.title = function (ctx) {
+            var dsIndex = -1;
+            var dIndex = -1;
+            var vl = 0;
+            if (ctx[0].datasetIndex >= 0 && ctx[0].dataIndex >= 0) {
+                dsIndex = ctx[0].datasetIndex;
+                dIndex = ctx[0].dataIndex;
+                vl = chart.data.datasets[dsIndex].data[dIndex];
+            }
+            return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'TitleCallbacks',
+                dotnetConfig, [dsIndex, dIndex, vl]);
         };
     }
 
@@ -73,8 +97,13 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
             const dataX = ch.scales.x.getValueForPixel(canvasPosition.x);
             const dataY = ch.scales.y.getValueForPixel(canvasPosition.y);
 
-            DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnHoverAsync',
-                dotnetConfig, [dataX, dataY]);
+            var rtn = {
+                DataX: dataX,
+                DataY: dataY
+            };
+
+            return DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnHoverAsync',
+                dotnetConfig, rtn);
         };
     }
 
@@ -126,6 +155,15 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
         }
     }
 
+    if (typeof ChartDataLabels !== 'undefined' && config?.options?.registerDataLabels) {
+        config?.options?.registerDataLabels == undefined;
+        Chart.register(ChartDataLabels);
+    }
+    if (typeof ChartDataLabels !== 'undefined' && !config?.options?.registerDataLabels) {
+        config?.options?.registerDataLabels == undefined;
+        Chart.unregister(ChartDataLabels);
+    }
+
     var chart = new Chart(context2d, config);
     if (crosshair_plugin) {
         chart.canvas.addEventListener("mousemove", (evt) => {
@@ -133,19 +171,51 @@ window.setup = (id, dotnetConfig, jsonConfig) => {
         });
     }
 
-    chart.options.onClick = function (event, array) {
-        var rtn = -1;
+    chart.options.onClick = function (evt, activeElements, chart) {
+        if (activeElements.length > 0) {
+            var dsIndex = activeElements[0].datasetIndex;
+            var dIndex = activeElements[0].index;
+            var vl = 0;
 
-        if (array !== undefined && array.length > 0)
-            rtn = array[0].index;
+            if (dsIndex >= 0 && dIndex >= 0) {
+                vl = chart.data.datasets[dsIndex].data[dIndex];
+            }
 
-        DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'ChartClick', rtn);
+            var rtn = {
+                DatasetIndex: dsIndex,
+                DataIndex: dIndex,
+                Value: vl
+            };
+
+            DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnClickAsync',
+                dotnetConfig, rtn);
+        }
     };
 
-    chart.options.plugins.legend.onClick = function (e, legendItem, legend) {
-    };
+    chart.options.plugins.legend.onClick = function (e, legendItem) {
+        var rtn = {
+            LegendIndex: legendItem.index,
+            LegendText: legendItem.text
+        };
 
-    function getImage() {
-        return chart.toBase64Image();
-    }
+        DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnLegendClickAsync',
+            dotnetConfig, rtn);
+    };
+}
+
+export function addData(id, label, dataset, data) {
+    var chart = Chart.getChart(id);
+
+    if (label !== null)
+        chart.data.labels.push(label);
+    if (dataset < chart.data.datasets.length)
+        chart.data.datasets[dataset].data.push(data);
+
+    chart.update();
+}
+
+export function addNewDataset(id, dataset) {
+    var chart = Chart.getChart(id);
+    chart.data.datasets.push(dataset);
+    chart.update();
 }

@@ -2,7 +2,27 @@
 
 <h3>Area Simple</h3>
 
+<p>
+    This example shows a simple area chart. You can click on any point to see the value.
+</p>
+
+<button @onclick="AddNewValue">Add new value</button>
+<button @onclick="AddNewDataset">Add new dataset</button>
+
 <Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+@if (!string.IsNullOrEmpty(HoverString))
+{
+    <p>
+        MouseOver: @HoverString
+    </p>
+}
+@if(!string.IsNullOrEmpty(ClickString))
+{
+    <p>
+        You click on @ClickString
+    </p>
+}
 
 <hr />
 
@@ -58,12 +78,20 @@ protected override async Task OnInitializedAsync()
     private LineChartConfig? _config1;
     private Chart? _chart1;
 
+    private string? ClickString { get; set; }
+    private string? HoverString { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
+        ClickString = "No point is clicked";
+        HoverString = "The mouse is not on the chart";
+
         _config1 = new LineChartConfig()
             {
                 Options = new Options()
                 {
+                    OnClickAsync = onClickAsync,
+                    OnHoverAsync = onHoverAsync,
                     Responsive = true,
                     MaintainAspectRatio = false,
                     Plugins = new Plugins()
@@ -71,6 +99,16 @@ protected override async Task OnInitializedAsync()
                         Legend = new Legend()
                         {
                             Display = true
+                        },
+                        Tooltip = new Tooltip()
+                        {
+                            Callbacks = new Callbacks()
+                            {
+                                Label = (ctx) =>
+                                {
+                                    return new[] { $"The value for this point is {ctx.Value}" };
+                                }
+                            }
                         }
                     }
                 }
@@ -91,6 +129,51 @@ protected override async Task OnInitializedAsync()
                 BackgroundColor = "rgba(75,192,192,0.2)",
                 BorderColor = "rgba(75,192,192,1)",
                 Fill = true
+            });
+    }
+
+    public ValueTask onClickAsync(CallbackGenericContext value)
+    {
+        ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.DataIndex} - Value: {value.Value}";
+        StateHasChanged();
+
+        return ValueTask.CompletedTask;
+    }
+
+    private ValueTask onHoverAsync(HoverContext ctx)
+    {
+        HoverString = $"DataX: {ctx.DataX} - DataY: {ctx.DataY}";
+        StateHasChanged();
+
+        return ValueTask.CompletedTask;
+    }
+
+    private void AddNewValue()
+    {
+        Random rd = new Random();
+
+        _chart1.AddData(new List<string?>() { "Test1" }, 0, new List<decimal?>() { rd.Next(0, 200) });
+        _chart1.AddData(null, 1, new List<decimal?>() { rd.Next(0, 200) });
+        _chart1.AddData(null, 2, new List<decimal?>() { rd.Next(0, 200) });
+    }
+
+    private void AddNewDataset()
+    {
+        Random rd = new Random();
+        List<decimal?> addDS = new List<decimal?>();
+        for (int i = 0; i < 8; i++)
+        {
+            addDS.Add(rd.Next(i, 200));
+        }
+
+        var color = String.Format("#{0:X6}", rd.Next(0x1000000));
+
+        _chart1.AddDataset<LineDataset>(new LineDataset()
+            {
+                Label = $"Dataset {DateTime.Now}",
+                Data = addDS,
+                BorderColor = color,
+                Fill = false
             });
     }
 }

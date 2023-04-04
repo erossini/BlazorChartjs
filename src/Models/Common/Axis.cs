@@ -2,6 +2,8 @@
 {
     public sealed class Axis
     {
+        private Position _position;
+
         /// <summary>
         /// Gets or sets the begin at zero.
         /// </summary>
@@ -78,8 +80,6 @@
                 PositionString = _position.Value;
             }
         }
-        private Position _position;
-
         /// <summary>
         /// Gets or sets the position.
         /// </summary>
@@ -99,6 +99,22 @@
         [JsonPropertyName("stacked")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? Stacked { get; set; }
+
+        /// <summary>
+        /// Gets or sets the suggested maximum.
+        /// </summary>
+        /// <value>The suggested maximum.</value>
+        [JsonPropertyName("suggestedMax")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public decimal? SuggestedMax { get; set; }
+
+        /// <summary>
+        /// Gets or sets the suggested minimum.
+        /// </summary>
+        /// <value>The suggested minimum.</value>
+        [JsonPropertyName("suggestedMin")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public decimal? SuggestedMin { get; set; }
 
         /// <summary>
         /// Gets or sets the text.

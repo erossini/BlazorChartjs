@@ -37,6 +37,32 @@
         public int? BorderWidth { get; set; }
 
         /// <summary>
+        /// Gets or sets the cubic interpolation mode.
+        /// </summary>
+        /// <value>The cubic interpolation mode.</value>
+        [JsonIgnore]
+        public CubicInterpolationMode? CubicInterpolationMode
+        {
+            get => _interpolation;
+            set
+            {
+                _interpolation = value;
+                CubicInterpolationModeString = _interpolation.Value;
+            }
+        }
+        private CubicInterpolationMode? _interpolation;
+
+        /// <summary>
+        /// Gets or sets the point style string.
+        /// </summary>
+        /// <value>
+        /// The point style string.
+        /// </value>
+        [JsonPropertyName("cubicInterpolationMode")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string? CubicInterpolationModeString { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether this <see cref="LineDataset"/> is fill.
         /// </summary>
         /// <value>
@@ -73,8 +99,9 @@
         /// The point style.
         /// </value>
         [JsonIgnore]
-        public PointStyle? PointStyle { 
-            get => _pointStyle; 
+        public PointStyle? PointStyle
+        {
+            get => _pointStyle;
             set
             {
                 _pointStyle = value;

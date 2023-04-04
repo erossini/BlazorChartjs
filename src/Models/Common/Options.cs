@@ -12,6 +12,13 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         #region Events
 
         /// <summary>
+        /// Gets or sets the on chart click.
+        /// </summary>
+        /// <value>The on chart click.</value>
+        [JsonIgnore]
+        public Func<CallbackGenericContext, ValueTask>? OnClickAsync { get; set; }
+
+        /// <summary>
         /// Gets or sets the on hover asynchronous.
         /// </summary>
         /// <value>
@@ -67,7 +74,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// <value><c>true</c> if there are groups for axes (the label should have a semicolumn (;) to divide the label to the name of the gorup); otherwise, <c>false</c>.</value>
         [JsonPropertyName("groupXAxis")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public bool? GroupXAxis {
+        public bool? GroupXAxis
+        {
             get => _groupXAxis;
             set
             {
@@ -76,14 +84,16 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
                 if (Scales == null)
                     Scales = new Dictionary<string, Axis>();
 
-                if(Scales.Keys.Where(k => k == "x").Count() == 0)
+                if (Scales.Keys.Where(k => k == "x").Count() == 0)
                     Scales.Add("x", new Axis() { Ticks = new Ticks() });
                 if (Scales.Keys.Where(k => k == "xAxis2").Count() == 0)
-                    Scales.Add("xAxis2", new Axis() { 
-                        Type = "category", 
-                        Grid = new Grid() { 
+                    Scales.Add("xAxis2", new Axis()
+                    {
+                        Type = "category",
+                        Grid = new Grid()
+                        {
                             DrawOnChartArea = false
-                        }, 
+                        },
                         Ticks = new Ticks()
                     });
             }
@@ -152,6 +162,14 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         public string IndexAxis { get; set; } = Axes.Default;
 
         /// <summary>
+        /// Gets or sets the interaction.
+        /// </summary>
+        /// <value>The interaction.</value>
+        [JsonPropertyName("interaction")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Interaction? Interaction { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether [maintain aspect ratio].
         /// </summary>
         /// <value>
@@ -178,6 +196,14 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// </value>
         [JsonPropertyName("responsive")]
         public bool Responsive { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating if you want to register the DataLabels plugin.
+        /// If the Chart doesn't find the DataLabels script, this plugin won't be added to the chart
+        /// </summary>
+        /// <value><c>true</c> if you want to register the DataLabels plugin for ChartJs; otherwise, <c>false</c> (by default).</value>
+        [JsonPropertyName("registerDataLabels")]
+        public bool RegisterDataLabels { get; set; } = false;
 
         /// <summary>
         /// Gets or sets the scales.

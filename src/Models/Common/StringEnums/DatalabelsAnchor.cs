@@ -1,15 +1,15 @@
 ﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
     /// <summary>
-    /// Class Align.
+    /// Class DatalabelsAnchor.
     /// </summary>
-    public class Align
+    public class DatalabelsAnchor
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Align"/> class.
+        /// Initializes a new instance of the <see cref="DatalabelsAnchor"/> class.
         /// </summary>
         /// <param name="value">The value.</param>
-        private Align(string value)
+        private DatalabelsAnchor(string value)
         { Value = value; }
 
         /// <summary>
@@ -18,8 +18,8 @@
         /// <value>
         /// Start
         /// </value>
-        public static Align Start
-        { get { return new Align("start"); } }
+        public static DatalabelsAnchor Start
+        { get { return new DatalabelsAnchor("start"); } }
 
         /// <summary>
         /// Center
@@ -27,8 +27,8 @@
         /// <value>
         /// Center
         /// </value>
-        public static Align Center
-        { get { return new Align("center"); } }
+        public static DatalabelsAnchor Center
+        { get { return new DatalabelsAnchor("center"); } }
 
         /// <summary>
         /// End
@@ -36,8 +36,8 @@
         /// <value>
         /// End
         /// </value>
-        public static Align End
-        { get { return new Align("end"); } }
+        public static DatalabelsAnchor End
+        { get { return new DatalabelsAnchor("end"); } }
 
         /// <summary>
         /// Gets the value.

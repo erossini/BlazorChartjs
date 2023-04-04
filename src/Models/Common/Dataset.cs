@@ -13,7 +13,15 @@
         /// </value>
         [JsonPropertyName("data")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public virtual List<decimal> Data { get; set; }
+        public virtual List<decimal?> Data { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data labels.
+        /// </summary>
+        /// <value>The data labels.</value>
+        [JsonPropertyName("datalabels")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public DataLabels? DataLabels { get; set; }
 
         /// <summary>
         /// Gets or sets the label.

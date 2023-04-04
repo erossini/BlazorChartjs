@@ -23,7 +23,7 @@ namespace ChartjsDemo.Data
         public static List<RadarDataset> RadarDatasets = new List<RadarDataset>() {
             new RadarDataset() {
                 Label = "My First Dataset",
-                Data = new List<decimal>() { 65, 59, 90, 81, 56, 55, 40 },
+                Data = new List<decimal?>() { 65, 59, 90, 81, 56, 55, 40 },
                 Fill = true,
                 BackgroundColor = "rgba(255, 99, 132, 0.2)",
                 BorderColor = "rgb(255, 99, 132)",
@@ -34,7 +34,7 @@ namespace ChartjsDemo.Data
             },
             new RadarDataset() {
                 Label = "My Second Dataset",
-                Data =  new List<decimal>() { 28, 48, 40, 19, 96, 27, 100 },
+                Data =  new List<decimal?>() { 28, 48, 40, 19, 96, 27, 100 },
                 Fill = true,
                 BackgroundColor = "rgba(54, 162, 235, 0.2)",
                 BorderColor = "rgb(54, 162, 235)",

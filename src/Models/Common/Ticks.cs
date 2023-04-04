@@ -64,6 +64,14 @@
         public int? MaxRotation { get; set; }
 
         /// <summary>
+        /// Gets or sets the Maximum number of ticks and gridlines to show.
+        /// </summary>
+        /// <value>The maximum ticks limit.</value>
+        [JsonPropertyName("maxTicksLimit")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? MaxTicksLimit { get; set; }
+
+        /// <summary>
         /// Gets or sets the minimum rotation.
         /// </summary>
         /// <value>
@@ -72,5 +80,15 @@
         [JsonPropertyName("minRotation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? MinRotation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the size of the step. 
+        /// If set, the scale ticks will be enumerated by multiple of stepSize, having one tick per increment. 
+        /// If not set, the ticks are labelled automatically using the nice numbers algorithm.
+        /// </summary>
+        /// <value>The size of the step.</value>
+        [JsonPropertyName("stepSize")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public decimal? StepSize { get; set; }
     }
 }

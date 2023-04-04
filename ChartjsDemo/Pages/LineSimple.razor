@@ -2,6 +2,7 @@
 
 <h3>Line Simple</h3>
 
+<button @onclick="AddValue">Add value</button>
 <Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
 
 <hr />
@@ -65,5 +66,11 @@ protected override async Task OnInitializedAsync()
                 PointRadius= 15,
                 PointStyle = PointStyle.Cross
             });
+    }
+
+    private void AddValue()
+    {
+        Random rd = new Random();
+        _chart1.AddData(new List<string?>() { "August" }, 0, new List<decimal?>() { rd.Next(0, 200) });
     }
 }

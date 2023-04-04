@@ -1,0 +1,181 @@
+﻿@page "/lineBreak"
+
+<h3>Interpolation Modes</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config1;
+private Chart? _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new LineChartConfig()
+        {
+            Options = new Options()
+            {
+                Responsive = true,
+                Plugins = new Plugins()
+                {
+                    Title = new Title()
+                    {
+                        Display = true,
+                        Text = "Line Chart - Cubic interpolation mode"
+                    }
+                },
+                Interaction = new Interaction()
+                {
+                    Intersect = false
+                },
+                Scales = new Dictionary&lt;string, Axis>()
+                {
+                    {
+                        Scales.XAxisId, new Axis()
+                        {
+                            Display = true,
+                            Title = new AxesTitle()
+                            {
+                                Display = true
+                            }
+                        }
+                    },
+                    {
+                        Scales.YAxisId, new Axis()
+                        {
+                            Display = true,
+                            Title = new AxesTitle()
+                            {
+                                Display = true,
+                                Text = "Value"
+                            },
+                            SuggestedMax = -10,
+                            SuggestedMin = 200
+                        }
+                    }
+                }
+            }
+        };
+
+    _config1.Data.Labels = LineDataExamples.BreakLineText;
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "Cubic interpolation (monotone)",
+            Data = LineDataExamples.BreakLine.ToList(),
+            BorderColor = "#ff0000",
+            Fill = false,
+            CubicInterpolationMode = CubicInterpolationMode.Monotone,
+            Tension = 0.4M
+        });
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "Cubic interpolation",
+            Data = LineDataExamples.BreakLine.ToList(),
+            BorderColor = "#0000ff",
+            Fill = false,
+            Tension = 0.4M
+        });
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "Linear interpolation (default)",
+            Data = LineDataExamples.BreakLine.ToList(),
+            BorderColor = "#00ff00",
+            Fill = false
+        });
+}
+</CodeSnippet>
+
+@code {
+    private LineChartConfig? _config1;
+    private Chart? _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new LineChartConfig()
+            {
+                Options = new Options()
+                {
+                    Responsive = true,
+                    Plugins = new Plugins()
+                    {
+                        Title = new Title()
+                        {
+                            Display = true,
+                            Text = "Line Chart - Cubic interpolation mode"
+                        }
+                    },
+                    Interaction = new Interaction()
+                    {
+                        Intersect = false
+                    },
+                    Scales = new Dictionary<string, Axis>()
+                    {
+                        {
+                            Scales.XAxisId, new Axis()
+                            {
+                                Display = true,
+                                Title = new AxesTitle()
+                                {
+                                    Display = true
+                                }
+                            }
+                        },
+                        {
+                            Scales.YAxisId, new Axis()
+                            {
+                                Display = true,
+                                Title = new AxesTitle()
+                                {
+                                    Display = true,
+                                    Text = "Value"
+                                },
+                                SuggestedMax = -10,
+                                SuggestedMin = 200
+                            }
+                        }
+                    }
+                }
+            };
+
+        _config1.Data.Labels = LineDataExamples.BreakLineText;
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "Cubic interpolation (monotone)",
+                Data = LineDataExamples.BreakLine.ToList(),
+                BorderColor = "#ff0000",
+                Fill = false,
+                CubicInterpolationMode = CubicInterpolationMode.Monotone,
+                Tension = 0.4M
+            });
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "Cubic interpolation",
+                Data = LineDataExamples.BreakLine.ToList(),
+                BorderColor = "#0000ff",
+                Fill = false,
+                Tension = 0.4M
+            });
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "Linear interpolation (default)",
+                Data = LineDataExamples.BreakLine.ToList(),
+                BorderColor = "#00ff00",
+                Fill = false
+            });
+    }
+}
