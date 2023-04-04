@@ -132,10 +132,6 @@ The result of the code above is this chart
 
 When a graph is created, it means that the configuration is already defined and the datasets are passed to the chart engine. Without to recreate the graph, it is possible to add a new value to a specific dataset and/or add a completely new dataset to the graph.
 
-## Add a new value
-
-In an existing graph, it is possible to add a single new value to a specific dataset calling `AddData` function that it is available on the chart.
-
 In your page, create a new chart adding this code
 
 ```
@@ -150,13 +146,18 @@ private Chart _chart1;
 ```
 
 _chart1_ is the reference to the `Chart` component and from it you can access to all the functions and properties the component has to offer.
+
+### Add a new value
+
+In an existing graph, it is possible to add a single new value to a specific dataset calling `AddData` function that it is available on the chart.
+
 Now, the function `AddData` allows to add a new value in a specific existing dataset. The definition of `AddData` is the following
 
 ```csharp
-AddData(string CanvasId, List<string> labels, int datasetIndex, List<decimal?> data)
+AddData(List<string> labels, int datasetIndex, List<decimal?> data)
 ```
 
-For example, the following code adds a new label `Test1` to the list of labels, and for the dataset _0_ adding a random number.
+For example, using __chart1_, the following code adds a new label `Test1` to the list of labels, and for the dataset _0_ adding a random number.
 
 ```csharp
 _chart1.AddData(new List<string?>() { "Test1" }, 0, new List<decimal?>() { rd.Next(0, 200) });
@@ -165,6 +166,38 @@ _chart1.AddData(new List<string?>() { "Test1" }, 0, new List<decimal?>() { rd.Ne
 The result is visible in the following screenshot.
 
 ![chart-addnewdata](https://user-images.githubusercontent.com/9497415/229902251-8a2adf61-b37c-4fdc-a869-ca8eb1a7cd81.gif)
+
+### Add a new dataset
+
+It is also possible to add a completely new dataset to the graph. For that, there is the function `AddDataset`. This function requires a new dataset of the same format of the others already existing in the chart.
+
+For example, this code adds a new dataset using `LineDataset` using some of the properties this dataset has.
+
+```csharp
+private void AddNewDataset()
+{
+    Random rd = new Random();
+    List<decimal?> addDS = new List<decimal?>();
+    for (int i = 0; i < 8; i++)
+    {
+        addDS.Add(rd.Next(i, 200));
+    }
+
+    var color = String.Format("#{0:X6}", rd.Next(0x1000000));
+
+    _chart1.AddDataset<LineDataset>(new LineDataset()
+        {
+            Label = $"Dataset {DateTime.Now}",
+            Data = addDS,
+            BorderColor = color,
+            Fill = false
+        });
+}
+```
+
+The result of this code is the following screenshot.
+
+![chart-addnewdataset](https://user-images.githubusercontent.com/9497415/229904537-22805b25-747f-4020-9eed-51533183324c.gif)
 
 ## Callbacks
 
