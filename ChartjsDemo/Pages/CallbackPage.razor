@@ -216,7 +216,7 @@ private ValueTask onHoverAsync(HoverContext ctx)
 
     public ValueTask onClickAsync(CallbackGenericContext value)
     {
-        ClickString = $"Dataset index: {value.DatasetIndex} - Value index: {value.DataIndex} - Value: {value.Value}";
+        ClickString = value.ToString();
         StateHasChanged();
 
         return ValueTask.CompletedTask;
