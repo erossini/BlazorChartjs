@@ -153,7 +153,12 @@ namespace PSC.Blazor.Components.Chartjs
         [JSInvokable]
         public static string[] TitleCallbacks(DotNetObjectReference<IChartConfig> config, decimal[] parameters)
         {
-            var ctx = new CallbackGenericContext((int)parameters[0], (int)parameters[1], parameters[2]);
+            var ctx = new CallbackGenericContext(
+                DatasetIndex: (int)parameters[0],
+                DataIndex: (int)parameters[1],
+                Value: parameters[2],
+                ChartId: config.Value.GetChartId());
+
             if (config.Value.Options is Options options)
                 return options.Plugins.Tooltip.Callbacks.Title(ctx);
             else
@@ -163,7 +168,12 @@ namespace PSC.Blazor.Components.Chartjs
         [JSInvokable]
         public static string[] TooltipCallbacksLabel(DotNetObjectReference<IChartConfig> config, int[] parameters)
         {
-            var ctx = new CallbackGenericContext(parameters[0], parameters[1], parameters[2]);
+            var ctx = new CallbackGenericContext(
+                DatasetIndex: parameters[0],
+                DataIndex: parameters[1],
+                Value: parameters[2],
+                ChartId: config.Value.GetChartId());
+
             if (config.Value.Options is Options options)
                 return options.Plugins.Tooltip.Callbacks.Label(ctx);
             else
@@ -173,10 +183,10 @@ namespace PSC.Blazor.Components.Chartjs
         [JSInvokable]
         public static async Task<ValueTask> OnClickAsync(DotNetObjectReference<IChartConfig> config, CallbackGenericContext ctx)
         {
-            //await OnChartClick.InvokeAsync(ctx);
+            //await OnChartClick.InvokeAsync(ctx);            
 
             if (config.Value.Options is Options options && options.OnClickAsync != null)
-                return options.OnClickAsync(ctx);
+                return options.OnClickAsync(ctx with { ChartId = config.Value.GetChartId() });
             else
                 return ValueTask.CompletedTask;
         }
