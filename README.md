@@ -446,3 +446,7 @@ My name is Enrico Rossini and you can contact me via:
 *   [Consume ASP.NET Core Razor components from Razor class libraries | Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/class-libraries?view=aspnetcore-5.0&tabs=visual-studio)
 *   [ChartJs component for Blazor](https://www.puresourcecode.com/dotnet/blazor/blazor-component-for-chartjs/)
 *   [Labels and OnClickChart for ChartJs](https://www.puresourcecode.com/dotnet/blazor/labels-and-onclickchart-for-chartjs/)
+
+## Repository activities
+
+![Alt](https://repobeats.axiom.co/api/embed/5e19cd389305bd195b318195b1c44efa2da0fa9f.svg "Repobeats analytics image")
