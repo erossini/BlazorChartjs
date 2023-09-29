@@ -44,10 +44,13 @@
 }
 
 export function chartSetup(id, dotnetConfig, jsonConfig) {
-    document.getElementById("chartcontainer" + id).style.display = 'none';
-    document.getElementById("chartcontainer" + id).innerHTML = '&nbsp;';
-    document.getElementById("chartcontainer" + id).innerHTML = '<canvas id="' + id + '"></canvas>';
-    document.getElementById("chartcontainer" + id).style.display = '';
+    let chartElement = document.getElementById("chartcontainer" + id);
+    if (!chartElement) return;
+
+    chartElement.style.display = 'none';
+    chartElement.innerHTML = '&nbsp;';
+    chartElement.innerHTML = '<canvas id="' + id + '"></canvas>';
+    chartElement.style.display = '';
 
     var context2d = document.getElementById(id).getContext('2d');
     let config = eval(jsonConfig);
