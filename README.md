@@ -16,7 +16,7 @@ Fist, you have to add the component from [NuGet](https://www.nuget.org/packages/
 
 ```
 <script src="_content/PSC.Blazor.Components.Chartjs/lib/Chart.js/chart.js"></script>
-<script src="_content/PSC.Blazor.Components.Chartjs/Chart.js"></script>
+<script src="_content/PSC.Blazor.Components.Chartjs/Chart.js" type="module"></script>
 ```
 
 The first script is the Chart.js library version 3.7.1 because I'm using this version to create the components. You can use other sources for it but maybe you can face issues in other versions.
