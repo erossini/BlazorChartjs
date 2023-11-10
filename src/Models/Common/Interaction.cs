@@ -1,8 +1,10 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Common {
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Common 
+{
     /// <summary>
     /// Class Interaction.
     /// </summary>
-    public class Interaction {
+    public class Interaction 
+    {
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Interaction"/> is intersect.
         /// If true, the interaction mode only applies when the mouse position intersects an item on the chart.
@@ -25,7 +27,8 @@
         /// </summary>
         /// <value>The mode.</value>
         [JsonIgnore]
-        public InteractionMode? Mode {
+        public InteractionMode? Mode 
+        {
             get => _mode;
             set {
                 _mode = value;
@@ -51,7 +54,8 @@
         /// </summary>
         /// <value>The axis.</value>
         [JsonIgnore]
-        public AxisInteractions? Axis {
+        public AxisInteractions? Axis 
+        {
             get => _axis;
             set {
                 _axis = value;

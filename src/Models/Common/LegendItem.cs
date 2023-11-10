@@ -1,8 +1,10 @@
-namespace PSC.Blazor.Components.Chartjs.Models.Common {
+namespace PSC.Blazor.Components.Chartjs.Models.Common 
+{
     /// <summary>
     /// Legend Item
     /// </summary>
-    public class LegendItem {
+    public class LegendItem 
+    {
         //https://www.chartjs.org/docs/latest/configuration/legend.html#legend-item-interface
 
         [JsonPropertyName("text")]

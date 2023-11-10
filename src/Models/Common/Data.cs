@@ -7,7 +7,8 @@ using PSC.Blazor.Components.Chartjs.Models.Polar;
 using PSC.Blazor.Components.Chartjs.Models.Radar;
 using PSC.Blazor.Components.Chartjs.Models.Scatter;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Common {
+namespace PSC.Blazor.Components.Chartjs.Models.Common 
+{
     /// <summary>
     /// Data for Charts
     /// </summary>
@@ -20,7 +21,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common {
     [JsonDerivedType(typeof(RadarData), typeDiscriminator: "radarData")]
     [JsonDerivedType(typeof(BubbleData), typeDiscriminator: "bubbleData")]
     [JsonDerivedType(typeof(ScatterData), typeDiscriminator: "scatterData")]
-    public class Data {
+    public class Data 
+    {
         /// <summary>
         /// Gets or sets the labels.
         /// </summary>
@@ -35,7 +37,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common {
     /// <summary>
     /// Data for Charts
     /// </summary>
-    public class Data<T> : Data where T : class {
+    public class Data<T> : Data where T : class 
+    {
         /// <summary>
         /// Gets or sets the datasets.
         /// </summary>

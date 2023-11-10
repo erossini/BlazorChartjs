@@ -1,8 +1,10 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Common {
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Common 
+{
     /// <summary>
     /// Ticks
     /// </summary>
-    public class Ticks {
+    public class Ticks 
+    {
         /// <summary>
         /// Gets or sets the call back.
         /// </summary>
@@ -30,7 +32,8 @@
         /// The cross align
         /// </value>
         [JsonIgnore]
-        public CrossAlign? CrossAlign {
+        public CrossAlign? CrossAlign 
+        {
             get => _crossAlign;
             set {
                 _crossAlign = value;

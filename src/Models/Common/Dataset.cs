@@ -7,7 +7,8 @@ using PSC.Blazor.Components.Chartjs.Models.Polar;
 using PSC.Blazor.Components.Chartjs.Models.Radar;
 using PSC.Blazor.Components.Chartjs.Models.Scatter;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Common {
+namespace PSC.Blazor.Components.Chartjs.Models.Common 
+{
     /// <summary>
     /// Datatset for charts
     /// </summary>
@@ -18,7 +19,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common {
     [JsonDerivedType(typeof(PieDataset), typeDiscriminator: "pieDataset")]
     [JsonDerivedType(typeof(PolarDataset), typeDiscriminator: "polarDataset")]
     [JsonDerivedType(typeof(RadarDataset), typeDiscriminator: "radarDataset")]
-    public class Dataset {
+    public class Dataset 
+    {
         /// <summary>
         /// Gets or sets the data.
         /// </summary>

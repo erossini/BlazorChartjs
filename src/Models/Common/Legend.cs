@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Common {
+namespace PSC.Blazor.Components.Chartjs.Models.Common 
+{
     /// <summary>
     /// Legend
     /// </summary>
@@ -16,7 +17,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common {
         /// The align.
         /// </value>
         [JsonIgnore]
-        public Align? Align {
+        public Align? Align 
+        {
             get => _align;
             set {
                 _align = value;
@@ -69,7 +71,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common {
         /// The position.
         /// </value>
         [JsonIgnore]
-        public LegendPosition Position {
+        public LegendPosition Position 
+        {
             get => _legendPosition;
             set {
                 _legendPosition = value;
@@ -109,7 +112,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common {
         /// </summary>
         /// <value>The text direction.</value>
         [JsonIgnore]
-        public TextDirection TextDirection {
+        public TextDirection TextDirection 
+        {
             get => _textDirection;
             set {
                 _textDirection = value;

@@ -1,8 +1,10 @@
-namespace PSC.Blazor.Components.Chartjs.Models.Common {
+namespace PSC.Blazor.Components.Chartjs.Models.Common 
+{
     /// <summary>
     /// Legend Label Configuration
     /// </summary>
-    public class LegendLabels {
+    public class LegendLabels 
+    {
         //https://www.chartjs.org/docs/latest/configuration/legend.html#legend-label-configuration
 
         /// <summary>

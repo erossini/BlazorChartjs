@@ -1,11 +1,13 @@
 ﻿using PSC.Blazor.Components.Chartjs.Models.Bubble;
 using PSC.Blazor.Components.Chartjs.Models.Scatter;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Common {
+namespace PSC.Blazor.Components.Chartjs.Models.Common 
+{
     [JsonDerivedType(typeof(CustomDataset), typeDiscriminator: "base")]
     [JsonDerivedType(typeof(BubbleDataset), typeDiscriminator: "bubbleData")]
     [JsonDerivedType(typeof(ScatterDataset), typeDiscriminator: "scatterData")]
-    public class CustomDataset {
+    public class CustomDataset 
+    {
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
@@ -19,7 +21,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common {
     /// <summary>
     /// Datatset for charts
     /// </summary>
-    public class CustomDataset<T> : CustomDataset where T : class {
+    public class CustomDataset<T> : CustomDataset where T : class 
+    {
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
