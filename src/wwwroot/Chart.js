@@ -1,4 +1,13 @@
-﻿function crosshairLine(chart, evt, plugin) {
+﻿const DATA_TYPES = {
+    "bar": "barData",
+    "line": "lineData",
+    "pie": "pieData",
+    "doughnut": "doughnutData",
+    "radar": "radarData",
+    "polarArea": "polarData"
+};
+
+function crosshairLine(chart, evt, plugin) {
     const { canvas, ctx, chartArea: { left, right, top, bottom } } = chart;
 
     chart.update("none");
@@ -58,8 +67,15 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
     if (config?.options?.plugins?.legend?.labels?.hasFilter) {
         config.options.plugins.legend.labels.hasFilter = undefined;
         config.options.plugins.legend.labels.filter = function (item, data) {
+            let json = JSON.stringify(data);
+            let jsonArray = [...json];
+
+            let dataType = DATA_TYPES[jsonConfig.type];
+            jsonArray.splice(1, 0, `"$type":"${dataType}",`);
+            json = jsonArray.join("");
+
             return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'LegendLabelsFilter',
-                dotnetConfig, item, data)
+                dotnetConfig, item, JSON.parse(json))
         };
     }
 

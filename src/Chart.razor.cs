@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+using PSC.Blazor.Components.Chartjs.Models.Bar;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -162,7 +163,7 @@ namespace PSC.Blazor.Components.Chartjs {
         }
 
         [JSInvokable]
-        public static bool? LegendLabelsFilter(DotNetObjectReference<IChartConfig> config, LegendItem item, Data<Dataset> data) {
+        public static bool? LegendLabelsFilter(DotNetObjectReference<IChartConfig> config, LegendItem item, Data data) {
             var ctx = new LegendFilterContext(item, data);
             if (config.Value.Options is Options options)
                 return options.Plugins.Legend.Labels.Filter(ctx);
