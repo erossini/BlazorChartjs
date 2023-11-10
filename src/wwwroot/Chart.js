@@ -4,7 +4,9 @@
     "pie": "pieData",
     "doughnut": "doughnutData",
     "radar": "radarData",
-    "polarArea": "polarData"
+    "polarArea": "polarData",
+    "bubble": "bubbleData",
+    "scatter": "scatterData"
 };
 
 function crosshairLine(chart, evt, plugin) {

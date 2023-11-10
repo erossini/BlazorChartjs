@@ -18,6 +18,8 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common {
     [JsonDerivedType(typeof(PieData), typeDiscriminator: "pieData")]
     [JsonDerivedType(typeof(PolarData), typeDiscriminator: "polarData")]
     [JsonDerivedType(typeof(RadarData), typeDiscriminator: "radarData")]
+    [JsonDerivedType(typeof(BubbleData), typeDiscriminator: "bubbleData")]
+    [JsonDerivedType(typeof(ScatterData), typeDiscriminator: "scatterData")]
     public class Data {
         /// <summary>
         /// Gets or sets the labels.
