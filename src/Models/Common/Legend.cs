@@ -1,28 +1,24 @@
 ﻿using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs.Models.Common
-{
+namespace PSC.Blazor.Components.Chartjs.Models.Common {
     /// <summary>
     /// Legend
     /// </summary>
-    public class Legend
-    {
+    public class Legend {
         private Align? _align;
         private LegendPosition _legendPosition;
         private TextDirection _textDirection;
 
-        /// <summary>
+        /// <summary>]
         /// Gets or sets the align. <seealso cref="Common.Align"/>
         /// </summary>
         /// <value>
         /// The align.
         /// </value>
         [JsonIgnore]
-        public Align? Align
-        {
+        public Align? Align {
             get => _align;
-            set
-            {
+            set {
                 _align = value;
                 AlignString = _align.Value;
             }
@@ -58,6 +54,14 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? FullSize { get; set; }
 
+        ///<summary>
+        /// Gets or sets the legend labels configuration
+        ///</summary>
+        ///<value>The Legend label configuration</value>
+        [JsonPropertyName("labels")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public LegendLabels Labels { get; set; }
+
         /// <summary>
         /// Gets or sets the position.
         /// </summary>
@@ -65,11 +69,9 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// The position.
         /// </value>
         [JsonIgnore]
-        public LegendPosition Position
-        {
+        public LegendPosition Position {
             get => _legendPosition;
-            set
-            {
+            set {
                 _legendPosition = value;
                 PositionString = value.Value;
             }
@@ -107,11 +109,9 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// </summary>
         /// <value>The text direction.</value>
         [JsonIgnore]
-        public TextDirection TextDirection
-        {
+        public TextDirection TextDirection {
             get => _textDirection;
-            set
-            {
+            set {
                 _textDirection = value;
                 TextDirectionString = value.Value;
             }
@@ -139,5 +139,6 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// <value>The on legend click asynchronous.</value>
         [JsonIgnore]
         public Func<LegendClickContext, ValueTask>? OnClickAsync { get; set; }
+
     }
 }

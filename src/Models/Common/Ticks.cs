@@ -82,6 +82,7 @@
         public int? MinRotation { get; set; }
 
         ///<summary>
+        /// Gets or sets the Auto skip.
         /// If true, automatically calculates how many labels can be shown and hides labels accordingly. 
         /// Labels will be rotated up to maxRotation before skipping any. Turn autoSkip off to show all labels no matter what.
         ///</summary>

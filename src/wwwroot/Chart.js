@@ -54,6 +54,15 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
 
     var context2d = document.getElementById(id).getContext('2d');
     let config = eval(jsonConfig);
+
+    if (config?.options?.plugins?.legend?.labels?.hasFilter) {
+        config.options.plugins.legend.labels.hasFilter = undefined;
+        config.options.plugins.legend.labels.filter = function (item, data) {
+            return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'LegendLabelsFilter',
+                dotnetConfig, item, data)
+        };
+    }
+
     if (config?.options?.plugins?.tooltip?.callbacks?.hasLabel) {
         config.options.plugins.tooltip.callbacks.hasLabel = undefined;
         config.options.plugins.tooltip.callbacks.label = function (ctx) {
