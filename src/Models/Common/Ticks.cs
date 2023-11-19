@@ -6,14 +6,22 @@
     public class Ticks 
     {
         /// <summary>
-        /// Gets or sets the call back.
+        /// Gets a value indicating whether this instance has callback.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance has callback; otherwise, <c>false</c>.
+        /// </value>
+        [JsonInclude]
+        [JsonPropertyName("hasCallback")]
+        public bool HasCallback => Callback != null;
+        /// <summary>
+        /// Gets or sets the callback.
         /// </summary>
         /// <value>
         /// The call back.
         /// </value>
-        [JsonPropertyName("callback")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? CallBack { get; set; }
+        [JsonIgnore]
+        public Func<TicksCallbackContext, string[]>? Callback { get; set; }
 
         /// <summary>
         /// Gets or sets the color.
@@ -35,7 +43,8 @@
         public CrossAlign? CrossAlign 
         {
             get => _crossAlign;
-            set {
+            set 
+            {
                 _crossAlign = value;
                 CrossAlignString = _crossAlign.Value;
             }

@@ -185,6 +185,20 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
         }
     }
 
+    if (config?.options?.scales != null) {
+        var scales = Object.keys(config.options.scales);
+        for (let scale of scales) {
+            if (config.options.scales[scale]?.ticks?.hasCallback) {
+                config.options.scales[scale].ticks.hasCallback = undefined;
+                config.options.scales[scale].ticks.hasCallback = undefined;
+                config.options.scales[scale].ticks.callback = function (value, index, ticks) {
+                    return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'TicksCallback',
+                        dotnetConfig, scale, value, index, ticks.map(tick => tick.value));
+                };
+            }
+        }
+    }
+
     if (typeof ChartDataLabels !== 'undefined' && config?.options?.registerDataLabels) {
         config?.options?.registerDataLabels == undefined;
         Chart.register(ChartDataLabels);
