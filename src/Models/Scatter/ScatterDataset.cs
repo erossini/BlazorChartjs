@@ -43,6 +43,34 @@
         public decimal? PointHitRadius { get; set; }
 
         /// <summary>
+        /// Gets or sets the point style.
+        /// </summary>
+        /// <value>
+        /// The point style.
+        /// </value>
+        [JsonIgnore]
+        public PointStyle? PointStyle
+        {
+            get => _pointStyle;
+            set
+            {
+                _pointStyle = value;
+                PointStyleString = _pointStyle.Value;
+            }
+        }
+        private PointStyle? _pointStyle;
+
+        /// <summary>
+        /// Gets or sets the point style string.
+        /// </summary>
+        /// <value>
+        /// The point style string.
+        /// </value>
+        [JsonPropertyName("pointStyle")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string? PointStyleString { get; set; }
+
+        /// <summary>
         /// Gets or sets the point radius.
         /// </summary>
         /// <value>
