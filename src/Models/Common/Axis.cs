@@ -52,7 +52,7 @@
         /// </value>
         [JsonPropertyName("max")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public double? Max { get; set; }
+        public string? Max { get; set; }
 
         /// <summary>
         /// Determines the minimum of the parameters.
@@ -62,7 +62,7 @@
         /// </value>
         [JsonPropertyName("min")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public double? Min { get; set; }
+        public string? Min { get; set; }
 
         /// <summary>
         /// Gets or sets the position.
