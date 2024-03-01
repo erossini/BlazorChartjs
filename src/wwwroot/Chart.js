@@ -204,6 +204,30 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
         DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnLegendClickAsync',
             dotnetConfig, rtn);
     };
+
+    if (config?.options?.plugins?.zoom?.zoom?.onZoomEnable) {
+        chart.options.plugins.zoom.zoom.onZoom = function (chart) {
+
+            var rtn = {
+                id: id,
+            };
+
+            DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnZoomAsync',
+                dotnetConfig, rtn);
+        }
+    }
+
+    if (config?.options?.plugins?.zoom?.zoom?.onZoomCompleteEnable) {
+        chart.options.plugins.zoom.zoom.onZoomComplete = function (chart) {
+
+            var rtn = {
+                id: id,
+            };
+
+            DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnZoomCompleteAsync',
+                dotnetConfig, rtn);
+        }
+    }
 }
 
 export function addData(id, label, dataset, data) {
