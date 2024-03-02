@@ -199,6 +199,24 @@ namespace PSC.Blazor.Components.Chartjs
                 return ValueTask.CompletedTask;
         }
 
+
+        [JSInvokable]
+        public static async Task<ValueTask> OnZoomAsync(DotNetObjectReference<IChartConfig> config, ZoomContext ctx)
+        {
+            if (config.Value.Options is Options options && options?.Plugins?.Zoom?.ZoomOptions?.OnZoomAsync != null)
+                return options.Plugins.Zoom.ZoomOptions.OnZoomAsync(ctx);
+            else
+                return ValueTask.CompletedTask;
+        }
+
+        [JSInvokable]
+        public static async Task<ValueTask> OnZoomCompleteAsync(DotNetObjectReference<IChartConfig> config, ZoomContext ctx)
+        {
+            if (config.Value.Options is Options options && options?.Plugins?.Zoom?.ZoomOptions?.OnZoomAsync != null)
+                return options.Plugins.Zoom.ZoomOptions.OnZoomCompleteAsync(ctx);
+            else
+                return ValueTask.CompletedTask;
+        }
         #endregion JavaScript invokable functions
 
         public void Dispose()
