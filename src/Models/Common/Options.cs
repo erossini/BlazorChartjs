@@ -224,5 +224,15 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonPropertyName("local")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Local { get; set; }
+
+        /// <summary>
+        /// Gets or sets the parsing.
+        /// </summary>
+        /// <value>
+        /// The local.
+        /// </value>
+        [JsonPropertyName("parsing")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Parsing? Parsing { get; set; }
     }
 }

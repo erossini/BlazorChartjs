@@ -62,5 +62,15 @@
         [JsonPropertyName("zoom")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Zoom? Zoom { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Colors.
+        /// </summary>
+        /// <value>
+        /// The Autocolors.
+        /// </value>
+        [JsonPropertyName("colors")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Colors? Colors { get; set; }
     }
 }
