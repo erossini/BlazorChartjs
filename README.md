@@ -14,7 +14,7 @@ This library is a wrap around [Chart.js](https://www.chartjs.org/) for using it 
 ## Installation
 First, you have to add the component from [NuGet](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/). Then, open your `index.html` or `_Host` and add at the end of the page the following scripts:
 
-```
+```xml
 <script src="_content/PSC.Blazor.Components.Chartjs/lib/Chart.js/chart.js"></script>
 <script src="_content/PSC.Blazor.Components.Chartjs/Chart.js" type="module"></script>
 ```
@@ -23,7 +23,7 @@ The first script is the Chart.js library version 3.7.1 because I'm using this ve
 
 Then, open your `_Imports.razor` and add the following:
 
-```
+```xml
 @using PSC.Blazor.Components.Chartjs
 @using PSC.Blazor.Components.Chartjs.Enums
 @using PSC.Blazor.Components.Chartjs.Models
