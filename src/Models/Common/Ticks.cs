@@ -1,19 +1,27 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Common 
 {
     /// <summary>
     /// Ticks
     /// </summary>
-    public class Ticks
+    public class Ticks 
     {
         /// <summary>
-        /// Gets or sets the call back.
+        /// Gets a value indicating whether this instance has callback.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance has callback; otherwise, <c>false</c>.
+        /// </value>
+        [JsonInclude]
+        [JsonPropertyName("hasCallback")]
+        public bool HasCallback => Callback != null;
+        /// <summary>
+        /// Gets or sets the callback.
         /// </summary>
         /// <value>
         /// The call back.
         /// </value>
-        [JsonPropertyName("callback")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? CallBack { get; set; }
+        [JsonIgnore]
+        public Func<TicksCallbackContext, string[]>? Callback { get; set; }
 
         /// <summary>
         /// Gets or sets the color.
@@ -32,10 +40,10 @@
         /// The cross align
         /// </value>
         [JsonIgnore]
-        public CrossAlign? CrossAlign
+        public CrossAlign? CrossAlign 
         {
             get => _crossAlign;
-            set
+            set 
             {
                 _crossAlign = value;
                 CrossAlignString = _crossAlign.Value;
@@ -52,6 +60,10 @@
         [JsonPropertyName("crossAlign")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? CrossAlignString { get; set; }
+
+        [JsonPropertyName("font")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Font? Font { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum rotation.
@@ -80,6 +92,18 @@
         [JsonPropertyName("minRotation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? MinRotation { get; set; }
+
+        ///<summary>
+        /// Gets or sets the Auto skip.
+        /// If true, automatically calculates how many labels can be shown and hides labels accordingly. 
+        /// Labels will be rotated up to maxRotation before skipping any. Turn autoSkip off to show all labels no matter what.
+        ///</summary>
+        ///<value>
+        /// The auto skip
+        ///</value>
+        [JsonPropertyName("autoSkip")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public bool? AutoSkip { get; set; }
 
         /// <summary>
         /// Gets or sets the size of the step. 
