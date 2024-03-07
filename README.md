@@ -1,18 +1,18 @@
 # ChartJs component for Blazor
-This library is a wrap around [Chart.js](https://www.chartjs.org/) for using it with [Blazor WebAssembly](https://www.puresourcecode.com/tag/blazor-webassembly/) and [Blazor Server](https://www.puresourcecode.com/tag/blazor-server/). The components is build with .NET6.
+This library is a wrap around [Chart.js](https://www.chartjs.org/) for using it with [Blazor WebAssembly](https://www.puresourcecode.com/tag/blazor-webassembly/) and [Blazor Server](https://www.puresourcecode.com/tag/blazor-server/). The component was built with [NET6](https://puresourcecode.com/tag/net6/) until the version [6.0.44](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/). The new version is for [NET8](https://puresourcecode.com/tag/net8/).
 
-Few important links:
+A few important links:
 * [Demo website](https://chartjs.puresourcecode.com/)
 * Source code on [GitHub](https://github.com/erossini/BlazorChartjs)
 * [Support forum](https://www.puresourcecode.com/forum/chart-js-for-blazor/)
 * [NuGet](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/) package
 
-Few articles to help you to use the component:
+Here are a few articles to help you to use the component:
 * [ChartJs component for Blazor](https://www.puresourcecode.com/dotnet/blazor/blazor-component-for-chartjs/)
 * [Labels and OnClickChart for ChartJs](https://www.puresourcecode.com/dotnet/blazor/labels-and-onclickchart-for-chartjs/)
 
 ## Installation
-Fist, you have to add the component from [NuGet](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/). Then, open your `index.html` or `_Host` and add at the end of the page the following scripts:
+First, you have to add the component from [NuGet](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/). Then, open your `index.html` or `_Host` and add at the end of the page the following scripts:
 
 ```
 <script src="_content/PSC.Blazor.Components.Chartjs/lib/Chart.js/chart.js"></script>
@@ -41,13 +41,13 @@ Then, open your `_Imports.razor` and add the following:
 There is a namespace for each chart plus the common namespaces (Enum, Models and the base).
 
 ## Add a new chart
-In your page you can create a new chart adding this code
+On your page you can create a new chart by adding this code
 
 ```
 <Chart Config="_config1" @ref="_chart1"></Chart>
 ```
 
-In the code section you have to define those variables:
+In the code section you have to define the variables:
 
 ```csharp
 private BarChartConfig _config1;
@@ -130,26 +130,26 @@ The result of the code above is this chart
 
 ## Add new values
 
-When a graph is created, it means that the configuration is already defined and the datasets are passed to the chart engine. Without to recreate the graph, it is possible to add a new value to a specific dataset and/or add a completely new dataset to the graph.
+When a graph is created, it means that the configuration is already defined and the datasets are passed to the chart engine. Without recreating the graph, it is possible to add a new value to a specific dataset and/or add a completely new dataset to the graph.
 
-In your page, create a new chart adding this code
+On your page, create a new chart by adding this code
 
 ```
 <Chart Config="_config1" @ref="_chart1"></Chart>
 ```
 
-In the code section you have to define those variables:
+In the code section you have to define the variables:
 
 ```csharp
 private LineChartConfig _config1;
 private Chart _chart1;
 ```
 
-_chart1_ is the reference to the `Chart` component and from it you can access to all the functions and properties the component has to offer.
+_chart1_ is the reference to the `Chart` component and from it, you can access all the functions and properties the component has to offer.
 
 ### Add a new value
 
-In an existing graph, it is possible to add a single new value to a specific dataset calling `AddData` function that it is available on the chart.
+In an existing graph, it is possible to add a single new value to a specific dataset calling `AddData` function that is available on the chart.
 
 Now, the function `AddData` allows to add a new value in a specific existing dataset. The definition of `AddData` is the following
 
@@ -169,7 +169,7 @@ The result is visible in the following screenshot.
 
 ### Add a new dataset
 
-It is also possible to add a completely new dataset to the graph. For that, there is the function `AddDataset`. This function requires a new dataset of the same format of the others already existing in the chart.
+It is also possible to add a completely new dataset to the graph. For that, there is the function `AddDataset`. This function requires a new dataset of the same format as the others already existing in the chart.
 
 For example, this code adds a new dataset using `LineDataset` using some of the properties this dataset has.
 
@@ -201,7 +201,7 @@ The result of this code is the following screenshot.
 
 ## Callbacks
 
-The component has few callbacks (more in development) to customize your chart. The callbacks are ready to use are:
+The component has a few callbacks (more in development) to customize your chart. The callbacks are ready to use are:
 
 - Tooltip
   * Labels
@@ -209,7 +209,7 @@ The component has few callbacks (more in development) to customize your chart. T
 
 ### How to use it
 
-In the configuration of the chart in your Blazor page, you can add your custom code for each callback. 
+In the configuration of the chart on your Blazor page, you can add your custom code for each callback. 
 For an example, see the following code.
 
 ```csharp
@@ -273,7 +273,7 @@ For more info, please see my posts on [PureSourceCode.com](https://www.puresourc
 
 ## Add labels to the chart
 
-I added the `chartjs-plugin-datalabels` plugin in the component. This plugin shows the labels for each point in each graph. For more details abour this plugin, visit its [website](https://chartjs-plugin-datalabels.netlify.app/).
+I added the `chartjs-plugin-datalabels` plugin in the component. This plugin shows the labels for each point in each graph. For more details about this plugin, visit its [website](https://chartjs-plugin-datalabels.netlify.app/).
 
 ![image](https://user-images.githubusercontent.com/9497415/224721251-da6959de-2b20-4d42-926b-b036de6695ee.png)
 
@@ -286,7 +286,7 @@ First, in the _index.html_, we have to add after the `chart.js` script, another 
 <script src="_content/PSC.Blazor.Components.Chartjs/lib/chartjs-plugin-datalabels/chartjs-plugin-datalabels.js"></script>
 ```
 
-In the code, you have to change the property `RegisterDataLabels` under `Options` to `true`. That asks to the component to register the library if the library is added to the page and there is data to show. For example, if I define a `LineChartConfig` the code is
+In the code, you have to change the property `RegisterDataLabels` under `Options` to `true`. That asks the component to register the library if the library is added to the page and there is data to show. For example, if I define a `LineChartConfig` the code is
 
 ```csharp
 _config1 = new LineChartConfig()
@@ -310,13 +310,13 @@ With this code, the component will register the library in `chart.js`. It is pos
 
 ## OnClickAsync
 
-When a user click on a point on the chart with a value, it is possible to add in the chart configuration a specific function to receive the data for that point ad in particular the index of the dataset, the index of the value in the dataset and the value.
+When a user clicks on a point on the chart with a value, it is possible to add in the chart configuration a specific function to receive the data for that point and in particular the index of the dataset, the index of the value in the dataset and the value.
 
 ```
 <Chart Config="_config1" @ref="_chart1" Height="400px"></Chart>
 ```
 
-In the configuration, under `Options`, there is `OnClickAsync`. Here, specified the function that has to receive the values (in this case `clickAsync`).
+In the configuration, under `Options`, there is `OnClickAsync`. Here, specify the function that has to receive the values (in this case `clickAsync`).
 
 ```csharp
 _config1 = new LineChartConfig()
@@ -329,9 +329,9 @@ _config1 = new LineChartConfig()
     }
 ```
 
-The function `clickAsync` receives as parameter a `CallbackGenericContext` that contains the 3 values: `DatasetIndex` and `DataIndex` as int and the `Value` as decimal.
+The function `clickAsync` receives as a parameter a `CallbackGenericContext` that contains the 3 values: `DatasetIndex` and `DataIndex` as int and the `Value` as decimal.
 
-In the following example, the function change the string `ClickString` using `values`.
+In the following example, the function changes the string `ClickString` using `values`.
 
 ```csharp
 public ValueTask clickAsync(CallbackGenericContext value)
@@ -345,7 +345,7 @@ public ValueTask clickAsync(CallbackGenericContext value)
 }
 ```
 
-With this code, if the user clicks on a point, the function writes the values in the page.
+With this code, if the user clicks on a point, the function writes the values on the page.
 
 ![image](https://user-images.githubusercontent.com/9497415/225041631-805cf3c6-4b3f-4475-b57e-2a1962472c35.png)
 
@@ -372,7 +372,7 @@ _config1 = new LineChartConfig()
 
 The function `hoverAsync` receives as parameter a `HoverContext` that contains the 2 values: `DataX` and `DataY` as decimal.
 
-In the following example, the function change the string `HoverString` using `values`.
+In the following example, the function changes the string `HoverString` using `values`.
 
 ```csharp
 private ValueTask hoverAsync(HoverContext ctx)
@@ -384,7 +384,7 @@ private ValueTask hoverAsync(HoverContext ctx)
 }
 ```
 
-With this code, if the user move the mouse on the chart, the function writes the values in the page.
+With this code, if the user moves the mouse on the chart, the function writes the values in the page.
 
 ![chart-hover](https://user-images.githubusercontent.com/9497415/229874627-e720d5dc-bae2-4cfa-8dcc-55ddc58ef4f9.gif)
 
