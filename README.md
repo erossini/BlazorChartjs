@@ -23,7 +23,7 @@ The first script is the Chart.js library version 3.7.1 because I'm using this ve
 
 Then, open your `_Imports.razor` and add the following:
 
-```xml
+```csharp
 @using PSC.Blazor.Components.Chartjs
 @using PSC.Blazor.Components.Chartjs.Enums
 @using PSC.Blazor.Components.Chartjs.Models
