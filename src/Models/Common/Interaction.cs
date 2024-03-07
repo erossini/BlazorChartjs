@@ -1,9 +1,9 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Common 
 {
     /// <summary>
     /// Class Interaction.
     /// </summary>
-    public class Interaction
+    public class Interaction 
     {
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Interaction"/> is intersect.
@@ -27,11 +27,10 @@
         /// </summary>
         /// <value>The mode.</value>
         [JsonIgnore]
-        public InteractionMode? Mode
+        public InteractionMode? Mode 
         {
             get => _mode;
-            set
-            {
+            set {
                 _mode = value;
                 ModeString = _mode.Value;
             }
@@ -55,11 +54,10 @@
         /// </summary>
         /// <value>The axis.</value>
         [JsonIgnore]
-        public AxisInteractions? Axis
+        public AxisInteractions? Axis 
         {
             get => _axis;
-            set
-            {
+            set {
                 _axis = value;
                 AxisString = _axis.Value;
             }

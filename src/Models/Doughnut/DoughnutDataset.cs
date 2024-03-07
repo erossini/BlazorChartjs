@@ -1,10 +1,10 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Doughnut
+﻿namespace PSC.Blazor.Components.Chartjs.Models.Doughnut 
 {
     /// <summary>
     /// Doughnut Dataset
     /// </summary>
     /// <seealso cref="PSC.Blazor.Components.Chartjs.Models.Common.Dataset" />
-    public class DoughnutDataset : Dataset
+    public class DoughnutDataset : Dataset 
     {
         /// <summary>
         /// Gets or sets the color of the background.
