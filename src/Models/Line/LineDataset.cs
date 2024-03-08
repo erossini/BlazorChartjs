@@ -1,4 +1,6 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Line
+﻿using PSC.Blazor.Components.Chartjs.Models.Common.StringEnums;
+
+namespace PSC.Blazor.Components.Chartjs.Models.Line
 {
     /// <summary>
     /// Line Dataset
@@ -159,5 +161,15 @@
         [JsonPropertyName("yAxisID")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? YAxisId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the step mode.
+        /// </summary>
+        /// <value>
+        /// The step mode.
+        /// </value>
+        [JsonPropertyName("stepped")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public StepMode? Stepped { get; set; }
     }
 }
