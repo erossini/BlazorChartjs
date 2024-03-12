@@ -173,7 +173,6 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
             crosshairLine(chart, evt, crosshair_plugin);
         });
     }
-
     chart.options.onClick = function (evt, activeElements, chart) {
         if (activeElements.length > 0) {
             var dsIndex = activeElements[0].datasetIndex;
@@ -233,16 +232,31 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
 export function addData(id, label, dataset, data) {
     var chart = Chart.getChart(id);
 
-    if (label !== null)
-        chart.data.labels.push(label);
+    //if (label !== null)
+    //    chart.data.labels.push(label);
     if (dataset < chart.data.datasets.length)
         chart.data.datasets[dataset].data.push(data);
 
     chart.update();
 }
 
-export function addNewDataset(id, dataset) {
+export function addNewDataset(id, dataset, update = true) {
     var chart = Chart.getChart(id);
     chart.data.datasets.push(dataset);
+    if (update) {
+        chart.update();
+    }
+}
+
+export function setNewDataset(id, dataset, update = true) {
+    var chart = Chart.getChart(id);
+    chart.data.datasets = dataset;
+    if (update) {
+        chart.update();
+    }
+}
+
+export function UpdateChart(id) {
+    var chart = Chart.getChart(id);
     chart.update();
 }

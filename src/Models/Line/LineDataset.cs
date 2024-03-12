@@ -6,6 +6,17 @@
     /// <seealso cref="PSC.Blazor.Components.Chartjs.Models.Common.Dataset" />
     public class LineDataset : Dataset
     {
+
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        [JsonPropertyName("data")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public virtual List<LineDataType?> Data { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the background.
         /// </summary>

@@ -115,9 +115,19 @@ namespace PSC.Blazor.Components.Chartjs
             await JSModule.AddData(Config.CanvasId, labels, datasetIndex, data);
         }
 
-        public async void AddDataset<T>(T dataset) where T : class
+        public async void AddDataset<T>(T dataset, bool Update = true) where T : class
         {
-            await JSModule.AddNewDataset(Config.CanvasId, dataset);
+            await JSModule.AddNewDataset(Config.CanvasId, dataset, Update);
+        }
+
+        public async void SetDataset<T>(T dataset) where T : class
+        {
+            await JSModule.SetNewDataset(Config.CanvasId, dataset);
+        }
+
+        public async void UpdateChart()
+        {
+            await JSModule.UpdateChart(Config.CanvasId);
         }
 
         #endregion

@@ -72,5 +72,15 @@
         [JsonPropertyName("colors")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Colors? Colors { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Autocolors.
+        /// </summary>
+        /// <value>
+        /// The Autocolors.
+        /// </value>
+        [JsonPropertyName("autocolors")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Autocolors? Autocolors { get; set; }
     }
 }
