@@ -32,5 +32,14 @@
         /// </value>
         [JsonPropertyName("responsive")]
         public bool Responsive { get; set; } = true;
+
+		/// <summary>
+		/// Gets or sets the scale options.
+		/// </summary>
+        /// <value>
+        /// The scale options.
+        /// </value>
+		[JsonPropertyName("scales")]
+        public RadarOptionsScales Scales { get; set; }
     }
 }
