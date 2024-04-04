@@ -121,7 +121,33 @@ namespace PSC.Blazor.Components.Chartjs.Models.Line
         [JsonPropertyName("pointStyle")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string? PointStyleString { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the step mode.
+        /// </summary>
+        /// <value>
+        /// The step mode.
+        /// </value>
+        [JsonIgnore]
+        public StepMode? StepMode
+        {
+            get => _stepMode;
+            set
+            {
+                _stepMode = value;
+                SteppedString = _stepMode.Value;
+            }
+        }
+        private StepMode? _stepMode;
 
+        /// <summary>
+        /// Gets or sets the stepped string.
+        /// </summary>
+        /// <value>The stepped string.</value>
+        [JsonPropertyName("stepped")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? SteppedString { get; set; }
+        
         /// <summary>
         /// Gets or sets the color of the stroke.
         /// </summary>
@@ -161,15 +187,5 @@ namespace PSC.Blazor.Components.Chartjs.Models.Line
         [JsonPropertyName("yAxisID")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? YAxisId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the step mode.
-        /// </summary>
-        /// <value>
-        /// The step mode.
-        /// </value>
-        [JsonPropertyName("stepped")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public StepMode? Stepped { get; set; }
     }
 }
