@@ -143,15 +143,15 @@ protected override async Task OnInitializedAsync()
             {
                 Label = "Value",
                 Data = BarDataExamples.SimpleBar.Select(l => l.Value).ToList(),
-                BackgroundColor = Colors.Palette1,
-                BorderColor = Colors.PaletteBorder1,
+                BackgroundColor = SampleColors.Palette1,
+                BorderColor = SampleColors.PaletteBorder1,
                 BorderWidth = 1
             });
         _config1.Data.Datasets.Add(new BarDataset()
             {
                 Label = "Bar Dataset",
                 Data = LineDataExamples.SimpleLine.ToList(),
-                BorderColor = Colors.PaletteBorder1,
+                BorderColor = SampleColors.PaletteBorder1,
                 Order = 1,
                 Type = "line"
             });

@@ -1,6 +1,6 @@
 ﻿namespace ChartjsDemo.Data;
 
-public static class Colors
+public static class SampleColors
 {
     public static List<string> Palette1 = new List<string>()
         {

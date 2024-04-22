@@ -135,16 +135,16 @@ protected override async Task OnInitializedAsync()
             {
                 Label = "Value",
                 Data = BarDataExamples.Grouped1,
-                BackgroundColor = new List<string>() { Colors.Palette1.First() },
-                BorderColor = new List<string>() { Colors.Palette1.First() },
+                BackgroundColor = new List<string>() { SampleColors.Palette1.First() },
+                BorderColor = new List<string>() { SampleColors.Palette1.First() },
                 BorderWidth = 1
             });
         _config1.Data.Datasets.Add(new BarDataset()
             {
                 Label = "Value2",
                 Data = BarDataExamples.Grouped2,
-                BackgroundColor = new List<string>() { Colors.PaletteBorder1.First() },
-                BorderColor = new List<string>() { Colors.PaletteBorder1.First() },
+                BackgroundColor = new List<string>() { SampleColors.PaletteBorder1.First() },
+                BorderColor = new List<string>() { SampleColors.PaletteBorder1.First() },
                 BorderWidth = 1
             });
     }
