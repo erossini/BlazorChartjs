@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+using PSC.Blazor.Components.Chartjs.Models.Bar;
+using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace PSC.Blazor.Components.Chartjs
+namespace PSC.Blazor.Components.Chartjs 
 {
     /// <summary>
     /// Class Chart.
@@ -12,7 +14,7 @@ namespace PSC.Blazor.Components.Chartjs
     /// </summary>
     /// <seealso cref="ComponentBase" />
     /// <seealso cref="System.IDisposable" />
-    public partial class Chart : IDisposable
+    public partial class Chart : IDisposable 
     {
         #region .NET Object references
 
@@ -110,36 +112,24 @@ namespace PSC.Blazor.Components.Chartjs
 
         #region Public functions
 
-        public async void AddData(List<string?> labels, int datasetIndex, List<decimal?> data)
+        public async void AddData(List<string?> labels, int datasetIndex, List<decimal?> data) 
         {
             await JSModule.AddData(Config.CanvasId, labels, datasetIndex, data);
         }
 
-        public async void AddDataset<T>(T dataset, bool Update = true) where T : class
+        public async void AddDataset<T>(T dataset) where T : class 
         {
-            await JSModule.AddNewDataset(Config.CanvasId, dataset, Update);
-        }
-
-        public async void SetDataset<T>(T dataset) where T : class
-        {
-            await JSModule.SetNewDataset(Config.CanvasId, dataset);
-        }
-
-        public async void UpdateChart()
-        {
-            await JSModule.UpdateChart(Config.CanvasId);
+            await JSModule.AddNewDataset(Config.CanvasId, dataset);
         }
 
         #endregion
 
         #endregion Parameters
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
+        protected override async Task OnAfterRenderAsync(bool firstRender) 
         {
-            if (Config != null)
-            {
-                if (OldConfig == null || Config != OldConfig)
-                {
+            if (Config != null) {
+                if (OldConfig == null || Config != OldConfig) {
                     var dotNetObjectRef = DotNetObjectReference.Create(Config);
 
                     JSModule = new ChartJsInterop(JSRuntime);
@@ -150,7 +140,7 @@ namespace PSC.Blazor.Components.Chartjs
             }
         }
 
-        private ValueTask OnMouseOutAsync(MouseEventArgs mouseEventArgs)
+        private ValueTask OnMouseOutAsync(MouseEventArgs mouseEventArgs) 
         {
             if (Config.Options is Options { OnMouseOutAsync: { } } options)
                 return options.OnMouseOutAsync(mouseEventArgs);
@@ -161,7 +151,7 @@ namespace PSC.Blazor.Components.Chartjs
         #region JavaScript invokable functions
 
         [JSInvokable]
-        public static string[] TitleCallbacks(DotNetObjectReference<IChartConfig> config, decimal[] parameters)
+        public static string[] TitleCallbacks(DotNetObjectReference<IChartConfig> config, decimal[] parameters) 
         {
             var ctx = new CallbackGenericContext((int)parameters[0], (int)parameters[1], parameters[2]);
             if (config.Value.Options is Options options)
@@ -171,9 +161,9 @@ namespace PSC.Blazor.Components.Chartjs
         }
 
         [JSInvokable]
-        public static string[] TooltipCallbacksLabel(DotNetObjectReference<IChartConfig> config, int[] parameters)
+        public static string[] TooltipCallbacksLabel(DotNetObjectReference<IChartConfig> config, decimal[] parameters) 
         {
-            var ctx = new CallbackGenericContext(parameters[0], parameters[1], parameters[2]);
+            var ctx = new CallbackGenericContext((int)parameters[0], (int)parameters[1], (int)parameters[2]);
             if (config.Value.Options is Options options)
                 return options.Plugins.Tooltip.Callbacks.Label(ctx);
             else
@@ -181,7 +171,27 @@ namespace PSC.Blazor.Components.Chartjs
         }
 
         [JSInvokable]
-        public static async Task<ValueTask> OnClickAsync(DotNetObjectReference<IChartConfig> config, CallbackGenericContext ctx)
+        public static string[] TicksCallback(DotNetObjectReference<IChartConfig> config, string scaleName, decimal value, int index, decimal[] ticksValues) 
+        {
+            var ctx = new TicksCallbackContext(value, index, ticksValues);
+            if (config.Value.Options is Options options)
+                return options.Scales[scaleName].Ticks.Callback(ctx);
+            else
+                throw new NotSupportedException();
+        }
+
+        [JSInvokable]
+        public static bool? LegendLabelsFilter(DotNetObjectReference<IChartConfig> config, LegendItem item, Data data) 
+        {
+            var ctx = new LegendFilterContext(item, data);
+            if (config.Value.Options is Options options)
+                return options.Plugins.Legend.Labels.Filter(ctx);
+            else
+                throw new NotSupportedException();
+        }
+
+        [JSInvokable]
+        public static async Task<ValueTask> OnClickAsync(DotNetObjectReference<IChartConfig> config, CallbackGenericContext ctx) 
         {
             //await OnChartClick.InvokeAsync(ctx);
 
@@ -192,7 +202,7 @@ namespace PSC.Blazor.Components.Chartjs
         }
 
         [JSInvokable]
-        public static async Task<ValueTask> OnHoverAsync(DotNetObjectReference<IChartConfig> config, HoverContext ctx)
+        public static async Task<ValueTask> OnHoverAsync(DotNetObjectReference<IChartConfig> config, HoverContext ctx) 
         {
             if (config.Value.Options is Options options && options.OnHoverAsync != null)
                 return options.OnHoverAsync(ctx);
@@ -201,7 +211,7 @@ namespace PSC.Blazor.Components.Chartjs
         }
 
         [JSInvokable]
-        public static async Task<ValueTask> OnLegendClickAsync(DotNetObjectReference<IChartConfig> config, LegendClickContext ctx)
+        public static async Task<ValueTask> OnLegendClickAsync(DotNetObjectReference<IChartConfig> config, LegendClickContext ctx) 
         {
             if (config.Value.Options is Options options && options?.Plugins?.Legend?.OnClickAsync != null)
                 return options.Plugins.Legend.OnClickAsync(ctx);
@@ -209,27 +219,9 @@ namespace PSC.Blazor.Components.Chartjs
                 return ValueTask.CompletedTask;
         }
 
-
-        [JSInvokable]
-        public static async Task<ValueTask> OnZoomAsync(DotNetObjectReference<IChartConfig> config, ZoomContext ctx)
-        {
-            if (config.Value.Options is Options options && options?.Plugins?.Zoom?.ZoomOptions?.OnZoomAsync != null)
-                return options.Plugins.Zoom.ZoomOptions.OnZoomAsync(ctx);
-            else
-                return ValueTask.CompletedTask;
-        }
-
-        [JSInvokable]
-        public static async Task<ValueTask> OnZoomCompleteAsync(DotNetObjectReference<IChartConfig> config, ZoomContext ctx)
-        {
-            if (config.Value.Options is Options options && options?.Plugins?.Zoom?.ZoomOptions?.OnZoomAsync != null)
-                return options.Plugins.Zoom.ZoomOptions.OnZoomCompleteAsync(ctx);
-            else
-                return ValueTask.CompletedTask;
-        }
         #endregion JavaScript invokable functions
 
-        public void Dispose()
+        public void Dispose() 
         {
         }
     }

@@ -12,7 +12,7 @@
         /// The width of the border.
         /// </value>
         [JsonPropertyName("borderWidth")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public int BorderWidth { get; set; } = 3;
     }
 }

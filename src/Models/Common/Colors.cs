@@ -1,5 +1,8 @@
 ﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
+    /// <summary>
+    /// Class Colors.
+    /// </summary>
     public class Colors
     {
 

@@ -52,7 +52,7 @@
         /// </value>
         [JsonPropertyName("max")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Max { get; set; }
+        public double? Max { get; set; }
 
         /// <summary>
         /// Determines the minimum of the parameters.
@@ -62,7 +62,7 @@
         /// </value>
         [JsonPropertyName("min")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Min { get; set; }
+        public double? Min { get; set; }
 
         /// <summary>
         /// Gets or sets the position.
@@ -155,15 +155,5 @@
         [JsonPropertyName("type")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Type { get; set; }
-
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        [JsonPropertyName("time")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public AxesTime? Time { get; set; }
     }
 }
