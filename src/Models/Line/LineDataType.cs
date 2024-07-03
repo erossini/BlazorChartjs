@@ -5,6 +5,7 @@
     /// </summary>
     public class LineDataType
     {
+
         /// <summary>
         /// Gets or sets the x value.
         /// </summary>
