@@ -1,5 +1,8 @@
 ﻿namespace PSC.Blazor.Components.Chartjs.Models.Common
 {
+    /// <summary>
+    /// Class ScaleLimits.
+    /// </summary>
     public class ScaleLimits
     {
         private int? _min = null;

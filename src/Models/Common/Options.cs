@@ -214,15 +214,5 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonPropertyName("scales")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Dictionary<string, Axis> Scales { get; set; }
-
-        /// <summary>
-        /// Gets or sets the local.
-        /// </summary>
-        /// <value>
-        /// The local.
-        /// </value>
-        [JsonPropertyName("local")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Local { get; set; }
     }
 }

@@ -1,5 +1,8 @@
 ﻿namespace PSC.Blazor.Components.Chartjs.Enums
 {
+    /// <summary>
+    /// Struct ZoomMode
+    /// </summary>
     public struct ZoomMode
     {
 

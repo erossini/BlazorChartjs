@@ -1,4 +1,15 @@
-﻿function crosshairLine(chart, evt, plugin) {
+﻿const DATA_TYPES = {
+    "bar": "barData",
+    "line": "lineData",
+    "pie": "pieData",
+    "doughnut": "doughnutData",
+    "radar": "radarData",
+    "polarArea": "polarData",
+    "bubble": "bubbleData",
+    "scatter": "scatterData"
+};
+
+function crosshairLine(chart, evt, plugin) {
     const { canvas, ctx, chartArea: { left, right, top, bottom } } = chart;
 
     chart.update("none");
@@ -54,6 +65,22 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
 
     var context2d = document.getElementById(id).getContext('2d');
     let config = eval(jsonConfig);
+
+    if (config?.options?.plugins?.legend?.labels?.hasFilter) {
+        config.options.plugins.legend.labels.hasFilter = undefined;
+        config.options.plugins.legend.labels.filter = function (item, data) {
+            let json = JSON.stringify(data);
+            let jsonArray = [...json];
+
+            let dataType = DATA_TYPES[jsonConfig.type];
+            jsonArray.splice(1, 0, `"$type":"${dataType}",`);
+            json = jsonArray.join("");
+
+            return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'LegendLabelsFilter',
+                dotnetConfig, item, JSON.parse(json))
+        };
+    }
+
     if (config?.options?.plugins?.tooltip?.callbacks?.hasLabel) {
         config.options.plugins.tooltip.callbacks.hasLabel = undefined;
         config.options.plugins.tooltip.callbacks.label = function (ctx) {
@@ -158,6 +185,20 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
         }
     }
 
+    if (config?.options?.scales != null) {
+        var scales = Object.keys(config.options.scales);
+        for (let scale of scales) {
+            if (config.options.scales[scale]?.ticks?.hasCallback) {
+                config.options.scales[scale].ticks.hasCallback = undefined;
+                config.options.scales[scale].ticks.hasCallback = undefined;
+                config.options.scales[scale].ticks.callback = function (value, index, ticks) {
+                    return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'TicksCallback',
+                        dotnetConfig, scale, value, index, ticks.map(tick => tick.value));
+                };
+            }
+        }
+    }
+
     if (typeof ChartDataLabels !== 'undefined' && config?.options?.registerDataLabels) {
         config?.options?.registerDataLabels == undefined;
         Chart.register(ChartDataLabels);
@@ -204,30 +245,6 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
         DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnLegendClickAsync',
             dotnetConfig, rtn);
     };
-
-    if (config?.options?.plugins?.zoom?.zoom?.onZoomEnable) {
-        chart.options.plugins.zoom.zoom.onZoom = function (chart) {
-
-            var rtn = {
-                id: id,
-            };
-
-            DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnZoomAsync',
-                dotnetConfig, rtn);
-        }
-    }
-
-    if (config?.options?.plugins?.zoom?.zoom?.onZoomCompleteEnable) {
-        chart.options.plugins.zoom.zoom.onZoomComplete = function (chart) {
-
-            var rtn = {
-                id: id,
-            };
-
-            DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'OnZoomCompleteAsync',
-                dotnetConfig, rtn);
-        }
-    }
 }
 
 export function addData(id, label, dataset, data) {
