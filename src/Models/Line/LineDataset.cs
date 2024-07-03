@@ -121,7 +121,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Line
         [JsonPropertyName("pointStyle")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string? PointStyleString { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the step mode.
         /// </summary>
@@ -147,7 +147,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Line
         [JsonPropertyName("stepped")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? SteppedString { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the color of the stroke.
         /// </summary>

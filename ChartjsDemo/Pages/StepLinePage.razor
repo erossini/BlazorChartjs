@@ -1,0 +1,71 @@
+﻿@page "/linestep"
+
+<h3>Step Line</h3>
+
+<Chart Config="_config1" @ref="_chart1" Height="200px"></Chart>
+
+<hr />
+
+<h3>Code</h3>
+
+<p>
+    This is the component to add in your page.
+</p>
+
+<CodeSnippet Language="Language.xml" Style="Style.VisualStudio">
+&ltChart Config="_config1" &#64;ref="_chart1">&lt;Chart>
+</CodeSnippet>
+
+<p>
+    Then, in the code section, add the following code:
+</p>
+
+<CodeSnippet Language="Language.csharp" Style="Style.VisualStudio" LoadMainScript="false">
+private LineChartConfig? _config1;
+private Chart? _chart1;
+
+protected override async Task OnInitializedAsync()
+{
+    _config1 = new LineChartConfig()
+    {
+    };
+
+    _config1.Data.Labels = LineDataExamples.StepLineText;
+    _config1.Data.Datasets.Add(new LineDataset()
+        {
+            Label = "My First Dataset",
+            Data = LineDataExamples.StepLine.ToList(),
+            BorderColor = Colors.PaletteBorder1.FirstOrDefault(),
+            Tension = 0.1M,
+            Fill = false,
+            PointRadius = 15,
+            PointStyle = PointStyle.Cross,
+            StepMode = PSC.Blazor.Components.Chartjs.Models.Common.StringEnums.StepMode.True
+        });
+}
+</CodeSnippet>
+
+@code {
+    private LineChartConfig? _config1;
+    private Chart? _chart1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _config1 = new LineChartConfig()
+        {
+        };
+
+        _config1.Data.Labels = LineDataExamples.StepLineText;
+        _config1.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My First Dataset",
+                Data = LineDataExamples.StepLine.ToList(),
+                BorderColor = SampleColors.PaletteBorder1.FirstOrDefault(),
+                Tension = 0.1M,
+                Fill = false,
+                PointRadius = 15,
+                PointStyle = PointStyle.Cross,
+                StepMode = PSC.Blazor.Components.Chartjs.Models.Common.StringEnums.StepMode.True
+            });
+    }
+}

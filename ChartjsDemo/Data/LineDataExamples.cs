@@ -9,6 +9,10 @@ namespace ChartjsDemo.Data
         public static List<decimal?> SimpleLine2 = new List<decimal?>() { 33, 25, 35, 51, 54, 76, 60 };
         public static List<decimal?> SimpleLine3 = new List<decimal?>() { 53, 91, 39, 61, 39, 87, 23 };
 
+        // stepped line
+        public static List<string> StepLineText = new List<string>() { "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6" };
+        public static List<decimal?> StepLine = new List<decimal?>() { 65, 59, 80, 81, 86, 55, 40 };
+
         // custom code
         public static List<string> CustomLineText = new List<string>() { "January", "February", "March", "April", "May", "June" };
         public static List<decimal?> CustomLine = new List<decimal?>() { 60, 80, 81, 56, 55, 40 };
