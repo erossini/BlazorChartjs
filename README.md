@@ -1,5 +1,6 @@
 # ChartJs component for Blazor
-This library is a wrap around [Chart.js](https://www.chartjs.org/) for using it with [Blazor WebAssembly](https://www.puresourcecode.com/tag/blazor-webassembly/) and [Blazor Server](https://www.puresourcecode.com/tag/blazor-server/). The component was built with [NET6](https://puresourcecode.com/tag/net6/) until the version [6.0.44](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/). The version [7.0](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/7.0.0) is for [NET7](https://puresourcecode.com/tag/net7/). Now, the new version [8.x](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/8.0.4) is for [NET8](https://puresourcecode.com/tag/net8/).
+This library is a wrap around [Chart.js](https://www.chartjs.org/) for using it with [Blazor WebAssembly](https://www.puresourcecode.com/tag/blazor-webassembly/) and [Blazor Server](https://www.puresourcecode.com/tag/blazor-server/). The component was built with [NET6](https://puresourcecode.com/tag/net6/) until the version [6.0.44](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/). The version [7.0](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/7.0.0) is for [NET7](https://puresourcecode.com/tag/net7/).
+The version [8.x](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/8.0.4) is for [NET8](https://puresourcecode.com/tag/net8).
 
 ## Links
 * [Demo website](https://chartjs.puresourcecode.com/)
@@ -14,7 +15,7 @@ This library is a wrap around [Chart.js](https://www.chartjs.org/) for using it 
 ## Installation
 First, you have to add the component from [NuGet](https://www.nuget.org/packages/PSC.Blazor.Components.Chartjs/). Then, open your `index.html` or `_Host` and add at the end of the page the following scripts:
 
-```xml
+```
 <script src="_content/PSC.Blazor.Components.Chartjs/lib/Chart.js/chart.js"></script>
 <script src="_content/PSC.Blazor.Components.Chartjs/Chart.js" type="module"></script>
 ```
@@ -23,7 +24,7 @@ The first script is the Chart.js library version 3.7.1 because I'm using this ve
 
 Then, open your `_Imports.razor` and add the following:
 
-```csharp
+```
 @using PSC.Blazor.Components.Chartjs
 @using PSC.Blazor.Components.Chartjs.Enums
 @using PSC.Blazor.Components.Chartjs.Models
@@ -457,7 +458,3 @@ My name is Enrico Rossini and you can contact me via:
 ### Blazor & NET8
 * [Custom User Management with NET8 and Blazor (1st part)](https://puresourcecode.com/dotnet/blazor/custom-user-management-with-net8-and-blazor/)
 * [NET8, Blazor and Custom User Management (2nd part)](https://puresourcecode.com/dotnet/blazor/net8-blazor-and-custom-user-management/)
-
-## Repository activities
-
-![Alt](https://repobeats.axiom.co/api/embed/5e19cd389305bd195b318195b1c44efa2da0fa9f.svg "Repobeats analytics image")
