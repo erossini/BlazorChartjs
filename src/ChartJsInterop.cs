@@ -26,6 +26,12 @@ namespace PSC.Blazor.Components.Chartjs
             await module.InvokeVoidAsync("addData", CanvasId, labels, datasetIndex, data);
         }
 
+        public async ValueTask ClearData(string CanvasId)
+        {
+            var module = await moduleTask.Value;
+            await module.InvokeVoidAsync("clearData", CanvasId);
+        }
+
         public async ValueTask AddNewDataset<T>(string CanvasId, T dataset) where T : class 
         {
             var module = await moduleTask.Value;
