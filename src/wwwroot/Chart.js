@@ -258,6 +258,19 @@ export function addData(id, label, dataset, data) {
     chart.update();
 }
 
+export function clearData(id) {
+    var chart = Chart.getChart(id);
+
+    chart.data.labels = [];
+
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data = [];
+    });
+
+    chart.update();
+}
+
+
 export function addNewDataset(id, dataset) {
     var chart = Chart.getChart(id);
     chart.data.datasets.push(dataset);
