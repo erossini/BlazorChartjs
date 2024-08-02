@@ -1,4 +1,6 @@
-﻿namespace PSC.Blazor.Components.Chartjs.Models.Common 
+﻿using System.Threading.Tasks;
+
+namespace PSC.Blazor.Components.Chartjs.Models.Common 
 {
     /// <summary>
     /// Ticks
@@ -15,6 +17,15 @@
         [JsonPropertyName("hasCallback")]
         public bool HasCallback => Callback != null;
         /// <summary>
+        /// Gets a value indicating whether this instance has callback.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance has callback; otherwise, <c>false</c>.
+        /// </value>
+        [JsonInclude]
+        [JsonPropertyName("hasAsyncCallback")]
+        public bool HasAsyncCallback => CallbackAsync != null;
+        /// <summary>
         /// Gets or sets the callback.
         /// </summary>
         /// <value>
@@ -22,6 +33,14 @@
         /// </value>
         [JsonIgnore]
         public Func<TicksCallbackContext, string[]>? Callback { get; set; }
+        /// <summary>
+        /// Gets or sets the callback.
+        /// </summary>
+        /// <value>
+        /// The call back.
+        /// </value>
+        [JsonIgnore]
+        public Func<TicksCallbackContext, Task<string[]>>? CallbackAsync { get; set; }
 
         /// <summary>
         /// Gets or sets the color.

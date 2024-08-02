@@ -190,9 +190,15 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
         for (let scale of scales) {
             if (config.options.scales[scale]?.ticks?.hasCallback) {
                 config.options.scales[scale].ticks.hasCallback = undefined;
-                config.options.scales[scale].ticks.hasCallback = undefined;
                 config.options.scales[scale].ticks.callback = function (value, index, ticks) {
                     return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'TicksCallback',
+                        dotnetConfig, scale, value, index, ticks.map(tick => tick.value));
+                };
+            }
+            if (config.options.scales[scale]?.ticks?.hasAsyncCallback) {
+                config.options.scales[scale].ticks.hasAsyncCallback = undefined;
+                config.options.scales[scale].ticks.callbackAsync = function (value, index, ticks) {
+                    return DotNet.invokeMethodAsync('PSC.Blazor.Components.Chartjs', 'TicksCallbackAsync',
                         dotnetConfig, scale, value, index, ticks.map(tick => tick.value));
                 };
             }

@@ -218,6 +218,15 @@ namespace PSC.Blazor.Components.Chartjs
             else
                 return ValueTask.CompletedTask;
         }
+        [JSInvokable]
+        public static async Task<string[]> TicksCallbackAsync(DotNetObjectReference<IChartConfig> config, string scaleName, decimal value, int index, decimal[] ticksValues)
+        {
+            var ctx = new TicksCallbackContext(value, index, ticksValues);
+            if (config.Value.Options is Options options)
+                return await options.Scales[scaleName].Ticks.CallbackAsync(ctx);
+            else
+                throw new NotSupportedException();
+        }
 
         #endregion JavaScript invokable functions
 
