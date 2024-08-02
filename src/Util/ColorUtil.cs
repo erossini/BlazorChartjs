@@ -1,4 +1,19 @@
-﻿using System.Globalization;
+﻿// ***********************************************************************
+// Assembly         : PSC.Blazor.Components.Chartjs
+// Author           : Enrico Rossini
+// Created          : 03-07-2024
+//
+// Last Modified By : enric
+// Last Modified On : 03-07-2024
+// ***********************************************************************
+// <copyright file="ColorUtil.cs" company="PSC.Blazor.Components.Chartjs">
+//     Copyright(c) 2019 Marius Muntean
+//     Copyright (c) 2021 Joel L.
+//     Enrico Rossini - PureSourceCode.com
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System.Globalization;
 
 namespace PSC.Blazor.Components.Chartjs.Util
 {

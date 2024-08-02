@@ -16,6 +16,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonInclude]
         [JsonPropertyName("hasCallback")]
         public bool HasCallback => Callback != null;
+
         /// <summary>
         /// Gets a value indicating whether this instance has callback.
         /// </summary>
@@ -25,6 +26,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonInclude]
         [JsonPropertyName("hasAsyncCallback")]
         public bool HasAsyncCallback => CallbackAsync != null;
+
         /// <summary>
         /// Gets or sets the callback.
         /// </summary>
@@ -33,6 +35,7 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         /// </value>
         [JsonIgnore]
         public Func<TicksCallbackContext, string[]>? Callback { get; set; }
+
         /// <summary>
         /// Gets or sets the callback.
         /// </summary>
@@ -80,6 +83,10 @@ namespace PSC.Blazor.Components.Chartjs.Models.Common
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? CrossAlignString { get; set; }
 
+        /// <summary>
+        /// Gets or sets the font.
+        /// </summary>
+        /// <value>The font.</value>
         [JsonPropertyName("font")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public Font? Font { get; set; }

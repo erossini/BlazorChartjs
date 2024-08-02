@@ -5,7 +5,6 @@
     /// </summary>
     public sealed class AxesTime
     {
-
         /// <summary>
         /// Get or set the source.
         /// </summary>
@@ -75,45 +74,5 @@
         [JsonPropertyName("minUnit")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? MinUnit { get; set; }
-
-    }
-
-    public sealed class AxesTimeFormats
-    {
-        [JsonPropertyName("millisecond")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Millisecond{ get; set; }
-
-        [JsonPropertyName("second")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Second { get; set; }
-
-        [JsonPropertyName("minute")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Minute { get; set; }
-
-        [JsonPropertyName("hour")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Hour { get; set; }
-
-        [JsonPropertyName("day")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Day { get; set; }
-
-        [JsonPropertyName("week")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Week { get; set; }
-
-        [JsonPropertyName("month")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Month { get; set; }
-
-        [JsonPropertyName("quarter")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Quarter { get; set; }
-
-        [JsonPropertyName("year")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Year { get; set; }
     }
 }

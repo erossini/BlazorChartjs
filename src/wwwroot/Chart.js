@@ -190,6 +190,7 @@ export function chartSetup(id, dotnetConfig, jsonConfig) {
         for (let scale of scales) {
             if (config.options.scales[scale]?.ticks?.hasCallback) {
                 config.options.scales[scale].ticks.hasCallback = undefined;
+                config.options.scales[scale].ticks.hasCallback = undefined;
                 config.options.scales[scale].ticks.callback = function (value, index, ticks) {
                     return DotNet.invokeMethod('PSC.Blazor.Components.Chartjs', 'TicksCallback',
                         dotnetConfig, scale, value, index, ticks.map(tick => tick.value));
@@ -264,6 +265,12 @@ export function addData(id, label, dataset, data) {
     chart.update();
 }
 
+export function addNewDataset(id, dataset) {
+    var chart = Chart.getChart(id);
+    chart.data.datasets.push(dataset);
+    chart.update();
+}
+
 export function clearData(id) {
     var chart = Chart.getChart(id);
 
@@ -273,12 +280,5 @@ export function clearData(id) {
         dataset.data = [];
     });
 
-    chart.update();
-}
-
-
-export function addNewDataset(id, dataset) {
-    var chart = Chart.getChart(id);
-    chart.data.datasets.push(dataset);
     chart.update();
 }

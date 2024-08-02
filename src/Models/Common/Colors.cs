@@ -25,6 +25,5 @@
         [JsonPropertyName("forceOverride")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? ForceOverride { get; set; }
-
     }
 }
