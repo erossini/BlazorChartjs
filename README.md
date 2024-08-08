@@ -389,6 +389,15 @@ With this code, if the user moves the mouse on the chart, the function writes th
 
 ![chart-hover](https://user-images.githubusercontent.com/9497415/229874627-e720d5dc-bae2-4cfa-8dcc-55ddc58ef4f9.gif)
 
+## Contribution
+
+- [macias](https://github.com/macias) for adding the crosshair line to the components
+- [Heitor Eleutério de Rezende](https://github.com/heitoreleuterio) for the migration to NET7 and adding:
+    - Legend Labels Filtering
+    - Support to Ticks' AutoSkip and Font properties
+    - Tooltip Callback Label problem fixed.
+    - Ticks callback
+- [Marius](https://github.com/mariusmuntean/ChartJs.Blazor) for using some of the functions from his code
 
 ---
     
