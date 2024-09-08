@@ -397,7 +397,6 @@ With this code, if the user moves the mouse on the chart, the function writes th
     - Support to Ticks' AutoSkip and Font properties
     - Tooltip Callback Label problem fixed.
     - Ticks callback
-- [Marius](https://github.com/mariusmuntean/ChartJs.Blazor) for using some of the functions from his code
 
 ---
     

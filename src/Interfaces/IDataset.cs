@@ -1,33 +1,37 @@
 ﻿namespace PSC.Blazor.Components.Chartjs.Interfaces
 {
     /// <summary>
-    /// Represents a dataset with an id and a type.
+    /// Interface IDataset
     /// </summary>
     public interface IDataset
     {
         /// <summary>
-        /// Gets the ID of this dataset. Used to keep track of the datasets
-        /// across the .NET &lt;-&gt; JavaScript boundary.
+        /// Gets or sets the identifier.
         /// </summary>
-        string Id { get; set; }
+        /// <value>The identifier.</value>
+        string? Id { get; set; }
 
         /// <summary>
-        /// Gets the <see cref="ChartType"/> this dataset is for.
-        /// Important to set in mixed charts.
+        /// Gets or sets the type.
         /// </summary>
+        /// <value>The type.</value>
         ChartType Type { get; set; }
     }
 
     /// <summary>
-    /// Represents a strongly typed dataset that holds data of type <typeparamref name="T"/>.
+    /// Interface IDataset
+    /// Extends the <see cref="PSC.Blazor.Components.Chartjs.Interfaces.IDataset" />
+    /// Extends the <see cref="System.Collections.Generic.IList{T}" />
     /// </summary>
-    /// <typeparam name="T">The type of data this dataset contains.</typeparam>
+    /// <typeparam name="T"></typeparam>
+    /// <seealso cref="PSC.Blazor.Components.Chartjs.Interfaces.IDataset" />
+    /// <seealso cref="System.Collections.Generic.IList{T}" />
     public interface IDataset<T> : IDataset, IList<T>
     {
         /// <summary>
-        /// Gets the data contained in this dataset. This property is read-only.
-        /// This is in addition to implementing <see cref="IList{T}"/>.
+        /// Gets or sets the data.
         /// </summary>
+        /// <value>The data.</value>
         List<T> Data { get; set; }
     }
 }
