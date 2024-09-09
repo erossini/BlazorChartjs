@@ -1,4 +1,5 @@
 ﻿using Microsoft.JSInterop;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -47,7 +48,10 @@ namespace PSC.Blazor.Components.Chartjs
         public async ValueTask AddData(string CanvasId, List<string> labels, int datasetIndex, List<decimal?> data) 
         {
             var module = await moduleTask.Value;
-            await module.InvokeVoidAsync("addData", CanvasId, labels, datasetIndex, data);
+            foreach(var (label, value) in labels.Zip(data))
+            {
+                await module.InvokeVoidAsync("addData", CanvasId, label, datasetIndex, value);
+            }
         }
 
         /// <summary>
