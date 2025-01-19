@@ -466,3 +466,7 @@ My name is Enrico Rossini and you can contact me via:
 ### Blazor & NET8
 * [Custom User Management with NET8 and Blazor (1st part)](https://puresourcecode.com/dotnet/blazor/custom-user-management-with-net8-and-blazor/)
 * [NET8, Blazor and Custom User Management (2nd part)](https://puresourcecode.com/dotnet/blazor/net8-blazor-and-custom-user-management/)
+
+--- 
+
+[<img src="https://api.gitsponsors.com/api/badge/img?id=436196115" height="20">](https://api.gitsponsors.com/api/badge/link?p=hKwXXB5S8D5W56dYwJn+LlT+6h62Dhf5B0CSkGu2KUMSG+AyG3ACGNa3LPaUVzVF)
